@@ -1,0 +1,38 @@
+type Cancer {
+  cancer: String!
+  name_cn: String!
+  name_en: String!
+}
+
+type Feature {
+  cancer: String!
+  feature: String!
+  name_cn: String!
+  name_en: String!
+}
+
+type Query {
+  viewer(cancer: String, feature: String): Viewer
+}
+
+type Survival {
+  item: String
+  survival: [SurvivalItem]
+}
+
+type SurvivalAnalysis {
+  cancer: String
+  feature: String
+  data: [Survival]
+}
+
+type SurvivalItem {
+  years: Int
+  rate: Float
+}
+
+type Viewer {
+  cancers: [Cancer]
+  features(cancer: String): [Feature]
+  survival(cancer: String, feature: String): SurvivalAnalysis
+}

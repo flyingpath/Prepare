@@ -1,0 +1,9 @@
+{
+  "presets": [
+    "react-app"
+  ],
+  "plugins": [
+    "relay",
+    "transform-decorators-legacy"
+  ]
+}
