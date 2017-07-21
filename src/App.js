@@ -11,6 +11,7 @@ import {
 
 import environment from './createRelayEnvironment';
 // import Feed from './Feed';
+import './css/all.css'
 
 @observer
 class App extends Component {

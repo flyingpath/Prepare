@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEQ,qBAAU;ACAlB,UAAU;EACR,gBAAgB,EAAE,YAAY;;AAGhC,eAAe;EACb,aAAa,EAAE,KAAK;;AAGtB,aAAa;EACX,OAAO,EAAE,IAAI",
+"sources": ["all.scss","whole_customize.scss"],
+"names": [],
+"file": "all.css"
+}

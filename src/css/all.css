@@ -1,0 +1,11 @@
+@import url(typo.css);
+html, body {
+  background-color: antiquewhite; }
+
+.Select-control {
+  margin-bottom: 0.5vh; }
+
+.Select-clear {
+  display: none; }
+
+/*# sourceMappingURL=all.css.map */
