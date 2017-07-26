@@ -1,9 +1,11 @@
 import React, {Component} from 'react'
 import {observer} from 'mobx-react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import prepareTheme from './prepare_theme'
 import App from './App'
 import mobx from 'mobx'
 import _ from 'lodash'
+
 
 class MuiaddApp extends React.Component {
     constructor(props) {
@@ -18,7 +20,7 @@ class MuiaddApp extends React.Component {
 
     render() {
         return (
-            <MuiThemeProvider>
+            <MuiThemeProvider muiTheme={prepareTheme}>
                 <App/>
             </MuiThemeProvider>
         );
