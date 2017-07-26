@@ -5,7 +5,7 @@ html, body {
 .Select-control {
   width: 80vw; }
 
-.Select-clear {
+.Select-clear, .Select-clear-zone {
   display: none; }
 
 /*# sourceMappingURL=all.css.map */

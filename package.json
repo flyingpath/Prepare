@@ -43,6 +43,7 @@
     "http-proxy-middleware": "0.17.3",
     "jest": "18.1.0",
     "json-loader": "0.5.4",
+    "material-ui": "^0.18.7",
     "node-fetch": "^1.6.3",
     "object-assign": "4.1.1",
     "postcss-loader": "1.2.2",
