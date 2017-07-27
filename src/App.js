@@ -2,7 +2,12 @@ import React, {Component} from 'react';
 import CancerSelector from './CancerSelector';
 import FeatureSelector from './FeatureSelector';
 import Report from './Report';
-import Tabbar from './tab_bar'
+
+import AppBar from 'material-ui/AppBar';
+import Avatar from 'material-ui/Avatar';
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
+import drawerControl from './store/drawer_control'
 import dataStore from './store/data';
 import {observer} from 'mobx-react'
 import {
@@ -24,6 +29,10 @@ class App extends Component {
     render() {
         const cancer = dataStore.cancer
         const feature = dataStore.feature
+        const setDrawerToggle = (val) => {
+            drawerControl.handleToggle(val)
+
+        }
         return (
             <div className="App">
                 <QueryRenderer
@@ -42,10 +51,21 @@ class App extends Component {
                         if (error) {
                             return <div>{error.message}</div>;
                         } else if (props) {
-                            return (
 
+                            return (
                                 <div>
-                                    <Tabbar/>
+                                    <AppBar
+                                        title="PREPARE"
+                                        onLeftIconButtonTouchTap={() => {
+                                            setDrawerToggle(drawerControl.drawerToggle)
+                                        }}
+                                    >
+                                        <Avatar
+                                            src=""
+                                            size={30}
+                                            style={{margin: '12px', left: '1%', height: '40px', width: '40px', position: 'relative'}}
+                                        />
+                                    </AppBar>
                                     <CancerSelector
                                         cancer={cancer}
                                         viewer={props.viewer}/>
@@ -57,7 +77,21 @@ class App extends Component {
                                         cancer={cancer}
                                         feature={feature}
                                         viewer={props.viewer}/>
-
+                                    <Drawer
+                                        docked={false}
+                                        width={200}
+                                        open={drawerControl.drawerToggle}
+                                        onRequestChange={() => {
+                                            setDrawerToggle(drawerControl.drawerToggle)
+                                        }}
+                                    >
+                                        <MenuItem onTouchTap={() => {
+                                            setDrawerToggle(drawerControl.drawerToggle)
+                                        }}>User Setting</MenuItem>
+                                        <MenuItem onTouchTap={() => {
+                                            setDrawerToggle(drawerControl.drawerToggle)
+                                        }}>History</MenuItem>
+                                    </Drawer>
                                 </div>)
                         }
                         return <div>Loading</div>;
