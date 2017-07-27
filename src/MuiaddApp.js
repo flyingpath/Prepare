@@ -1,7 +1,7 @@
 import React from 'react'
 import {observer} from 'mobx-react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import prepareTheme from './prepare_theme'
+import foreseeTheme from './foresee_theme'
 import App from './App'
 
 
@@ -18,7 +18,7 @@ class MuiaddApp extends React.Component {
 
     render() {
         return (
-            <MuiThemeProvider muiTheme={prepareTheme}>
+            <MuiThemeProvider muiTheme={foreseeTheme}>
                 <App/>
             </MuiThemeProvider>
         );

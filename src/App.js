@@ -3,6 +3,7 @@ import CancerSelector from './CancerSelector';
 import FeatureSelector from './FeatureSelector';
 import Report from './Report';
 
+import BottomNavigation from './footer_navigation'
 import AppBar from 'material-ui/AppBar';
 import Avatar from 'material-ui/Avatar';
 import Drawer from 'material-ui/Drawer';
@@ -10,6 +11,7 @@ import MenuItem from 'material-ui/MenuItem';
 import drawerControl from './store/drawer_control'
 import dataStore from './store/data';
 import {observer} from 'mobx-react'
+import mobx from 'mobx'
 import {
     QueryRenderer,
     graphql
@@ -29,9 +31,9 @@ class App extends Component {
     render() {
         const cancer = dataStore.cancer
         const feature = dataStore.feature
+        const drawerControl_ob = drawerControl.drawerToggle
         const setDrawerToggle = (val) => {
             drawerControl.handleToggle(val)
-
         }
         return (
             <div className="App">
@@ -51,19 +53,24 @@ class App extends Component {
                         if (error) {
                             return <div>{error.message}</div>;
                         } else if (props) {
-
                             return (
                                 <div>
                                     <AppBar
                                         title="PREPARE"
                                         onLeftIconButtonTouchTap={() => {
-                                            setDrawerToggle(drawerControl.drawerToggle)
+                                           setDrawerToggle(drawerControl_ob)
                                         }}
                                     >
                                         <Avatar
                                             src=""
                                             size={30}
-                                            style={{margin: '12px', left: '1%', height: '40px', width: '40px', position: 'relative'}}
+                                            style={{
+                                                margin: '12px',
+                                                left: '1%',
+                                                height: '40px',
+                                                width: '40px',
+                                                position: 'relative'
+                                            }}
                                         />
                                     </AppBar>
                                     <CancerSelector
@@ -77,6 +84,7 @@ class App extends Component {
                                         cancer={cancer}
                                         feature={feature}
                                         viewer={props.viewer}/>
+                                    <BottomNavigation />
                                     <Drawer
                                         docked={false}
                                         width={200}

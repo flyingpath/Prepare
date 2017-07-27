@@ -1,15 +1,23 @@
 @charset "UTF-8";
 
-html ,body{
-  background-color: antiquewhite;
+html, body {
+  //background-color: rgba(250, 235, 215, 0.45);
+  //width: 100%;
+  //height: 100%;
+  //overflow-y: auto;
 }
 
-.Select-control{
-  width: 80vw;
+.Select-control {
+  //width: 80vw;
 }
 
 //遮一下 x
-.Select-clear, .Select-clear-zone{
+.Select-clear, .Select-clear-zone {
   display: none;
 }
 
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+  margin: 0;
+  padding: 0;
+}
