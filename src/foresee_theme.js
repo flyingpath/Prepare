@@ -1,11 +1,11 @@
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import * as _colors from 'material-ui/styles/colors';
+import * as _colors from './custom_theme_color';
 import * as _colorManipulator from 'material-ui/utils/colorManipulator'
 
 const muiTheme = getMuiTheme({
    fontFamily: 'Roboto, sans-serif',
    palette: {
-      primary1Color: _colors.pink300,
+      primary1Color: _colors.prepare100,
       primary2Color: _colors.cyan700,
       primary3Color: _colors.grey400,
       accent1Color: _colors.purple400,

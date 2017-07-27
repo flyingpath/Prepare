@@ -1,24 +1,23 @@
 import React, {Component} from 'react';
-import CancerSelector from './CancerSelector';
-import FeatureSelector from './FeatureSelector';
-import Report from './Report';
-
 import BottomNavigation from './footer_navigation'
 import AppBar from 'material-ui/AppBar';
 import Avatar from 'material-ui/Avatar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
-import drawerControl from './store/drawer_control'
-import dataStore from './store/data';
 import {observer} from 'mobx-react'
-import mobx from 'mobx'
+import environment from './createRelayEnvironment';
 import {
     QueryRenderer,
     graphql
 } from 'react-relay';
 
-import environment from './createRelayEnvironment';
-// import Feed from './Feed';
+import CancerSelector from './CancerSelector';
+import FeatureSelector from './FeatureSelector';
+import Report from './Report';
+import drawerControl from './store/drawer_control'
+import dataStore from './store/data';
+// import Feed from './Feed'
+
 import './css/all.css'
 
 @observer
@@ -32,6 +31,7 @@ class App extends Component {
         const cancer = dataStore.cancer
         const feature = dataStore.feature
         const drawerControl_ob = drawerControl.drawerToggle
+        const amaPics = 'src/pics/uxceomom-128.jpg'
         const setDrawerToggle = (val) => {
             drawerControl.handleToggle(val)
         }
@@ -62,7 +62,7 @@ class App extends Component {
                                         }}
                                     >
                                         <Avatar
-                                            src=""
+                                            src={amaPics}
                                             size={30}
                                             style={{
                                                 margin: '12px',
