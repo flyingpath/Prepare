@@ -6,6 +6,7 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import {observer} from 'mobx-react'
 import environment from './createRelayEnvironment';
+import * as mobx from 'mobx'
 import {
     QueryRenderer,
     graphql
@@ -28,6 +29,7 @@ class App extends Component {
 
     // variables={cancer: cancer, feature: feature}
     render() {
+
         const cancer = dataStore.cancer
         const feature = dataStore.feature
         const drawerControl_ob = drawerControl.drawerToggle
@@ -35,6 +37,7 @@ class App extends Component {
         const setDrawerToggle = (val) => {
             drawerControl.handleToggle(val)
         }
+        console.log(mobx.toJS(amaPics));
         return (
             <div className="App">
                 <QueryRenderer
