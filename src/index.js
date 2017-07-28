@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import MuiaddApp from './MuiaddApp'
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 try{

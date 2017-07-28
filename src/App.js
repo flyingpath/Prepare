@@ -3,6 +3,8 @@ import BottomNavigation from './footer_navigation'
 import AppBar from 'material-ui/AppBar';
 import Avatar from 'material-ui/Avatar';
 import Drawer from 'material-ui/Drawer';
+import PrepareCard from './card'
+import { Button } from 'reactstrap';
 import MenuItem from 'material-ui/MenuItem';
 import {observer} from 'mobx-react'
 import environment from './createRelayEnvironment';
@@ -76,6 +78,7 @@ class App extends Component {
                                             }}
                                         />
                                     </AppBar>
+                                    <PrepareCard/>
                                     <CancerSelector
                                         cancer={cancer}
                                         viewer={props.viewer}/>
@@ -83,11 +86,12 @@ class App extends Component {
                                         cancer={cancer}
                                         feature={feature}
                                         viewer={props.viewer}/>
+                                    {/*<Button outline color="primary">primary</Button>{' '}*/}
                                     <Report
                                         cancer={cancer}
                                         feature={feature}
                                         viewer={props.viewer}/>
-                                    <BottomNavigation />
+                                    {/*<BottomNavigation />*/}
                                     <Drawer
                                         docked={false}
                                         width={200}
