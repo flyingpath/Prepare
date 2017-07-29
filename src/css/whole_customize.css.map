@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAcA,iCAAkC;EAChC,OAAO,EAAE,IAAI",
+"sources": ["whole_customize.scss"],
+"names": [],
+"file": "whole_customize.css"
+}
