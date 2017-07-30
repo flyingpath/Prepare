@@ -3,20 +3,16 @@ import AppBar from 'material-ui/AppBar';
 import Avatar from 'material-ui/Avatar';
 import Drawer from 'material-ui/Drawer';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import prepareTheme from './prepare_theme'
+import prepareTheme from './theme/prepare_theme'
 import MenuItem from 'material-ui/MenuItem';
 import { observer } from 'mobx-react'
-import environment from './createRelayEnvironment';
-import mobx from 'mobx'
+import environment from './store/createRelayEnvironment';
 import {
     QueryRenderer,
     graphql
 } from 'react-relay';
 
 import Route from './Route'
-import CancerSelector from './CancerSelector';
-import FeatureSelector from './FeatureSelector';
-import Report from './Report';
 import dataStore from './store/data';
 
 import './css/all.css'

@@ -1,34 +1,56 @@
 import React from 'react';
-import Select from 'react-select';
-import 'react-select/dist/react-select.css';
+import _ from 'lodash'
 import {
-  graphql,
-  createFragmentContainer
+    graphql,
+    createFragmentContainer
 } from 'react-relay';
 
 import dataStore from './store/data';
 
 class CancerSelector extends React.Component {
-  static propTypes = {
-  };
+    constructor(props) {
+        super(props)
+        this.selectCancer = this.selectCancer.bind(this);
+    }
 
-  onChange(e){
-    dataStore.setCancer(e.value);
-  }
+    selectCancer(cancer){
+        return ()=>{
+            console.log(cancer)
+            dataStore.setCancer(cancer)
+            dataStore.changePageTo('info')
+        }
+    }
 
-  render() {
-    return (
-      <Select
-        options={this.props.viewer.cancers}
-        placeholder="您對哪個癌症感興趣？"
-        onChange={this.onChange.bind(this)}
-        value={this.props.cancer}
-      />
-    );
-  }
+    render() {
+        const cancerList = this.props.viewer.cancers
+
+        return (
+            <div>
+                <h1>
+                    選擇一個癌症
+                </h1>
+                {
+                    _.map(cancerList, (eachCancer, idx) => {
+                        console.log(eachCancer);
+                        const label = eachCancer.label
+                        const value = eachCancer.value
+                        return (
+                            <div 
+                                key = {`cancerType${idx}`}
+                                onClick = {this.selectCancer(value)}
+                            >
+                              {label}  
+                            </div>
+                        )
+                    })
+                }
+
+            </div>
+        )
+    }
 }
 
-const container = createFragmentContainer(CancerSelector,{
+const container = createFragmentContainer(CancerSelector, {
     viewer: graphql.experimental`
         fragment CancerSelector_viewer on Viewer {
           cancers {
@@ -38,7 +60,7 @@ const container = createFragmentContainer(CancerSelector,{
           }
         }
     `,
-  }
+}
 )
 
 export default container

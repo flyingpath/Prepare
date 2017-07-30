@@ -8,7 +8,7 @@ class DataStore {
   @observable 
   feature = ''
   @observable 
-  page = 'cancer'
+  page = 'cancer' // -- cancer, info, featureAndReport
   
   @action
   changePageTo(page){
