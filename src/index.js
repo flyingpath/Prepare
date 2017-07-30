@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MuiaddApp from './MuiaddApp'
+import App from './App'
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import './index.css';
+import './css/index.css';
 
 
 try{
@@ -12,6 +12,6 @@ try{
 }
 
 ReactDOM.render(
-  <MuiaddApp />,
+  <App />,
   document.getElementById('root')
 );

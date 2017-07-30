@@ -1,27 +1,30 @@
 
 import {observable, action} from 'mobx'
 
-class CounterStore {
+class DataStore {
   
   @observable 
-  cancer = '';
-
+  cancer = ''
   @observable 
-  feature = '';
-
+  feature = ''
+  @observable 
+  page = 'cancer'
+  
+  @action
+  changePageTo(page){
+    this.page = page
+  }
   @action 
   setCancer(ca){
 		this.cancer = ca;
 	}
-
   @action 
   setFeature(val){
 		this.feature = val;
 	}
 
-
 }
 
-var counter = new CounterStore()
+var dataStore = new DataStore()
 
-export default counter
+export default dataStore
