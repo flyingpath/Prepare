@@ -7,6 +7,8 @@ import KeyInfo from './KeyInfo'
 import FeatureSelector from './FeatureSelector';
 import Report from './Report';
 
+import './css/route_page.css'
+
 class Route extends React.Component {
     constructor(props) {
         super(props);
@@ -24,44 +26,52 @@ class Route extends React.Component {
         const page = this.props.page
         const cancer = this.props.cancer
         const feature = this.props.feature
-        const viewer = this.props.viewer
+        
+        const inherit = this.props.inherit
+        
 
         let content
 
-        if (page === 'cancer'){
-            content = (
-                <CancerSelector
-                    cancer={cancer}
-                    viewer={viewer} 
-                />
-            )                
-        }else if (page === 'info'){
-            content = (
-               <KeyInfo />                    
-            )
-        }else if (page === 'featureAndReport'){
-            content = (
-                <div>
-                    <FeatureSelector
+        if (inherit){
+            const viewer = inherit.viewer
+            
+            if (page === 'cancer'){
+                content = (
+                    <CancerSelector
+                        key = 'CancerSelector'
                         cancer={cancer}
-                        feature={feature}
                         viewer={viewer} 
                     />
-                    <Report
-                        cancer={cancer}
-                        feature={feature}
-                        viewer={viewer} 
-                    />
-                </div>
-            )
+                )                
+            }else if (page === 'info'){
+                content = (
+                <KeyInfo key = 'KeyInfo' />                    
+                )
+            }else if (page === 'featureAndReport'){
+                content = (
+                    <div key = 'featureAndReport'>
+                        <FeatureSelector
+                            cancer={cancer}
+                            feature={feature}
+                            viewer={viewer} 
+                        />
+                        <Report
+                            cancer={cancer}
+                            feature={feature}
+                            viewer={viewer} 
+                        />
+                    </div>
+                )
+            }
         }
+       
 
         return (
-            <div>
+            <div className='page_test'>
                 <ReactCSSTransitionGroup 
                     transitionName="prepare_route_page" 
-                    transitionEnterTimeout={250} 
-                    transitionLeaveTimeout={250} 
+                    transitionEnterTimeout={1000} 
+                    transitionLeaveTimeout={1} 
                 > 
                     {content}
                 </ReactCSSTransitionGroup>

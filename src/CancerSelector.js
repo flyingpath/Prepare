@@ -31,7 +31,6 @@ class CancerSelector extends React.Component {
                 </h1>
                 {
                     _.map(cancerList, (eachCancer, idx) => {
-                        console.log(eachCancer);
                         const label = eachCancer.label
                         const value = eachCancer.value
                         return (

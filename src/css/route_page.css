@@ -1,0 +1,17 @@
+.prepare_route_page-enter {
+    transform: translate3d(100%, 0, 0);
+}
+
+.prepare_route_page-enter.prepare_route_page-enter-active {
+    transform: translate3d(0, 0, 0);
+    transition: all 1000ms;
+}
+
+/* .prepare_route_page-leave {
+  opacity: 1;
+}
+
+.prepare_route_page-leave.prepare_route_page-leave-active {
+  opacity: 0.01;
+  transition: opacity 1000ms ease-in;
+} */

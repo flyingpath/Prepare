@@ -58,24 +58,6 @@ class App extends Component {
                         if (error) {
                             return <div>{error.message}</div>;
                         } else {
-                            let body
-                            if(props){
-                                body = (
-                                    <Route
-                                        page={page}
-                                        cancer={cancer} 
-                                        feature={feature}
-                                        viewer={props.viewer} 
-                                    />
-                                )
-                            }else{
-                                body = (
-                                    <div>
-                                        Loading...
-                                    </div>
-                                )
-                            }
-
                             return (
                                 <MuiThemeProvider muiTheme={prepareTheme}>
                                     <div>
@@ -101,7 +83,12 @@ class App extends Component {
                                             <MenuItem>User Setting</MenuItem>
                                             <MenuItem>History</MenuItem>
                                         </Drawer>
-                                            {body}
+                                             <Route
+                                                page={page}
+                                                cancer={cancer} 
+                                                feature={feature}
+                                                inherit={props} 
+                                            />
                                         </div>
                                 </MuiThemeProvider>
                             )
