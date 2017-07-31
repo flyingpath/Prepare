@@ -8,6 +8,11 @@ import {
 import _ from 'lodash';
 
 class Report extends React.Component {
+    constructor(props) {
+        super(props)
+
+    }
+
     static propTypes = {};
 
 
