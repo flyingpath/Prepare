@@ -39,7 +39,7 @@ class App extends Component {
         const page = dataStore.page
         const cancer = dataStore.cancer
         const feature = dataStore.feature
-        const amaPics = 'uxceomom-128.jpg'
+        const amaPics = './src/pics/uxceomom-128.jpg'
         
         return (
             <div className="App">
@@ -64,7 +64,7 @@ class App extends Component {
                                     <div>
                                         <AppBar title="PREPARE" onLeftIconButtonTouchTap={this.drawerToggle} >
                                             <Avatar
-                                                // src={amaPics}
+                                                className="AvatarPics"
                                                 size={30}
                                                 style={{
                                                     margin: '12px',
