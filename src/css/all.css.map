@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": ";AAcA,iCAAkC;EAChC,OAAO,EAAE,IAAI;;AAGf,2BAA2B;AAC3B,4NAA6N;EAC3N,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;;AAKZ,uDAAoD;EAClD,MAAM,EAAC,SAAS",
+"mappings": ";AAcA,iCAAkC;EAChC,OAAO,EAAE,IAAI;;AAGf,2BAA2B;AAC3B,4NAA6N;EAC3N,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC",
 "sources": ["whole_customize.scss"],
 "names": [],
 "file": "all.css"
