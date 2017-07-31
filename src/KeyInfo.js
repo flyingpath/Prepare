@@ -1,5 +1,6 @@
 import React from 'react' 
-import _ from 'lodash' 
+import _ from 'lodash'
+import RaisedButton from 'material-ui/RaisedButton';
 
 import dataStore from './store/data'
 
@@ -33,9 +34,9 @@ class KeyInfo extends React.Component {
                     感染淋巴結數量
                 </div>
                 <div>
-                    <button onClick={this.confirm}>
+                    <RaisedButton onClick={this.confirm}>
                         確認
-                    </button>
+                    </RaisedButton>
                 </div>
                 </Paper>
             </div>
