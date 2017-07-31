@@ -20,7 +20,7 @@ class CancerSelector extends React.Component {
     selectCancer(cancer) {
         return () => {
             _.delay(
-                ()=>{
+                () => {
                     dataStore.setCancer(cancer)
                     dataStore.changePageTo('info')
                 },
@@ -45,10 +45,10 @@ class CancerSelector extends React.Component {
 
         return (
             <div>
-                <h1 style={{padding:'1%',margin:'4%'}}>
+                <h1 style={{padding: '1%', margin: '4%',fontWeight:'600'}}>
                     選擇一個癌症
                 </h1>
-                <Paper className="Paper_container">
+                <Paper className="Paper_container" style={{backgroundColor: '#fff'}}>
                     {
                         _.map(cancerList, (eachCancer, idx) => {
                             const label = eachCancer.label
@@ -59,13 +59,13 @@ class CancerSelector extends React.Component {
                                     onClick={this.selectCancer(value)}
                                 >
                                     <RadioButtonGroup name="shipSpeed" defaultSelected="not_light">
-                                    <RadioButton
-                                        value="ludicrous"
-                                        label={label}
-                                        checkedIcon={<ActionFavorite style={{color: '#F44336'}} />}
-                                        uncheckedIcon={<ActionFavoriteBorder />}
-                                        style={styles.radioButton}
-                                    />
+                                        <RadioButton
+                                            value="ludicrous"
+                                            label={label}
+                                            checkedIcon={<ActionFavorite style={{color: '#F44336'}}/>}
+                                            uncheckedIcon={<ActionFavoriteBorder/>}
+                                            style={styles.radioButton}
+                                        />
                                     </RadioButtonGroup>
                                 </div>
                             )

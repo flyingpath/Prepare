@@ -3,6 +3,8 @@ import _ from 'lodash'
 
 import dataStore from './store/data'
 
+import Paper from 'material-ui/Paper'
+
 class KeyInfo extends React.Component {
     constructor(props) {
         super(props);
@@ -19,6 +21,7 @@ class KeyInfo extends React.Component {
     render() {
         return (
             <div>
+                <Paper className="Paper_container" style={{backgroundColor: '#fff'}}>
                 <div>
                     性別
                     年齡
@@ -34,6 +37,7 @@ class KeyInfo extends React.Component {
                         確認
                     </button>
                 </div>
+                </Paper>
             </div>
         );
     }
