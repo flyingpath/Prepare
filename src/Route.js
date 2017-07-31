@@ -38,18 +38,18 @@ class Route extends React.Component {
             if (page === 'cancer'){
                 content = (
                     <CancerSelector
-                        key = 'CancerSelector'
+                        key='CancerSelector'
                         cancer={cancer}
                         viewer={viewer} 
                     />
                 )                
             }else if (page === 'info'){
                 content = (
-                <KeyInfo key = 'KeyInfo' />                    
+                <KeyInfo key='KeyInfo' />
                 )
             }else if (page === 'featureAndReport'){
                 content = (
-                    <div key = 'featureAndReport'>
+                    <div key='featureAndReport'>
                         <FeatureSelector
                             cancer={cancer}
                             feature={feature}

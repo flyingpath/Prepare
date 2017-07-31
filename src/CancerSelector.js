@@ -35,8 +35,8 @@ class CancerSelector extends React.Component {
                         const value = eachCancer.value
                         return (
                             <div 
-                                key = {`cancerType${idx}`}
-                                onClick = {this.selectCancer(value)}
+                                key={`cancerType${idx}`}
+                                onClick={this.selectCancer(value)}
                             >
                               {label}  
                             </div>

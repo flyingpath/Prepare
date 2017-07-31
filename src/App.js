@@ -61,7 +61,7 @@ class App extends Component {
                             return (
                                 <MuiThemeProvider muiTheme={prepareTheme}>
                                     <div>
-                                        <AppBar title="PREPARE" onLeftIconButtonTouchTap = {this.drawerToggle} >
+                                        <AppBar title="PREPARE" onLeftIconButtonTouchTap={this.drawerToggle} >
                                             <Avatar
                                                 src={amaPics}
                                                 size={30}
