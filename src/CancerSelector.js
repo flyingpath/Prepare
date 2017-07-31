@@ -6,6 +6,10 @@ import {
 } from 'react-relay';
 
 import dataStore from './store/data';
+import Paper from 'material-ui/Paper'
+import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
+import ActionFavorite from 'material-ui/svg-icons/action/favorite';
+import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 
 class CancerSelector extends React.Component {
     constructor(props) {
@@ -13,44 +17,68 @@ class CancerSelector extends React.Component {
         this.selectCancer = this.selectCancer.bind(this);
     }
 
-    selectCancer(cancer){
-        return ()=>{
-            console.log(cancer)
-            dataStore.setCancer(cancer)
-            dataStore.changePageTo('info')
+    selectCancer(cancer) {
+        return () => {
+            _.delay(
+                ()=>{
+                    dataStore.setCancer(cancer)
+                    dataStore.changePageTo('info')
+                },
+                1200
+            )
+
         }
     }
+
 
     render() {
         const cancerList = this.props.viewer.cancers
 
+        const styles = {
+            block: {
+                maxWidth: 250,
+            },
+            radioButton: {
+                marginBottom: 16,
+            },
+        };
+
         return (
             <div>
-                <h1>
+                <h1 style={{padding:'1%',margin:'4%'}}>
                     選擇一個癌症
                 </h1>
-                {
-                    _.map(cancerList, (eachCancer, idx) => {
-                        const label = eachCancer.label
-                        const value = eachCancer.value
-                        return (
-                            <div 
-                                key={`cancerType${idx}`}
-                                onClick={this.selectCancer(value)}
-                            >
-                              {label}  
-                            </div>
-                        )
-                    })
-                }
-
+                <Paper className="Paper_container">
+                    {
+                        _.map(cancerList, (eachCancer, idx) => {
+                            const label = eachCancer.label
+                            const value = eachCancer.value
+                            return (
+                                <div
+                                    key={`cancerType${idx}`}
+                                    onClick={this.selectCancer(value)}
+                                >
+                                    <RadioButtonGroup name="shipSpeed" defaultSelected="not_light">
+                                    <RadioButton
+                                        value="ludicrous"
+                                        label={label}
+                                        checkedIcon={<ActionFavorite style={{color: '#F44336'}} />}
+                                        uncheckedIcon={<ActionFavoriteBorder />}
+                                        style={styles.radioButton}
+                                    />
+                                    </RadioButtonGroup>
+                                </div>
+                            )
+                        })
+                    }
+                </Paper>
             </div>
         )
     }
 }
 
 const container = createFragmentContainer(CancerSelector, {
-    viewer: graphql.experimental`
+        viewer: graphql.experimental`
         fragment CancerSelector_viewer on Viewer {
           cancers {
             value:cancer,
@@ -59,7 +87,7 @@ const container = createFragmentContainer(CancerSelector, {
           }
         }
     `,
-}
+    }
 )
 
 export default container
