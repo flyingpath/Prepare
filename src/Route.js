@@ -15,7 +15,8 @@ class Route extends React.Component {
         this.state = {
 
         };
-        this.handleClick = this.handleClick.bind(this);
+        this.handleClick = this.handleClick.bind(this)
+        this.content
     }
 
     handleClick() {
@@ -29,14 +30,13 @@ class Route extends React.Component {
         
         const inherit = this.props.inherit
         
-
-        let content
+        let transitionClass = "prepare_route_page"
 
         if (inherit){
             const viewer = inherit.viewer
             
             if (page === 'cancer'){
-                content = (
+                this.content = (
                     <CancerSelector
                         key='CancerSelector'
                         cancer={cancer}
@@ -44,18 +44,21 @@ class Route extends React.Component {
                     />
                 )                
             }else if (page === 'info'){
-                content = (
+                this.content = (
                 <KeyInfo key='KeyInfo' />
                 )
             }else if (page === 'featureAndReport'){
-                content = (
+                transitionClass = 'no_transition'
+                this.content = (
                     <div key='featureAndReport'>
                         <FeatureSelector
+                            key = 'featureSelect'
                             cancer={cancer}
                             feature={feature}
                             viewer={viewer} 
                         />
                         <Report
+                            key ='report'
                             cancer={cancer}
                             feature={feature}
                             viewer={viewer} 
@@ -69,11 +72,11 @@ class Route extends React.Component {
         return (
             <div className='page_test'>
                 <ReactCSSTransitionGroup 
-                    transitionName="prepare_route_page" 
+                    transitionName={transitionClass} 
                     transitionEnterTimeout={1000} 
-                    transitionLeaveTimeout={1} 
+                    transitionLeave={false} 
                 > 
-                    {content}
+                    {this.content}
                 </ReactCSSTransitionGroup>
             </div>
         )

@@ -35,6 +35,7 @@ class App extends Component {
     }
 
     render() {
+
         const page = dataStore.page
         const cancer = dataStore.cancer
         const feature = dataStore.feature
