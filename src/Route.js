@@ -17,6 +17,7 @@ class Route extends React.Component {
         };
         this.handleClick = this.handleClick.bind(this)
         this.content
+        this.inherit
     }
 
     handleClick() {
@@ -24,16 +25,20 @@ class Route extends React.Component {
     }
 
     render() {
+        let transitionClass = "prepare_route_page"
+
         const page = this.props.page
         const cancer = this.props.cancer
         const feature = this.props.feature
-        
         const inherit = this.props.inherit
-        
-        let transitionClass = "prepare_route_page"
+        const loading = inherit?false:true
 
         if (inherit){
-            const viewer = inherit.viewer
+            this.inherit = inherit
+        }
+
+        if (this.inherit){
+            const viewer = this.inherit.viewer
             
             if (page === 'cancer'){
                 this.content = (
@@ -62,6 +67,7 @@ class Route extends React.Component {
                             cancer={cancer}
                             feature={feature}
                             viewer={viewer} 
+                            loading={loading}
                         />
                     </div>
                 )

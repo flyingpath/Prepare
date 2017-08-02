@@ -21,8 +21,7 @@ class DataStore {
   @action 
   setFeature(val){
 		this.feature = val;
-	}
-
+  }
 }
 
 var dataStore = new DataStore()
