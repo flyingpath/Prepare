@@ -9,21 +9,35 @@ import {
 import _ from 'lodash';
 
 class Report extends React.Component {
-  static propTypes = {
-  };
-
+  constructor(props) {
+      super(props);
+      this.state = {
+        
+      }
+      this.loadStatus=false
+  }
 
   render() {
     const loading=this.props.loading
+    
+    console.log(loading)
+    console.log(this.loadStatus)
 
     if(loading){
+      this.loadStatus = true
+    }else if(this.loadStatus){
+      _.delay(()=>{
+        this.loadStatus=false
+        this.forceUpdate()
+      }, 2000)
+    }
+
+    if(this.loadStatus)
       return(
         <div>
             <Test_loading/>
         </div>
       )
-    }
-
     let data = []
 
     if(this.props.viewer.survival){
