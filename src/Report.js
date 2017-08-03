@@ -12,15 +12,27 @@ class Report extends React.Component {
 
 
   render() {
+    const loading=this.props.loading
+
+    if(loading){
+      return(
+        <div>
+          Loading...
+        </div>
+      )
+    }
+
     let data = []
+    
     if(this.props.viewer.survival){
       data = this.props.viewer.survival.data;
-    }
+    } 
+    
     const feature = this.props.feature
+
     return (
       <div>
         {_.map(data,(x, idx)=>{
-          console.log(x);
           return (
             <div key={idx}>
               <h4>{`${feature}-${x.item}`}</h4>
