@@ -1,5 +1,7 @@
 import React from 'react';
 import 'react-select/dist/react-select.css';
+import Test_loading from './test_loading'
+import HeartPulseLoading from './circle_loading'
 import {
   graphql,
   createFragmentContainer
@@ -17,17 +19,17 @@ class Report extends React.Component {
     if(loading){
       return(
         <div>
-          Loading...
+            <Test_loading/>
         </div>
       )
     }
 
     let data = []
-    
+
     if(this.props.viewer.survival){
       data = this.props.viewer.survival.data;
-    } 
-    
+    }
+
     const feature = this.props.feature
 
     return (
@@ -45,7 +47,7 @@ class Report extends React.Component {
                   )
                 })}
               </div>
-              
+
             </div>
           )
         })}
@@ -73,7 +75,7 @@ const container = createFragmentContainer(Report,{
           }
         }
     `,
-  
+
   }
 )
 

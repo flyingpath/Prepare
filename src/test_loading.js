@@ -26,7 +26,7 @@ class Loading_prepare extends React.Component {
                     <div className="orange" />
                     <div className="red" />
                 </div>
-                <p>Loading</p>
+                <p style={{fontWeight:600,fontSize:'26px'}}>LOADING</p>
             </div>
 
         );

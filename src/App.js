@@ -39,7 +39,7 @@ class App extends Component {
         const page = dataStore.page
         const cancer = dataStore.cancer
         const feature = dataStore.feature
-        const amaPics = './src/pics/uxceomom-128.jpg'
+        // const amaPics = './src/pics/uxceomom-128.jpg'
         
         return (
             <div className="App">

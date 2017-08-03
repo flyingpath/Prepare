@@ -24,7 +24,7 @@ class CancerSelector extends React.Component {
                     dataStore.setCancer(cancer)
                     dataStore.changePageTo('info')
                 },
-                10000
+                1150
             )
 
         }

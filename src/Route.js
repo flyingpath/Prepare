@@ -15,8 +15,8 @@ class Route extends React.Component {
 
         };
         this.handleClick = this.handleClick.bind(this)
-        this.content
-        this.inherit
+        // this.content
+        // this.inherit
     }
 
     handleClick() {
@@ -56,13 +56,13 @@ class Route extends React.Component {
                 this.content = (
                     <div key='featureAndReport'>
                         <FeatureSelector
-                            key = 'featureSelect'
+                            key='featureSelect'
                             cancer={cancer}
                             feature={feature}
                             viewer={viewer} 
                         />
                         <Report
-                            key ='report'
+                            key='report'
                             cancer={cancer}
                             feature={feature}
                             viewer={viewer} 
