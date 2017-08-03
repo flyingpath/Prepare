@@ -52,6 +52,7 @@
     "react": "^15.6.1",
     "react-dev-utils": "^0.5.2",
     "react-dom": "^15.6.1",
+    "react-toolbox": "^2.0.0-beta.12",
     "react-transition-group": "^1.2.0",
     "reactstrap": "^4.8.0",
     "relay-compiler": "1.0.0-rc3",

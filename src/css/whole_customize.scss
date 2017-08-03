@@ -5,6 +5,8 @@ html, body {
   //width: 100%;
   //height: 100%;
   //overflow-y: auto;
+  font-family: sans-serif;
+  background-color: rgba(250,250,250,1);
 }
 
 .Select-control {
@@ -20,4 +22,21 @@ html, body {
 body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, menu, nav, section {
   margin: 0;
   padding: 0;
+}
+
+//上面兩個選項調整
+
+.Select,.Select--single,.is-clearable,.is-searchable{
+  margin:13px 30px;
+}
+
+.Paper_container{
+  margin:4%;
+  padding: 5%;
+  background-color: #fff;
+}
+
+.AvatarPics{
+  background: url("../pics/uxceomom-128.jpg") 0 0 no-repeat;
+  background-size: 40px 40px;
 }

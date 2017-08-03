@@ -7,7 +7,6 @@ import KeyInfo from './KeyInfo'
 import FeatureSelector from './FeatureSelector';
 import Report from './Report';
 
-import './css/route_page.css'
 
 class Route extends React.Component {
     constructor(props) {
