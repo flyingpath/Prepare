@@ -5,7 +5,7 @@ import _ from 'lodash'
 
 import './css/loading_prepare.css'
 
-class Loading_prepare extends React.Component {
+class TestLoading extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -33,4 +33,4 @@ class Loading_prepare extends React.Component {
     }
 }
 
-export default observer(Loading_prepare)
+export default observer(TestLoading)

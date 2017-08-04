@@ -1,7 +1,8 @@
 import React from 'react';
 import 'react-select/dist/react-select.css';
-import Test_loading from './test_loading'
-import HeartPulseLoading from './circle_loading'
+import TestLoading from './test_loading'
+// import HeartPulseLoading from './circle_loading'
+import { LineChart, Line } from 'recharts';
 import {
   graphql,
   createFragmentContainer
@@ -20,8 +21,8 @@ class Report extends React.Component {
   render() {
     const loading=this.props.loading
     
-    console.log(loading)
-    console.log(this.loadStatus)
+    // console.log(loading)
+    // console.log(this.loadStatus)
 
     if(loading){
       this.loadStatus = true
@@ -35,7 +36,7 @@ class Report extends React.Component {
     if(this.loadStatus)
       return(
         <div>
-            <Test_loading/>
+            <TestLoading/>
         </div>
       )
     let data = []
@@ -48,7 +49,7 @@ class Report extends React.Component {
 
     return (
       <div>
-        {_.map(data,(x, idx)=>{
+          {_.map(data,(x, idx)=>{
           return (
             <div key={idx}>
               <h4>{`${feature}-${x.item}`}</h4>

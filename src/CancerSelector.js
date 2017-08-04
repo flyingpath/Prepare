@@ -24,7 +24,7 @@ class CancerSelector extends React.Component {
                     dataStore.setCancer(cancer)
                     dataStore.changePageTo('info')
                 },
-                1150
+                3000
             )
 
         }
@@ -45,32 +45,30 @@ class CancerSelector extends React.Component {
 
         return (
             <div>
-                <h1 style={{padding: '1%', margin: '4%',fontWeight:'600'}}>
+                <h1 style={{padding: '1%', margin: '4%', fontWeight: '600'}}>
                     選擇一個癌症
                 </h1>
+
                 <Paper className="Paper_container" style={{backgroundColor: '#fff'}}>
-                    {
-                        _.map(cancerList, (eachCancer, idx) => {
-                            const label = eachCancer.label
-                            const value = eachCancer.value
-                            return (
-                                <div
-                                    key={`cancerType${idx}`}
-                                    onClick={this.selectCancer(value)}
-                                >
-                                    <RadioButtonGroup name="shipSpeed" defaultSelected="not_light">
+                    <RadioButtonGroup name="prepare_cancerSelect_group">
+                        {
+                            _.map(cancerList, (eachCancer, idx) => {
+                                const label = eachCancer.label
+                                const value = eachCancer.value
+                                return (
                                         <RadioButton
-                                            value="ludicrous"
+                                            value={value}
                                             label={label}
                                             checkedIcon={<ActionFavorite style={{color: '#F44336'}}/>}
                                             uncheckedIcon={<ActionFavoriteBorder/>}
                                             style={styles.radioButton}
+                                            key={`cancerType${idx}`}
+                                            onTouchTap={this.selectCancer(value)}
                                         />
-                                    </RadioButtonGroup>
-                                </div>
-                            )
-                        })
-                    }
+                                )
+                            })
+                        }
+                    </RadioButtonGroup>
                 </Paper>
             </div>
         )
