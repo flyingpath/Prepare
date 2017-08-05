@@ -19,13 +19,15 @@ class CancerSelector extends React.Component {
 
     selectCancer(cancer) {
         return () => {
-            _.delay(
-                () => {
-                    dataStore.setCancer(cancer)
-                    dataStore.changePageTo('info')
-                },
-                1000
-            )
+            dataStore.setCancer(cancer)
+            dataStore.changePageTo('info')
+            // _.delay(
+            //     () => {
+            //         dataStore.setCancer(cancer)
+            //         dataStore.changePageTo('info')
+            //     },
+            //     200
+            // )
 
         }
     }

@@ -21,9 +21,6 @@ class Report extends React.Component {
   render() {
     const loading=this.props.loading
     
-    // console.log(loading)
-    // console.log(this.loadStatus)
-
     if(loading){
       this.loadStatus = true
     }else if(this.loadStatus){
@@ -33,12 +30,13 @@ class Report extends React.Component {
       }, 500)
     }
 
-    if(this.loadStatus)
+    if(this.loadStatus){
       return(
         <div>
             <TestLoading/>
         </div>
       )
+    }
     let data = []
 
     if(this.props.viewer.survival){
