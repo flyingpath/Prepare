@@ -4,7 +4,7 @@ import {observable, action} from 'mobx'
 class DataStore {
   
   @observable 
-  cancer = ''
+  cancer = {}
   @observable 
   feature = ''
   @observable 

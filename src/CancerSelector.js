@@ -63,7 +63,7 @@ class CancerSelector extends React.Component {
                                             uncheckedIcon={<ActionFavoriteBorder/>}
                                             style={styles.radioButton}
                                             key={`cancerType${idx}`}
-                                            onTouchTap={this.selectCancer(value)}
+                                            onTouchTap={this.selectCancer(eachCancer)}
                                         />
                                 )
                             })

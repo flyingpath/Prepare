@@ -39,13 +39,13 @@ class App extends Component {
         const page = dataStore.page
         const cancer = dataStore.cancer
         const feature = dataStore.feature
-        // const amaPics = './src/pics/uxceomom-128.jpg'
+
         
         return (
             <div className="App">
                 <QueryRenderer
                     environment={environment}
-                    variables={{ cancer: cancer, feature: feature }}
+                    variables={{ cancer: cancer.value, feature: feature }}
                     query={graphql.experimental`
                         query AppQuery ($cancer:String, $feature:String){
                             viewer {

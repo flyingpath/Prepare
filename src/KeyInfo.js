@@ -22,9 +22,18 @@ class KeyInfo extends React.Component {
             color:'#3c3c3c',
             fontSize:'18px'
         }
+
+        const cancer = this.props.cancer.label
+
         return (
             <div>
                 <Paper className="Paper_container" style={{backgroundColor: '#fff'}}>
+                    <div>
+                        {cancer}
+                    </div>
+                    <div>
+                        請輸入基本資料
+                    </div>
                     <div className="Keyinfo_position">
                         <span style={fontColor}>性別</span>
                         <div className="col-3">

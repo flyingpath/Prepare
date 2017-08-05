@@ -49,7 +49,11 @@ class Route extends React.Component {
                 )                
             }else if (page === 'info'){
                 this.content = (
-                <KeyInfo key='KeyInfo' />
+                <KeyInfo 
+                    key='KeyInfo' 
+                    cancer={cancer}
+                    viewer={viewer} 
+                />
                 )
             }else if (page === 'featureAndReport'){
                 transitionClass = 'no_transition'
