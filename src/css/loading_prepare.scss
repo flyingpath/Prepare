@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+$backgroundColor:rgba(250,250,250,1);
+
 html,
 body {
   height: 100%;
@@ -14,7 +16,7 @@ div.loader {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #fff;
+  background-color: $backgroundColor;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,7 +43,7 @@ div.logo {
   height: $size;
   box-sizing: border-box;
   position: relative;
-  background-color: white;
+  background-color: $backgroundColor;
   &::before,
   &::after {
     z-index: 1;
@@ -76,7 +78,7 @@ div.logo {
     bottom: 0;
     right: 0;
     width: 0;
-    animation: white $totalTime infinite;
+    animation: $backgroundColor $totalTime infinite;
     animation-direction: alternate;
   }
   div.orange {

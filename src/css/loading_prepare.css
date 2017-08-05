@@ -6,7 +6,12 @@ body {
   margin: 0; }
 
 div.loader {
-  background-color: rgb(250, 250, 250);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fafafa;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,7 +27,7 @@ div.logo {
   height: 100px;
   box-sizing: border-box;
   position: relative;
-  background-color: white; }
+  background-color: #fafafa; }
   div.logo::before, div.logo::after {
     z-index: 1;
     box-sizing: border-box;
@@ -52,7 +57,7 @@ div.logo {
     bottom: 0;
     right: 0;
     width: 0;
-    animation: white 1.5s infinite;
+    animation: #fafafa 1.5s infinite;
     animation-direction: alternate; }
   div.logo div.orange {
     border-top: 4px solid black;
