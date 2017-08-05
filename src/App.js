@@ -27,12 +27,16 @@ class App extends Component {
         this.drawerToggle = this.drawerToggle.bind(this)
     }
 
+
+
     drawerToggle(){
         const status = this.state.drawer
         this.setState({
             drawer: !status
         })
     }
+
+    
 
     render() {
 
@@ -42,7 +46,7 @@ class App extends Component {
 
         
         return (
-            <div className="App">
+            <div className="App" id = 'prepare-app-root'>
                 <QueryRenderer
                     environment={environment}
                     variables={{ cancer: cancer.value, feature: feature }}
