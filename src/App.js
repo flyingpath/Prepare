@@ -62,7 +62,7 @@ class App extends Component {
                             return (
                                 <MuiThemeProvider muiTheme={prepareTheme}>
                                     <div>
-                                        <AppBar title="PREPARE" onLeftIconButtonTouchTap={this.drawerToggle} >
+                                        <AppBar title="PREPARE" onLeftIconButtonTouchTap={()=>{}} >
                                             <Avatar
                                                 className="AvatarPics"
                                                 size={30}
@@ -75,15 +75,6 @@ class App extends Component {
                                                 }}
                                             />
                                         </AppBar>
-                                        <Drawer
-                                            docked={false}
-                                            width={200}
-                                            open={this.state.drawer}
-                                            onRequestChange={this.drawerToggle}
-                                        >
-                                            <MenuItem>User Setting</MenuItem>
-                                            <MenuItem>History</MenuItem>
-                                        </Drawer>
                                              <Route
                                                 page={page}
                                                 cancer={cancer} 
