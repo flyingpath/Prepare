@@ -1,6 +1,8 @@
 import React from 'react';
 import 'react-select/dist/react-select.css';
 import TestLoading from './test_loading'
+// import HeartPulseLoading from './circle_loading'
+// import { LineChart, Line } from 'recharts';
 import {
   graphql,
   createFragmentContainer
