@@ -28,7 +28,7 @@ class Report extends React.Component {
       _.delay(()=>{
         this.loadStatus=false
         this.forceUpdate()
-      }, 2000)
+      }, 500)
     }
 
     if(this.loadStatus)
