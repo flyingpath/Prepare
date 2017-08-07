@@ -1,8 +1,7 @@
 import React from 'react';
 import 'react-select/dist/react-select.css';
 import TestLoading from './test_loading'
-// import HeartPulseLoading from './circle_loading'
-// import { LineChart, Line } from 'recharts';
+import LineChart from './chart/LineChart';
 import {
   graphql,
   createFragmentContainer
@@ -53,6 +52,9 @@ class Report extends React.Component {
 
     return (
       <div>
+      <div>
+        <LineChart />
+      </div>
           {_.map(data,(x, idx)=>{
           return (
             <div key={idx}>
