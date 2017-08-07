@@ -19,8 +19,8 @@ class KeyInfo extends React.Component {
 
     render() {
         const fontColor = {
-            color:'#3c3c3c',
-            fontSize:'18px'
+            color: '#3c3c3c',
+            fontSize: '18px'
         }
 
         const cancer = this.props.cancer.label
@@ -73,7 +73,7 @@ class KeyInfo extends React.Component {
                         </span>
                         </div>
                     </div>
-                    <div style={{padding:'7% 0 1% 0'}}>
+                    <div style={{padding: '7% 0 1% 0'}}>
                         <RaisedButton onClick={this.confirm}>
                             <span style={fontColor}>確認</span>
                         </RaisedButton>
