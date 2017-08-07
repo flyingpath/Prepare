@@ -30,6 +30,7 @@ class FeatureSelector extends React.Component {
         placeholder="您對哪個變項感興趣？"
         onChange={this.onChange.bind(this)}
         value={this.state.feature}
+        searchable={false}
       />
     );
   }
