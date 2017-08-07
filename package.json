@@ -58,7 +58,7 @@
     "react-toolbox": "^2.0.0-beta.12",
     "react-transition-group": "^1.2.0",
     "reactstrap": "^4.8.0",
-    "relay-compiler": "1.0.0-rc3",
+    "relay-compiler": "1.1.0",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
     "webpack": "1.14.0",
