@@ -30,6 +30,8 @@ class DataStore {
       this.routePageClass="prepare_route_page_forward"
     }else if(val==='backward'){
       this.routePageClass="prepare_route_page_backward"
+    }else if(val==='no'){
+      this.routePageClass="no_transition"
     }
   }
   @action

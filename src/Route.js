@@ -41,13 +41,12 @@ class Route extends React.Component {
         observerBackPage.subscribe((e)=>{
             const startX = this.x
             const endX = e.touches[0].clientX
-            const count = this.timeCount
 
-            if( (endX-startX > 50) && count){
+            if( (endX-startX > 50) && this.timeCount){
                 dataStore.setRouteDirection('backward')
                 dataStore.goToPrePage()
                 dataStore.setRouteDirection('forward')
-
+                this.timeCount = false
             }
         })
         
@@ -91,7 +90,6 @@ class Route extends React.Component {
                 />
                 )
             }else if (page === 'featureAndReport'){
-                transitionClass = 'no_transition'
                 this.content = (
                     <div key='featureAndReport'>
                         <FeatureSelector

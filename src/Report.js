@@ -9,6 +9,8 @@ import {
 } from 'react-relay';
 import _ from 'lodash';
 
+import dataStore from './store/data'
+
 class Report extends React.Component {
   constructor(props) {
       super(props);
@@ -16,6 +18,10 @@ class Report extends React.Component {
         
       }
       this.loadStatus=false
+  }
+
+  componentDidMount() {
+    dataStore.setRouteDirection('no')
   }
 
   render() {
