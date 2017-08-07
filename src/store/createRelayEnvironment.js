@@ -13,7 +13,7 @@ function fetchQuery(
   cacheConfig,
   uploadables,
 ) {
-  return fetch('https://search.kfsyscc.org/prepare-api', {
+  return fetch('https://prepare.kfsyscc.org/prepare-api', {
     method: 'POST',
     mode: 'cors',
     headers: {
