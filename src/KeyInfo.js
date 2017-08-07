@@ -28,11 +28,14 @@ class KeyInfo extends React.Component {
         return (
             <div>
                 <Paper className="Paper_container" style={{backgroundColor: '#fff'}}>
-                    <div>
-                        {cancer}
-                    </div>
-                    <div>
-                        請輸入基本資料
+                    <div className="Keyinfo_position">
+                        <span style={fontColor}>{cancer}</span>
+                        <div className="col-3">
+                            <input className="effect-5" type="text" placeholder="Basic Info"/>
+                            <span className="focus-border">
+            	            <i/>
+                        </span>
+                        </div>
                     </div>
                     <div className="Keyinfo_position">
                         <span style={fontColor}>性別</span>
