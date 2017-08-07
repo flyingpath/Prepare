@@ -15,6 +15,7 @@ function fetchQuery(
 ) {
   return fetch('https://prepare.kfsyscc.org/prepare-api', {
     method: 'POST',
+    credentials: 'include',
     mode: 'cors',
     headers: {
       'Accept': 'application/json',
