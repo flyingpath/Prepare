@@ -20,7 +20,7 @@ class KeyInfo extends React.Component {
     componentDidMount() {
         $('input[name="radio-btn"]').wrap('<div class="radio-btn"><i></i></div>');
         $(".radio-btn").on('click', function () {
-            var _this = $(this),
+            let _this = $(this),
                 block = _this.parent().parent();
             block.find('input:radio').attr('checked', false);
             block.find(".radio-btn").removeClass('checkedRadio');

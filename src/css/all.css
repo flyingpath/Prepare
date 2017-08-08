@@ -281,7 +281,8 @@ h1, h2, h3, h4, h5, h6 {
 
 html, body {
   font-family: sans-serif;
-  background-color: #ecf0f1; }
+  background-color: #ecf0f1;
+  background-image: url("../pics/pattern_1.svg"); }
 
 .Select-clear, .Select-clear-zone {
   display: none; }
