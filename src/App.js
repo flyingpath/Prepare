@@ -46,7 +46,7 @@ class App extends Component {
 
         
         return (
-            <div className="App" id = 'prepare-app-root'>
+            <div className="App" id='prepare-app-root'>
                 <QueryRenderer
                     environment={environment}
                     variables={{ cancer: cancer.value, feature: feature }}

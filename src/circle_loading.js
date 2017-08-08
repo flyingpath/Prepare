@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import './css/circle_loading.css'
+import './css/circle_loading.scss'
 
 class CircleLoading extends React.Component {
     constructor(props) {

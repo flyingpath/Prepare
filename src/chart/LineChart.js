@@ -1,6 +1,6 @@
-import React, { Component } from 'react' 
+import React from 'react'
 import Chart from 'chart.js'
-import _ from 'lodash' 
+// import _ from 'lodash'
 
 class LineChart extends React.Component {
     constructor(props) {
@@ -8,7 +8,7 @@ class LineChart extends React.Component {
         this.state = {
         }
         this.renderChart = this.renderChart.bind(this)
-        this.lineChart
+        // this.lineChart
     }
 
     componentDidMount(){
