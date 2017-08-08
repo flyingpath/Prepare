@@ -60,7 +60,7 @@ class Route extends React.Component {
     render() {
         let transitionClass = dataStore.routePageClass
 
-        const page = 'info'
+        const page = this.props.page
         const cancer = this.props.cancer
         const feature = this.props.feature
         const inherit = this.props.inherit
