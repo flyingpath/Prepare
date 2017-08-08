@@ -18,7 +18,7 @@ class Route extends React.Component {
 
         };
         this.handleClick = this.handleClick.bind(this)
-        this.x
+
         this.timeCount = false
         // this.inherit
     }

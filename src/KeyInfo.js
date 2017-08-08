@@ -32,7 +32,7 @@ class KeyInfo extends React.Component {
         //     fontWeight: '600'
         // }
 
-        const cancer = this.props.cancer.label
+        // const cancer = this.props.cancer.label
 
         return (
             <div>
@@ -56,12 +56,12 @@ class KeyInfo extends React.Component {
                         <RadioButtonGroup name="prepare_cancerSelect_group">
                             <RadioButton
                                 label="male"
-                                checkedIcon={<ActionFavorite style={{color: '#F44336'}}/>}
+                                checkedIcon={<ActionFavorite/>}
                                 uncheckedIcon={<ActionFavoriteBorder/>}
                             />
                             <RadioButton
                                 label="female"
-                                checkedIcon={<ActionFavorite style={{color: '#F44336'}}/>}
+                                checkedIcon={<ActionFavorite/>}
                                 uncheckedIcon={<ActionFavoriteBorder/>}
                             />
                         </RadioButtonGroup>
