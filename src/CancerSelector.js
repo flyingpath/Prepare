@@ -59,7 +59,7 @@ class CancerSelector extends React.Component {
                                         <RadioButton
                                             value={value}
                                             label={label}
-                                            checkedIcon={<ActionFavorite style={{color: '#F44336'}}/>}
+                                            checkedIcon={<ActionFavorite/>}
                                             uncheckedIcon={<ActionFavoriteBorder/>}
                                             style={styles.radioButton}
                                             key={`cancerType${idx}`}

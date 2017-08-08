@@ -4,6 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import ActionFavorite from 'material-ui/svg-icons/action/favorite';
 import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
+import $ from 'jquery'
 
 import dataStore from './store/data'
 
@@ -14,6 +15,26 @@ class KeyInfo extends React.Component {
         super(props);
         this.state = {};
         this.confirm = this.confirm.bind(this);
+    }
+
+    componentDidMount(){
+        $('input[name="radio-btn"]').wrap('<div class="radio-btn"><i></i></div>');
+        $(".radio-btn").on('click', function () {
+            var _this = $(this),
+                block = _this.parent().parent();
+            block.find('input:radio').attr('checked', false);
+            block.find(".radio-btn").removeClass('checkedRadio');
+            _this.addClass('checkedRadio');
+            _this.find('input:radio').attr('checked', true);
+        });
+        $('input[name="check-box"]').wrap('<div class="check-box"><i></i></div>');
+        $.fn.toggleCheckbox = function () {
+            this.attr('checked', !this.attr('checked'));
+        }
+        $('.check-box').on('click', function () {
+            $(this).find(':checkbox').toggleCheckbox();
+            $(this).toggleClass('checkedBox');
+        });
     }
 
     confirm() {
@@ -41,30 +62,12 @@ class KeyInfo extends React.Component {
                 <Paper className="Paper_container" style={{backgroundColor: '#fff'}}>
                     <div className="Keyinfo_position">
                         <span style={fontColor}>性別</span>
-                        {/*<div className="col-3">*/}
-                        {/*<input className="effect-5" type="text" placeholder="Gender"/>*/}
-                        {/*<span className="focus-border">*/}
-                        {/*<i/>*/}
-                        {/*</span>*/}
-                        {/*</div>*/}
-                        {/*<div className="Keyinfo_position">*/}
-                            {/*<input type="radio" name="rb" id="rb1"/>*/}
-                            {/*<label htmlFor="rb1">Male</label>*/}
-                            {/*<input type="radio" name="rb" id="rb2"/>*/}
-                            {/*<label htmlFor="rb2">Female</label>*/}
-                        {/*</div>*/}
-                        <RadioButtonGroup name="prepare_cancerSelect_group">
-                            <RadioButton
-                                label="male"
-                                checkedIcon={<ActionFavorite/>}
-                                uncheckedIcon={<ActionFavoriteBorder/>}
-                            />
-                            <RadioButton
-                                label="female"
-                                checkedIcon={<ActionFavorite/>}
-                                uncheckedIcon={<ActionFavoriteBorder/>}
-                            />
-                        </RadioButtonGroup>
+                        <div className="Keyinfo_position">
+                            <input  type="checkbox" name="check-box" />
+                            <label htmlFor="rb1">男</label>
+                            <input  type="checkbox" name="check-box" />
+                            <label htmlFor="rb2">女</label>
+                        </div>
                     </div>
                     <div className="Keyinfo_position">
                         <span style={fontColor}>年齡</span>
