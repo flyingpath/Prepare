@@ -23,6 +23,121 @@ class Report extends React.Component {
     dataStore.setRouteDirection('no')
   }
 
+  combindStyle(styleArray, dataArray){
+    if(styleArray.length >= dataArray.length){
+      dataArray = _.map(dataArray, (eachData, idx)=>{
+        const data = _.assign(eachData, styleArray[idx])
+        return data
+      })
+    }else{
+      const styleLength = styleArray.length
+      dataArray = _.map(dataArray, (eachData, idx)=>{
+        let data = eachData
+        if(idx<styleLength){
+          data = _.assign(data, styleArray[idx])
+        }
+        return data
+      })
+    }
+    return dataArray
+  }
+
+  makeChartData(feature, data){
+    console.log(data);
+    const fData = _.map(data, x=>x.survival)
+    const sData = _.map(fData, x=>_.map(x, y=>y.rate))
+    let dataSet = []
+    let finalData = []
+    let styles=[]
+
+    switch(feature){
+      case 'op'://(手術)
+        styles = [
+          {
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+              'rgba(255,99,132,1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)'
+            ]
+          }
+        ]        
+        
+        dataSet = _.map(sData, (eachData, idx)=>{
+          return(
+            {
+              label: idx===0?'有做手術治療':'沒做手術治療',
+              data: eachData,
+              borderWidth: 1,
+              fill: false
+            }
+          ) 
+        })
+
+        finalData = this.combindStyle(styles, dataSet)
+
+        return finalData
+
+      case 'ct'://(化療)
+        dataSet = _.map(sData, (eachData, idx)=>{
+          return(
+            {
+              label: idx===0?'有做化學治療':'沒做化學治療',
+              data: eachData,
+              borderWidth: 1,
+              fill: false
+            }
+          ) 
+        })
+        finalData = this.combindStyle(styles, dataSet)
+        return finalData
+
+      case 'rt'://(電療)
+        dataSet = _.map(sData, (eachData, idx)=>{
+          return(
+            {
+              label: idx===0?'有做電療':'沒做電療',
+              data: eachData,
+              borderWidth: 1,
+              fill: false
+            }
+          ) 
+        })
+        finalData = this.combindStyle(styles, dataSet)
+        return finalData
+      
+      case 'ht'://(賀爾蒙治療)
+        dataSet = _.map(sData, (eachData, idx)=>{
+          return(
+            {
+              label: idx===0?'有做賀爾蒙治療':'沒做賀爾蒙治療',
+              data: eachData,
+              borderWidth: 1,
+              fill: false
+            }
+          ) 
+        })
+        finalData = this.combindStyle(styles, dataSet)
+        return finalData
+      
+      case 'neo_adj': //(術前治療)
+        return []
+        break;
+      default:
+        return []
+    }
+  }
+
   render() {
     const loading=this.props.loading
     
@@ -49,29 +164,11 @@ class Report extends React.Component {
     }
 
     const feature = this.props.feature
+    const chartData = this.makeChartData(feature, data)
 
     return (
       <div>
-      <div>
-        <LineChart />
-      </div>
-          {_.map(data,(x, idx)=>{
-          return (
-            <div key={idx}>
-              <h4>{`${feature}-${x.item}`}</h4>
-              <div>
-                {_.map(x.survival, (sur,idy)=>{
-                  return (
-                    <div key={`y${idy}`}>
-                      {`第${sur.years}年存活率${_.ceil(100*sur.rate,2)}%`}
-                    </div>
-                  )
-                })}
-              </div>
-
-            </div>
-          )
-        })}
+        <LineChart data={chartData} />
       </div>
     );
   }

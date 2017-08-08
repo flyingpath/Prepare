@@ -20,15 +20,47 @@ class LineChart extends React.Component {
     }
 
     renderChart(){
-        if(!this.lineChart){
+        if(this.lineChart){
             const labels = this.props.labels
-            const dataSets = this.props.dataSets
-            console.log(this.lineChart)
+            const dataSets = this.props.data
+            console.log(dataSets);
             const myChart = new Chart(this.lineChart, {
                 type: 'line',
                 data: {
-                    labels: labels,
+                    labels: ['1', '2', '3', '4', '5' ],
                     datasets: dataSets
+                },
+                options:{
+                    scales: {
+                        xAxes: [
+                            {
+                                gridLines: {
+                                    display: true
+                                },
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: ['經過幾年後']
+                                },
+                                ticks: {
+                                    fontSize: 14
+                                }
+                            }
+                        ],
+                        yAxes: [
+                            {
+                                gridLines: {
+                                    display: true
+                                },
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: ['存活率']
+                                },
+                                ticks: {
+                                    fontSize: 14
+                                }
+                            }
+                        ]
+                    }
                 }
             })
         }
@@ -64,7 +96,7 @@ LineChart.defaultProps = {
     labels: ["1", "2", "3", "4", "5"],
     dataSets: [{
         label: '多少年後',
-        data: [0.6, 0.7, 0.4, 0.1],
+        data: [0.6, 0.7, 0.4, 0.1, 0.05],
         backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
@@ -81,7 +113,8 @@ LineChart.defaultProps = {
             'rgba(153, 102, 255, 1)',
             'rgba(255, 159, 64, 1)'
         ],
-        borderWidth: 1
+        borderWidth: 1,
+        fill: false
     }]
 };
 
