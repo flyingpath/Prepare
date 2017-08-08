@@ -17,7 +17,7 @@ class KeyInfo extends React.Component {
         this.confirm = this.confirm.bind(this);
     }
 
-    componentDidMount(){
+    componentDidMount() {
         $('input[name="radio-btn"]').wrap('<div class="radio-btn"><i></i></div>');
         $(".radio-btn").on('click', function () {
             var _this = $(this),
@@ -45,7 +45,7 @@ class KeyInfo extends React.Component {
         const fontColor = {
             color: '#3c3c3c',
             fontSize: '18px',
-            display:'block'
+            display: 'block'
         }
         // const bigFontColod = {
         //     color: '#3c3c3c',
@@ -62,11 +62,15 @@ class KeyInfo extends React.Component {
                 <Paper className="Paper_container" style={{backgroundColor: '#fff'}}>
                     <div className="Keyinfo_position">
                         <span style={fontColor}>性別</span>
-                        <div className="Keyinfo_position">
-                            <input  type="checkbox" name="check-box" />
-                            <label htmlFor="rb1">男</label>
-                            <input  type="checkbox" name="check-box" />
-                            <label htmlFor="rb2">女</label>
+                        <div className="Keyinfo_position" style={{display: 'flex', borderBottom: '1px #ccc solid'}}>
+                            <div>
+                                <input type="checkbox" name="check-box"/>
+                                <label htmlFor="rb1" style={{paddingRight: '9px', position: 'relative', bottom: '6px'}}>男</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="check-box"/>
+                                <label htmlFor="rb2" style={{paddingRight: '9px', position: 'relative', bottom: '6px'}}>女</label>
+                            </div>
                         </div>
                     </div>
                     <div className="Keyinfo_position">
