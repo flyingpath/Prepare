@@ -80,7 +80,8 @@ class Report extends React.Component {
                             label: idx === 0 ? '沒做手術治療' : '有做手術治療',
                             data: eachData,
                             borderWidth: borderWidth,
-                            fill: fill
+                            fill: fill,
+                            backgroundColor:'rgba(255, 0, 255, 1)'
                         }
                     )
                 })
@@ -148,7 +149,7 @@ class Report extends React.Component {
             _.delay(() => {
                 this.loadStatus = false
                 this.forceUpdate()
-            }, 1800)
+            }, 1)
         }
 
         if (this.loadStatus) {
