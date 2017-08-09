@@ -76,9 +76,9 @@ class Report extends React.Component {
         dataSet = _.map(sData, (eachData, idx)=>{
           return(
             {
-              label: idx===0?'有做手術治療':'沒做手術治療',
+              label: idx===0?'沒做手術治療':'有做手術治療',
               data: eachData,
-              borderWidth: 1,
+              borderWidth: 5,
               fill: false
             }
           ) 
@@ -92,7 +92,7 @@ class Report extends React.Component {
         dataSet = _.map(sData, (eachData, idx)=>{
           return(
             {
-              label: idx===0?'有做化學治療':'沒做化學治療',
+              label: idx===0?'沒做化學治療':'有做化學治療',
               data: eachData,
               borderWidth: 1,
               fill: false
@@ -106,7 +106,7 @@ class Report extends React.Component {
         dataSet = _.map(sData, (eachData, idx)=>{
           return(
             {
-              label: idx===0?'有做電療':'沒做電療',
+              label: idx===0?'沒做電療':'有做電療',
               data: eachData,
               borderWidth: 1,
               fill: false
@@ -120,7 +120,7 @@ class Report extends React.Component {
         dataSet = _.map(sData, (eachData, idx)=>{
           return(
             {
-              label: idx===0?'有做賀爾蒙治療':'沒做賀爾蒙治療',
+              label: idx===0?'沒做賀爾蒙治療':'有做賀爾蒙治療',
               data: eachData,
               borderWidth: 1,
               fill: false
