@@ -293,7 +293,7 @@ body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset,
   padding: 0; }
 
 .Select, .Select--single, .is-clearable, .is-searchable {
-  margin: 13px 30px; }
+  margin: 4%; }
 
 .Paper_container {
   margin: 4%;

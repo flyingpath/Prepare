@@ -27,26 +27,26 @@ body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset,
 
 //上面兩個選項調整
 
-.Select,.Select--single,.is-clearable,.is-searchable{
-  margin:13px 30px;
+.Select, .Select--single, .is-clearable, .is-searchable {
+  margin: 4%
 }
 
-.Paper_container{
-  margin:4%;
+.Paper_container {
+  margin: 4%;
   padding: 5%;
   background-color: #fff;
 }
 
-.AvatarPics{
+.AvatarPics {
   background: url("../pics/uxceomom-128.jpg") 0 0 no-repeat;
   background-size: 40px 40px;
 }
 
-.Keyinfo_position{
-  padding:2% 0;
+.Keyinfo_position {
+  padding: 2% 0;
 }
 
-*::placeholder{
+*::placeholder {
   color: #dcdcdc;
 }
 
