@@ -75,13 +75,14 @@ class LineChart extends React.Component {
         const data = this.props.data
         if(data==[]){
             return (
-                <div>
+                <canvas>
                 
-                </div>
+                </canvas>
             )
         }else{
+
             return (
-                <canvas 
+                <canvas
                     id = 'prepare-line-chart' 
                     ref={(div)=>this.lineChart = div} 
                     style={{width:'300px', height:'200px'}}

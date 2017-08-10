@@ -2,6 +2,7 @@ import React from 'react';
 import 'react-select/dist/react-select.css';
 import TestLoading from './test_loading'
 import LineChart from './chart/LineChart';
+import * as Chart from 'chart.js'
 import Paper from 'material-ui/Paper'
 import {
     graphql,
@@ -51,18 +52,21 @@ class Report extends React.Component {
         const borderWidth = 4
         const fill = true
 
+
+
         switch (feature) {
             case 'op'://(手術)
+                var chart    = document.getElementById('prepare-line-chart')
+                console.log(chart)
+                var  gradient = chart.createLinearGradient(0, 0, 0, 450)
+
+                gradient.addColorStop(0, 'rgba(255, 0,0, 0.5)');
+                gradient.addColorStop(0.5, 'rgba(255, 0, 0, 0.25)');
+                gradient.addColorStop(1, 'rgba(255, 0, 0, 0)');
+
                 styles = [
                     {
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
-                        ],
+                        backgroundColor: gradient,
                         borderColor: [
                             'rgba(255,99,132,1)',
                             'rgba(54, 162, 235, 1)',
@@ -71,6 +75,9 @@ class Report extends React.Component {
                             'rgba(153, 102, 255, 1)',
                             'rgba(255, 159, 64, 1)'
                         ]
+                    },
+                    {
+
                     }
                 ]
 
@@ -80,8 +87,7 @@ class Report extends React.Component {
                             label: idx === 0 ? '沒做手術治療' : '有做手術治療',
                             data: eachData,
                             borderWidth: borderWidth,
-                            fill: fill,
-                            backgroundColor:'rgba(255, 0, 255, 1)'
+                            fill: fill
                         }
                     )
                 })
