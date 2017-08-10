@@ -49,35 +49,47 @@ class Report extends React.Component {
         let dataSet = []
         let finalData = []
         let styles = []
-        const borderWidth = 4
+        const borderWidth = 12
         const fill = true
 
+        let chart1 = document.createElement('canvas').getContext('2d'),
+            gradient1 = chart1.createLinearGradient(0, 0, 0, 450);
 
+        gradient1.addColorStop(0, 'rgba(52, 152, 219, 0.75)');
+        gradient1.addColorStop(0.5, 'rgba(52, 152, 219, 0.50)');
+        gradient1.addColorStop(1, 'rgba(52, 152, 219, 0.25)');
+
+        let chart2 = document.createElement('canvas').getContext('2d'),
+            gradient2 = chart2.createLinearGradient(0, 0, 0, 450);
+
+        gradient2.addColorStop(0, 'rgba(231, 76, 60, 0.75)');
+        gradient2.addColorStop(0.5, 'rgba(231, 76, 60, 0.50)');
+        gradient2.addColorStop(1, 'rgba(231, 76, 60, 0.25)');
 
         switch (feature) {
             case 'op'://(手術)
-                var chart    = document.getElementById('prepare-line-chart')
-                console.log(chart)
-                var  gradient = chart.createLinearGradient(0, 0, 0, 450)
-
-                gradient.addColorStop(0, 'rgba(255, 0,0, 0.5)');
-                gradient.addColorStop(0.5, 'rgba(255, 0, 0, 0.25)');
-                gradient.addColorStop(1, 'rgba(255, 0, 0, 0)');
-
                 styles = [
                     {
-                        backgroundColor: gradient,
-                        borderColor: [
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ]
+                        backgroundColor: gradient1,
+                        // borderColor: [
+                        //     'rgba(255,99,132,1)',
+                        //     'rgba(54, 162, 235, 1)',
+                        //     'rgba(255, 206, 86, 1)',
+                        //     'rgba(75, 192, 192, 1)',
+                        //     'rgba(153, 102, 255, 1)',
+                        //     'rgba(255, 159, 64, 1)'
+                        // ]
                     },
                     {
-
+                        backgroundColor: gradient2,
+                        // borderColor: [
+                        //     'rgba(255,99,132,1)',
+                        //     'rgba(54, 162, 235, 1)',
+                        //     'rgba(255, 206, 86, 1)',
+                        //     'rgba(75, 192, 192, 1)',
+                        //     'rgba(153, 102, 255, 1)',
+                        //     'rgba(255, 159, 64, 1)'
+                        // ]
                     }
                 ]
 
