@@ -49,8 +49,8 @@ class Report extends React.Component {
         let dataSet = []
         let finalData = []
         let styles = []
-        const borderWidth = 12
-        const fill = true
+        const borderWidth = 1
+        const fill = false
 
         let chart1 = document.createElement('canvas').getContext('2d'),
             gradient1 = chart1.createLinearGradient(0, 0, 0, 450);

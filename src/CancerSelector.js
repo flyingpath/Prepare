@@ -62,15 +62,15 @@ class CancerSelector extends React.Component {
                                 const label = eachCancer.label
                                 const value = eachCancer.value
                                 return (
-                                        <RadioButton
-                                            value={value}
-                                            label={label}
-                                            checkedIcon={<ActionFavorite/>}
-                                            uncheckedIcon={<ActionFavoriteBorder/>}
-                                            style={styles.radioButton}
-                                            key={`cancerType${idx}`}
-                                            onTouchTap={this.selectCancer(eachCancer)}
-                                        />
+                                    <RadioButton
+                                        value={value}
+                                        label={label}
+                                        checkedIcon={<ActionFavorite/>}
+                                        uncheckedIcon={<ActionFavoriteBorder/>}
+                                        style={styles.radioButton}
+                                        key={`cancerType${idx}`}
+                                        onTouchTap={this.selectCancer(eachCancer)}
+                                    />
                                 )
                             })
                         }
