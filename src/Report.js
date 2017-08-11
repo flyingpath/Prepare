@@ -49,7 +49,7 @@ class Report extends React.Component {
         let dataSet = []
         let finalData = []
         let styles = []
-        const borderWidth = 1
+        const borderWidth = 5
         const fill = false
 
         let chart1 = document.createElement('canvas').getContext('2d'),
@@ -71,26 +71,21 @@ class Report extends React.Component {
                 styles = [
                     {
                         backgroundColor: gradient1,
-                        // borderColor: [
-                        //     'rgba(255,99,132,1)',
-                        //     'rgba(54, 162, 235, 1)',
-                        //     'rgba(255, 206, 86, 1)',
-                        //     'rgba(75, 192, 192, 1)',
-                        //     'rgba(153, 102, 255, 1)',
-                        //     'rgba(255, 159, 64, 1)'
-                        // ]
+                        // label: "Data",
+                        borderColor: "#6590f4",
+                        pointBorderColor: "#f4009c",
+                        pointBackgroundColor: "#13f400",
+                        pointHoverBackgroundColor: "#f4e100",
+                        pointHoverBorderColor: "#9200f4",
+                        pointBorderWidth: 10,
+                        pointHoverRadius: 20,
+                        pointHoverBorderWidth: 30,
+                        pointRadius: 5,
                     },
                     {
                         backgroundColor: gradient2,
-                        // borderColor: [
-                        //     'rgba(255,99,132,1)',
-                        //     'rgba(54, 162, 235, 1)',
-                        //     'rgba(255, 206, 86, 1)',
-                        //     'rgba(75, 192, 192, 1)',
-                        //     'rgba(153, 102, 255, 1)',
-                        //     'rgba(255, 159, 64, 1)'
-                        // ]
                     }
+
                 ]
 
                 dataSet = _.map(sData, (eachData, idx) => {
