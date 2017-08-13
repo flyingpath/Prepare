@@ -1,5 +1,6 @@
 import React from 'react'
 import _ from 'lodash'
+import {observer} from 'mobx-react'
 import RaisedButton from 'material-ui/RaisedButton';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import ActionFavorite from 'material-ui/svg-icons/action/favorite';
@@ -7,6 +8,7 @@ import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 import $ from 'jquery'
 
 import dataStore from './store/data'
+import infoData from './store/infoData'
 
 import Paper from 'material-ui/Paper'
 
@@ -18,23 +20,6 @@ class KeyInfo extends React.Component {
     }
 
     componentDidMount() {
-        $('input[name="radio-btn"]').wrap('<div class="radio-btn"><i></i></div>');
-        $(".radio-btn").on('click', function () {
-            let _this = $(this),
-                block = _this.parent().parent();
-            block.find('input:radio').attr('checked', false);
-            block.find(".radio-btn").removeClass('checkedRadio');
-            _this.addClass('checkedRadio');
-            _this.find('input:radio').attr('checked', true);
-        });
-        $('input[name="check-box"]').wrap('<div class="check-box"><i></i></div>');
-        $.fn.toggleCheckbox = function () {
-            this.attr('checked', !this.attr('checked'));
-        }
-        $('.check-box').on('click', function () {
-            $(this).find(':checkbox').toggleCheckbox();
-            $(this).toggleClass('checkedBox');
-        });
     }
 
     confirm() {
@@ -47,13 +32,11 @@ class KeyInfo extends React.Component {
             fontSize: '18px',
             display: 'block'
         }
-        // const bigFontColod = {
-        //     color: '#3c3c3c',
-        //     fontSize: '32',
-        //     fontWeight: '600'
-        // }
 
-        // const cancer = this.props.cancer.label
+        const gender = infoData.gender
+        const age = infoData.age
+        const tumorSize = infoData.tumorSize
+        const lymphNode = infoData.lymphNode
 
         return (
             <div>
@@ -64,11 +47,26 @@ class KeyInfo extends React.Component {
                         <span style={fontColor}>性別</span>
                         <div className="Keyinfo_position" style={{display: 'flex', borderBottom: '1px #ccc solid'}}>
                             <div>
-                                <input type="checkbox" name="check-box"/>
+                                <div 
+                                    type="checkbox" 
+                                    name="check-box" 
+                                    className={gender==='male'?'check-box checkedBox':'check-box'}
+                                    onClick={()=>{infoData.setGender('male')}}
+
+                                >
+                                <i></i>
+                                </div>
                                 <label htmlFor="rb1" style={{paddingRight: '9px', position: 'relative', bottom: '6px'}}>男</label>
                             </div>
                             <div>
-                                <input type="checkbox" name="check-box"/>
+                                <div 
+                                    type="checkbox" 
+                                    name="check-box"
+                                    className={gender==='female'?'check-box checkedBox':'check-box'}
+                                    onClick={()=>{infoData.setGender('female')}}
+                                >
+                                <i></i>
+                                </div>
                                 <label htmlFor="rb2" style={{paddingRight: '9px', position: 'relative', bottom: '6px'}}>女</label>
                             </div>
                         </div>
@@ -111,4 +109,4 @@ class KeyInfo extends React.Component {
     }
 }
 
-export default KeyInfo
+export default observer(KeyInfo)
