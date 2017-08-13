@@ -73,7 +73,7 @@ class LineChart extends React.Component {
 
     render() {
         const data = this.props.data
-        if(data==[]){
+        if(data.length===0){
             return (
                 <div>
                 
