@@ -60,8 +60,32 @@ class LineChart extends React.Component {
                                 }
                             }
                         ]
+                    },
+                    animation: {
+                        onComplete: (object)=>{
+                            const chartInstance = object.chart
+                            const ctx = chartInstance.ctx;
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'bottom';
+                            console.log(ctx);
+                            this.props.data.forEach((dataset, i)=>{
+                                const meta = chartInstance.controller.getDatasetMeta(i)
+                                console.log(meta);
+                                meta.data.forEach((line, index)=>{
+                                    const data = dataset.data[index]; 
+                                    let numData = parseFloat(data)*100
+                                    let text = String(numData)                           
+                                    if(text.length>5){
+                                        text = text.substring(0,4)
+                                    }
+                                    text += '%'
+                                    ctx.fillStyle="black"
+                                    ctx.fillText(text, line._model.x+10, line._model.y + 25);
+                                });
+                            });
+                        }
                     }
-                }
+                },
             })
         }
     }
