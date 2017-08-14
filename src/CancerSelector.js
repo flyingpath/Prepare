@@ -18,18 +18,14 @@ class CancerSelector extends React.Component {
         this.selectCancer = this.selectCancer.bind(this);
     }
 
-    selectCancer(cancer) {
-        return () => {
-            _.delay(
-                () => {
-                    dataStore.setCancer(cancer)
-                    dataStore.changePageTo('info')
-                },
-                200
-            )
+    selectCancer = (cancer) => (
+        () => {dataStore.setCancer(cancer)}
+        // dataStore.changePageTo('info')
+    )
 
-        }
-    }
+    changePageToInfo = () => (
+        () => {dataStore.changePageTo('info')}
+    )
 
 
     render() {
@@ -75,10 +71,10 @@ class CancerSelector extends React.Component {
                             })
                         }
                     </RadioButtonGroup>
-                    <RaisedButton onClick={this.confirm}>
+                    <RaisedButton>
                         <span style={fontColor}>清除</span>
                     </RaisedButton>
-                    <RaisedButton onClick={this.confirm}>
+                    <RaisedButton  onTouchTap={this.changePageToInfo()}>
                         <span style={fontColor}>確認</span>
                     </RaisedButton>
                 </Paper>
