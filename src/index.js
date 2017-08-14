@@ -4,13 +4,13 @@ import App from './App'
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 
-try{
+try {
     injectTapEventPlugin()
-}catch(err){
+} catch (err) {
     console.log('使用injectTapEventPlugin出現錯誤(index.js), 錯誤資訊：', err)
 }
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+    <App/>,
+    document.getElementById('root')
 );

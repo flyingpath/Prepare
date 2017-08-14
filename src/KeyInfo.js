@@ -47,25 +47,29 @@ class KeyInfo extends React.Component {
                         <span style={fontColor}>性別</span>
                         <div className="Keyinfo_position" style={{display: 'flex', borderBottom: '1px #ccc solid'}}>
                             <div>
-                                <div 
-                                    type="checkbox" 
-                                    name="check-box" 
-                                    className={gender==='male'?'check-box checkedBox':'check-box'}
-                                    onClick={()=>{infoData.setGender('male')}}
+                                <div
+                                    type="checkbox"
+                                    name="check-box"
+                                    className={gender === 'male' ? 'check-box checkedBox' : 'check-box'}
+                                    onClick={() => {
+                                        infoData.setGender('male')
+                                    }}
 
                                 >
-                                <i></i>
+                                    <i></i>
                                 </div>
                                 <label htmlFor="rb1" style={{paddingRight: '9px', position: 'relative', bottom: '6px'}}>男</label>
                             </div>
                             <div>
-                                <div 
-                                    type="checkbox" 
+                                <div
+                                    type="checkbox"
                                     name="check-box"
-                                    className={gender==='female'?'check-box checkedBox':'check-box'}
-                                    onClick={()=>{infoData.setGender('female')}}
+                                    className={gender === 'female' ? 'check-box checkedBox' : 'check-box'}
+                                    onClick={() => {
+                                        infoData.setGender('female')
+                                    }}
                                 >
-                                <i></i>
+                                    <i></i>
                                 </div>
                                 <label htmlFor="rb2" style={{paddingRight: '9px', position: 'relative', bottom: '6px'}}>女</label>
                             </div>
