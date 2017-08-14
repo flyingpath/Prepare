@@ -19,12 +19,17 @@ class CancerSelector extends React.Component {
     }
 
     selectCancer = (cancer) => (
-        () => {dataStore.setCancer(cancer)}
+        () => {
+            dataStore.setCancer(cancer)
+            dataStore.cancerPageCheck()
+        }
         // dataStore.changePageTo('info')
     )
 
     changePageToInfo = () => (
-        () => {dataStore.changePageTo('info')}
+        () => {
+            dataStore.changePageTo('info')
+        }
     )
 
 
@@ -71,11 +76,8 @@ class CancerSelector extends React.Component {
                             })
                         }
                     </RadioButtonGroup>
-                    {/*<RaisedButton>*/}
-                        {/*<span style={fontColor}>清除</span>*/}
-                    {/*</RaisedButton>*/}
-                    <RaisedButton  onTouchTap={this.changePageToInfo()}
-                                   disabled={true}
+                    <RaisedButton onTouchTap={this.changePageToInfo()}
+                                  disabled={dataStore.confirmButton}
                     >
                         <span style={fontColor}>確認</span>
                     </RaisedButton>

@@ -10,6 +10,8 @@ class DataStore {
     page = 'cancer' // -- cancer, info, featureAndReport
     @observable
     routePageClass = "prepare_route_page_forward" // -- cancer, info, featureAndReport
+    @observable
+    confirmButton = true
 
     @action
     changePageTo(page) {
@@ -46,11 +48,18 @@ class DataStore {
             'featureAndReport'
         ]
         const index = pageList.indexOf(nowPage)
-        if (index!==0) {
+        if (index !== 0) {
             this.page = pageList[index - 1]
         }
     }
 
+    @action
+    cancerPageCheck() {
+     const nowPage = this.page
+        if(nowPage == 'cancer') {
+            this.confirmButton = false
+        }
+    }
 }
 
 var dataStore = new DataStore()
