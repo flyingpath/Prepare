@@ -145,7 +145,8 @@ class Report extends React.Component {
                             label: idx === 0 ? '沒做化學治療' : '有做化學治療',
                             data: eachData,
                             borderWidth: borderWidth,
-                            fill: fill
+                            fill: fill,
+                            lineTension: 0
                         }
                     )
                 })
@@ -159,7 +160,8 @@ class Report extends React.Component {
                             label: idx === 0 ? '沒做電療' : '有做電療',
                             data: eachData,
                             borderWidth: borderWidth,
-                            fill: fill
+                            fill: fill,
+                            lineTension: 0
                         }
                     )
                 })
@@ -173,7 +175,8 @@ class Report extends React.Component {
                             label: idx === 0 ? '沒做賀爾蒙治療' : '有做賀爾蒙治療',
                             data: eachData,
                             borderWidth: borderWidth,
-                            fill: fill
+                            fill: fill,
+                            lineTension: 0
                         }
                     )
                 })
