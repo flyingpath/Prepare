@@ -71,10 +71,12 @@ class CancerSelector extends React.Component {
                             })
                         }
                     </RadioButtonGroup>
-                    <RaisedButton>
-                        <span style={fontColor}>清除</span>
-                    </RaisedButton>
-                    <RaisedButton  onTouchTap={this.changePageToInfo()}>
+                    {/*<RaisedButton>*/}
+                        {/*<span style={fontColor}>清除</span>*/}
+                    {/*</RaisedButton>*/}
+                    <RaisedButton  onTouchTap={this.changePageToInfo()}
+                                   disabled={true}
+                    >
                         <span style={fontColor}>確認</span>
                     </RaisedButton>
                 </Paper>
