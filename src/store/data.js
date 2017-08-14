@@ -55,10 +55,7 @@ class DataStore {
 
     @action
     cancerPageCheck() {
-        const nowPage = this.page
-        if (nowPage == 'cancer') {
             this.confirmButton = false
-        }
     }
 }
 
