@@ -10,6 +10,7 @@ import Paper from 'material-ui/Paper'
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import ActionFavorite from 'material-ui/svg-icons/action/favorite';
 import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class CancerSelector extends React.Component {
     constructor(props) {
@@ -33,6 +34,11 @@ class CancerSelector extends React.Component {
 
     render() {
         const cancerList = this.props.viewer.cancers
+        const fontColor = {
+            color: '#3c3c3c',
+            fontSize: '18px',
+            display: 'block'
+        }
 
         const styles = {
             block: {
@@ -56,20 +62,27 @@ class CancerSelector extends React.Component {
                                 const label = eachCancer.label
                                 const value = eachCancer.value
                                 return (
-                                        <RadioButton
-                                            value={value}
-                                            label={label}
-                                            checkedIcon={<ActionFavorite/>}
-                                            uncheckedIcon={<ActionFavoriteBorder/>}
-                                            style={styles.radioButton}
-                                            key={`cancerType${idx}`}
-                                            onTouchTap={this.selectCancer(eachCancer)}
-                                        />
+                                    <RadioButton
+                                        value={value}
+                                        label={label}
+                                        checkedIcon={<ActionFavorite/>}
+                                        uncheckedIcon={<ActionFavoriteBorder/>}
+                                        style={styles.radioButton}
+                                        key={`cancerType${idx}`}
+                                        onTouchTap={this.selectCancer(eachCancer)}
+                                    />
                                 )
                             })
                         }
                     </RadioButtonGroup>
+                    <RaisedButton onClick={this.confirm}>
+                        <span style={fontColor}>清除</span>
+                    </RaisedButton>
+                    <RaisedButton onClick={this.confirm}>
+                        <span style={fontColor}>確認</span>
+                    </RaisedButton>
                 </Paper>
+
             </div>
         )
     }

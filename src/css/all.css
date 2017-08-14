@@ -293,7 +293,7 @@ body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset,
   padding: 0; }
 
 .Select, .Select--single, .is-clearable, .is-searchable {
-  margin: 13px 30px; }
+  margin: 4%; }
 
 .Paper_container {
   margin: 4%;
@@ -324,14 +324,6 @@ body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset,
   transform: translate3d(0, 0, 0);
   transition: all 1000ms; }
 
-/* .prepare_route_page-leave {
-  opacity: 1;
-}
-
-.prepare_route_page-leave.prepare_route_page-leave-active {
-  opacity: 0.01;
-  transition: opacity 1000ms ease-in;
-} */
 /*= input focus effects css
 /*= input focus effects css
 =========================== */

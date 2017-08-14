@@ -14,7 +14,7 @@ class CircleLoading extends React.Component {
 
     render() {
         return (
-            <div className="loading" />
+            <div className="loading"/>
         );
     }
 }
