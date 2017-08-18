@@ -201,7 +201,8 @@ class Report extends React.Component {
             data = this.props.viewer.survival.data;
         }
 
-        const feature = this.props.feature
+        // const feature = this.props.feature
+        const feature = 'op'
         const chartData = this.makeChartData(feature, data)
 
         return (
