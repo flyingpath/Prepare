@@ -52,74 +52,72 @@ class Report extends React.Component {
         const borderWidth = 5
         const fill = false
 
-    switch(feature){
-      case 'op'://(手術)
-        styles = [
-          {
+        switch (feature) {
+            case 'op'://(手術)
+                styles = [
+                    {}
+                ]
 
-          }
-        ]
+                sData = [[0.65, 0.59, 0.90, 0.81, 0.56, 0.55, 0.40], [0.50, 0.50, 0.59, 0.50, 0.50, 0.50, 0.59]]
 
-        sData = [[0.65, 0.59, 0.90, 0.81, 0.56, 0.55, 0.40],[0.50,0.50,0.59,0.50,0.50,0.50,0.59 ]]
+                dataSet = _.map(sData, (eachData, idx) => {
+                    return (
+                        {
+                            label: idx === 0 ? '沒做手術治療' : '有做手術治療',
+                            data: eachData,
+                            borderWidth: 5,
+                            lineTension: 0,
+                            fill: false
+                        }
+                    )
+                })
 
-        dataSet = _.map(sData, (eachData, idx)=>{
-          return(
-            {
-              label: idx===0?'沒做手術治療':'有做手術治療',
-              data: eachData,
-              borderWidth: 5,
-              lineTension: 0,
-              fill: false
-            }
-          )
-        })
+                let chart1 = document.createElement('canvas').getContext('2d'),
+                    gradient1 = chart1.createLinearGradient(0, 0, 0, 450);
 
-        let chart1 = document.createElement('canvas').getContext('2d'),
-            gradient1 = chart1.createLinearGradient(0, 0, 0, 450);
+                gradient1.addColorStop(0, 'rgba(52, 152, 219, 0.75)');
+                gradient1.addColorStop(0.5, 'rgba(52, 152, 219, 0.50)');
+                gradient1.addColorStop(1, 'rgba(52, 152, 219, 0.25)');
 
-        gradient1.addColorStop(0, 'rgba(52, 152, 219, 0.75)');
-        gradient1.addColorStop(0.5, 'rgba(52, 152, 219, 0.50)');
-        gradient1.addColorStop(1, 'rgba(52, 152, 219, 0.25)');
+                let chart2 = document.createElement('canvas').getContext('2d'),
+                    gradient2 = chart2.createLinearGradient(0, 0, 0, 450);
 
-        let chart2 = document.createElement('canvas').getContext('2d'),
-            gradient2 = chart2.createLinearGradient(0, 0, 0, 450);
+                gradient2.addColorStop(0, 'rgba(231, 76, 60, 0.75)');
+                gradient2.addColorStop(0.5, 'rgba(231, 76, 60, 0.50)');
+                gradient2.addColorStop(1, 'rgba(231, 76, 60, 0.25)');
 
-        gradient2.addColorStop(0, 'rgba(231, 76, 60, 0.75)');
-        gradient2.addColorStop(0.5, 'rgba(231, 76, 60, 0.50)');
-        gradient2.addColorStop(1, 'rgba(231, 76, 60, 0.25)');
-
-        // switch (feature) {
-        //     case 'op'://(手術)
-        //         styles = [
-        //             {
-        //                 backgroundColor: gradient1,
-        //                 // label: "Data",
-        //                 borderColor: "#6590f4",
-        //                 pointBorderColor: "#f4009c",
-        //                 pointBackgroundColor: "#13f400",
-        //                 pointHoverBackgroundColor: "#f4e100",
-        //                 pointHoverBorderColor: "#9200f4",
-        //                 pointBorderWidth: 10,
-        //                 pointHoverRadius: 20,
-        //                 pointHoverBorderWidth: 30,
-        //                 pointRadius: 5,
-        //             },
-        //             {
-        //                 backgroundColor: gradient2,
-        //             }
-        //
-        //         ]
-        //
-        //         dataSet = _.map(sData, (eachData, idx) => {
-        //             return (
-        //                 {
-        //                     label: idx === 0 ? '沒做手術治療' : '有做手術治療',
-        //                     data: eachData,
-        //                     borderWidth: borderWidth,
-        //                     fill: fill
-        //                 }
-        //             )
-        //         })
+                // switch (feature) {
+                //     case 'op'://(手術)
+                //         styles = [
+                //             {
+                //                 backgroundColor: gradient1,
+                //                 // label: "Data",
+                //                 borderColor: "#6590f4",
+                //                 pointBorderColor: "#f4009c",
+                //                 pointBackgroundColor: "#13f400",
+                //                 pointHoverBackgroundColor: "#f4e100",
+                //                 pointHoverBorderColor: "#9200f4",
+                //                 pointBorderWidth: 10,
+                //                 pointHoverRadius: 20,
+                //                 pointHoverBorderWidth: 30,
+                //                 pointRadius: 5,
+                //             },
+                //             {
+                //                 backgroundColor: gradient2,
+                //             }
+                //
+                //         ]
+                //
+                //         dataSet = _.map(sData, (eachData, idx) => {
+                //             return (
+                //                 {
+                //                     label: idx === 0 ? '沒做手術治療' : '有做手術治療',
+                //                     data: eachData,
+                //                     borderWidth: borderWidth,
+                //                     fill: fill
+                //                 }
+                //             )
+                //         })
 
                 finalData = this.combindStyle(styles, dataSet)
 
