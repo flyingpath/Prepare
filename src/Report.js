@@ -44,8 +44,8 @@ class Report extends React.Component {
 
     makeChartData(feature, data) {
         console.log(data);
-        const fData = _.map(data, x => x.survival)
-        const sData = _.map(fData, x => _.map(x, y => y.rate))
+        let fData = _.map(data, x => x.survival)
+        let sData = _.map(fData, x => _.map(x, y => y.rate))
         let dataSet = []
         let finalData = []
         let styles = []
@@ -56,25 +56,12 @@ class Report extends React.Component {
       case 'op'://(手術)
         styles = [
           {
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-              'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-              'rgba(255,99,132,1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)',
-              'rgba(75, 192, 192, 1)',
-              'rgba(153, 102, 255, 1)',
-              'rgba(255, 159, 64, 1)'
-            ]
+
           }
-        ]        
-        
+        ]
+
+        sData = [[0.65, 0.59, 0.90, 0.81, 0.56, 0.55, 0.40],[0.50,0.50,0.59,0.50,0.50,0.50,0.59 ]]
+
         dataSet = _.map(sData, (eachData, idx)=>{
           return(
             {
@@ -84,9 +71,9 @@ class Report extends React.Component {
               lineTension: 0,
               fill: false
             }
-          ) 
+          )
         })
-          
+
         let chart1 = document.createElement('canvas').getContext('2d'),
             gradient1 = chart1.createLinearGradient(0, 0, 0, 450);
 
