@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import AppBar from 'material-ui/AppBar';
 import Avatar from 'material-ui/Avatar';
 // import Drawer from 'material-ui/Drawer';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import prepareTheme from './theme/prepare_theme'
 // import MenuItem from 'material-ui/MenuItem';
-import { observer } from 'mobx-react'
+import {observer} from 'mobx-react'
 import environment from './store/createRelayEnvironment';
 import {
     QueryRenderer,
@@ -28,15 +28,13 @@ class App extends Component {
     }
 
 
-
-    drawerToggle(){
+    drawerToggle() {
         const status = this.state.drawer
         this.setState({
             drawer: !status
         })
     }
 
-    
 
     render() {
 
@@ -44,12 +42,12 @@ class App extends Component {
         const cancer = dataStore.cancer
         const feature = dataStore.feature
 
-        
+
         return (
             <div className="App" id='prepare-app-root'>
                 <QueryRenderer
                     environment={environment}
-                    variables={{ cancer: cancer.value, feature: feature }}
+                    variables={{cancer: cancer.value, feature: feature}}
                     query={graphql.experimental`
                         query AppQuery ($cancer:String, $feature:String){
                             viewer {
@@ -59,14 +57,15 @@ class App extends Component {
                             }
                         }
                     `}
-                    render={({ error, props }) => {
+                    render={({error, props}) => {
                         if (error) {
                             return <div>{error.message}</div>;
                         } else {
                             return (
                                 <MuiThemeProvider muiTheme={prepareTheme}>
                                     <div>
-                                        <AppBar title="PREPARE" onLeftIconButtonTouchTap={()=>{}} >
+                                        <AppBar title="PREPARE" onLeftIconButtonTouchTap={() => {
+                                        }}>
                                             <Avatar
                                                 className="AvatarPics"
                                                 size={30}
@@ -79,13 +78,13 @@ class App extends Component {
                                                 }}
                                             />
                                         </AppBar>
-                                             <Route
-                                                page={page}
-                                                cancer={cancer} 
-                                                feature={feature}
-                                                inherit={props} 
-                                            />
-                                        </div>
+                                        <Route
+                                            page={page}
+                                            cancer={cancer}
+                                            feature={feature}
+                                            inherit={props}
+                                        />
+                                    </div>
                                 </MuiThemeProvider>
                             )
                         }

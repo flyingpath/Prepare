@@ -55,7 +55,7 @@ class DataStore {
 
     @action
     cancerPageCheck() {
-            this.confirmButton = false
+        this.confirmButton = false
     }
 }
 
