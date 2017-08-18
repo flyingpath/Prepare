@@ -85,7 +85,7 @@ class KeyInfo extends React.Component {
                         </div>
                     </div>
                     <div className="Keyinfo_position">
-                        <span style={fontColor}>腫瘤大小(公分)</span>
+                        <span style={fontColor}>腫瘤大小</span>
                         <div className="col-3">
                             <input className="effect-5" type="text" placeholder="Size"/>
                             <span className="focus-border">
@@ -94,7 +94,7 @@ class KeyInfo extends React.Component {
                         </div>
                     </div>
                     <div className="Keyinfo_position">
-                        <span style={fontColor}>感染淋巴結數量(個數)</span>
+                        <span style={fontColor}>感染淋巴結數量</span>
                         <div className="col-3">
                             <input className="effect-5" type="text" placeholder="Count"/>
                             <span className="focus-border">
