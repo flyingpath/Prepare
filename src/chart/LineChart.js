@@ -74,7 +74,8 @@ class LineChart extends React.Component {
                                 const ctx = chartInstance.ctx;
                                 ctx.textAlign = 'center';
                                 ctx.textBaseline = 'bottom';
-                                this.props.data.forEach((dataset, i)=>{
+                                const allLineData = this.props.data
+                                allLineData.forEach((dataset, i)=>{
                                     const meta = chartInstance.controller.getDatasetMeta(i)
                                     meta.data.forEach((line, index)=>{
                                         const data = dataset.data[index]; 
@@ -83,10 +84,19 @@ class LineChart extends React.Component {
                                         text += '%'
                                         ctx.fillStyle="black"
                                         
-                                        let deltaX, deltaY
-
-                                        if(i==0) {deltaX = +10; deltaY = -10}
-                                        else{ deltaX = +10; deltaY = +20 }
+                                        let deltaX, deltaY,anotherData
+                                    //---- 分上下
+                                        if(i==0) {
+                                            anotherData = allLineData[1].data
+                                        }else{
+                                            anotherData = allLineData[0].data
+                                        }
+                                        if(parseFloat(anotherData[index])>parseFloat(data)){
+                                            deltaX = +10; 
+                                            deltaY = +20
+                                        }else{ deltaX = +10; deltaY = -10 }
+                                    //----------------
+                                    //---- 左右微調    
                                         if(index == 0){
                                             deltaX += 5
                                         }else if(index == 4){
