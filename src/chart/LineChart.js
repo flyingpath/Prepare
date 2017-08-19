@@ -8,7 +8,7 @@ class LineChart extends React.Component {
         this.state = {
         }
         this.renderChart = this.renderChart.bind(this)
-        // this.lineChart
+        this.lineChartIsRender = false
     }
 
     componentDidMount(){
@@ -56,33 +56,47 @@ class LineChart extends React.Component {
                                     labelString: ['存活率']
                                 },
                                 ticks: {
-                                    fontSize: 14
+                                    fontSize: 14,
+                                    min: 0,
+                                    max: 1
                                 }
                             }
-                        ]
+                        ],
                     },
+                    tooltips:{
+                        enabled: false
+                    },
+                    events:[],
                     animation: {
                         onComplete: (object)=>{
-                            const chartInstance = object.chart
-                            const ctx = chartInstance.ctx;
-                            ctx.textAlign = 'center';
-                            ctx.textBaseline = 'bottom';
-                            console.log(ctx);
-                            this.props.data.forEach((dataset, i)=>{
-                                const meta = chartInstance.controller.getDatasetMeta(i)
-                                console.log(meta);
-                                meta.data.forEach((line, index)=>{
-                                    const data = dataset.data[index]; 
-                                    let numData = parseFloat(data)*100
-                                    let text = String(numData)                           
-                                    if(text.length>5){
-                                        text = text.substring(0,4)
-                                    }
-                                    text += '%'
-                                    ctx.fillStyle="black"
-                                    ctx.fillText(text, line._model.x+10, line._model.y + 25);
-                                });
-                            });
+                            if(!this.lineChartIsRender){
+                                const chartInstance = object.chart
+                                const ctx = chartInstance.ctx;
+                                ctx.textAlign = 'center';
+                                ctx.textBaseline = 'bottom';
+                                this.props.data.forEach((dataset, i)=>{
+                                    const meta = chartInstance.controller.getDatasetMeta(i)
+                                    meta.data.forEach((line, index)=>{
+                                        const data = dataset.data[index]; 
+                                        let numData = Math.round(parseFloat(data)*100)
+                                        let text = String(numData)                           
+                                        text += '%'
+                                        ctx.fillStyle="black"
+                                        
+                                        let deltaX, deltaY
+
+                                        if(i==0) {deltaX = +10; deltaY = -10}
+                                        else{ deltaX = +10; deltaY = +20 }
+                                        if(index == 0){
+                                            deltaX += 5
+                                        }else if(index == 4){
+                                            deltaX -= 15
+                                        }
+
+                                        ctx.fillText(text, line._model.x+deltaX, line._model.y + deltaY);
+                                    })
+                                })
+                            }
                         }
                     }
                 },
@@ -109,7 +123,7 @@ class LineChart extends React.Component {
                 <canvas
                     id = 'prepare-line-chart' 
                     ref={(div)=>this.lineChart = div} 
-                    style={{width:'300px', height:'200px'}}
+                    style={{width:'250px', height:'20rem'}}
                 >
                 </canvas>
             )

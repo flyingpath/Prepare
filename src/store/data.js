@@ -5,11 +5,11 @@ class DataStore {
     @observable
     cancer = {}
     @observable
-    feature = ''
+    feature = 'op'
     @observable
-    page = 'cancer' // -- cancer, info, featureAndReport
+    page = 'featureAndReport' // -- cancer, info, featureAndReport
     @observable
-    routePageClass = "prepare_route_page_forward" // -- cancer, info, featureAndReport
+    routePageClass = "prepare_route_page_forward" 
     @observable
     confirmButton = true
 
