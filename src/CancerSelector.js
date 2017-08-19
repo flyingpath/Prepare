@@ -70,13 +70,13 @@ class CancerSelector extends React.Component {
                                         uncheckedIcon={<ActionFavoriteBorder/>}
                                         style={styles.radioButton}
                                         key={`cancerType${idx}`}
-                                        onTouchTap={this.selectCancer(eachCancer)}
+                                        onClick={this.selectCancer(eachCancer)}
                                     />
                                 )
                             })
                         }
                     </RadioButtonGroup>
-                    <RaisedButton onTouchTap={this.changePageToInfo()}
+                    <RaisedButton onClick={this.changePageToInfo()}
                                   disabled={dataStore.confirmButton}
                     >
                         <span style={fontColor}>確認</span>
