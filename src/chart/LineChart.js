@@ -67,6 +67,18 @@ class LineChart extends React.Component {
                         enabled: false
                     },
                     events:[],
+                    legend:{
+                        position:'bottom',
+                        labels:{
+                            boxWidth:20,
+                        },
+                    },
+                    layout: {
+                        padding: {
+                            right: 5,
+                            top:20
+                        }
+                    },
                     animation: {
                         onComplete: (object)=>{
                             if(!this.lineChartIsRender){
