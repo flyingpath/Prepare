@@ -71,8 +71,11 @@ class App extends Component {
                                             flexFlow: 'column', 
                                             alignItems: 'stretch'
                                         }}>
-                                        <AppBar title="PREPARE" onLeftIconButtonTouchTap={() => {
-                                        }}>
+                                        <AppBar 
+                                            title="PREPARE" 
+                                            onLeftIconButtonTouchTap={() => {}}
+                                            style={{height:'60px'}}
+                                        >
                                             <Avatar
                                                 className="AvatarPics"
                                                 size={30}
