@@ -72,17 +72,19 @@ class Report extends React.Component {
                         backgroundColor: gradient1,
                         // label: "Data",
                         borderColor: "#6590f4",
-                        pointBorderColor: "#f4009c",
-                        pointBackgroundColor: "#13f400",
-                        pointHoverBackgroundColor: "#f4e100",
-                        pointHoverBorderColor: "#9200f4",
-                        pointBorderWidth: 10,
-                        pointHoverRadius: 20,
-                        pointHoverBorderWidth: 30,
-                        pointRadius: 5,
+                        pointBorderColor: "#50e3c2",
+                        pointBackgroundColor: "#50e3c2",
+                        pointBorderWidth: 4,
+                        pointRadius: 4,
                     },
                     {
+
                         backgroundColor: gradient2,
+                        borderColor: "#ef4a4a",
+                        pointBorderColor: "#e3d282",
+                        pointBackgroundColor: "#e3d282",
+                        pointBorderWidth: 4,
+                        pointRadius: 4,
                     }
                 ]
 
