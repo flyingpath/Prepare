@@ -49,7 +49,7 @@ class Report extends React.Component {
         let dataSet = []
         let finalData = []
         let styles = []
-        const borderWidth = 5
+        const borderWidth = 3
         const fill = false
         let chart1 = document.createElement('canvas').getContext('2d'),
             gradient1 = chart1.createLinearGradient(0, 0, 0, 450);
@@ -99,7 +99,7 @@ class Report extends React.Component {
                         {
                             label: idx === 0 ? '沒做手術治療' : '有做手術治療',
                             data: eachData,
-                            borderWidth: 3,
+                            borderWidth: borderWidth,
                             lineTension: 0,
                             fill: fill
                         }
