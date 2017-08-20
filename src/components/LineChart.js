@@ -145,7 +145,7 @@ class LineChart extends React.Component {
                 <canvas
                     id = 'prepare-line-chart' 
                     ref={(div)=>this.lineChart = div} 
-                    style={{width:'250px', height:'19rem'}}
+                    style={{width:'250px', height:'15rem'}}
                 >
                 </canvas>
             )
