@@ -6,8 +6,8 @@ import Rx from 'rxjs';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import CancerSelector from './CancerSelector';
 import KeyInfo from './KeyInfo'
-import FeatureSelector from './FeatureSelector';
-import Report from './Report';
+import FeatureAndReport from './FeatureAndReport'
+
 import dataStore from './store/data'
 
 
@@ -89,21 +89,13 @@ class Route extends React.Component {
                 )
             } else if (page === 'featureAndReport') {
                 this.content = (
-                    <div key='featureAndReport'>
-                        <FeatureSelector
-                            key='featureSelect'
-                            cancer={cancer}
-                            feature={feature}
-                            viewer={viewer}
-                        />
-                        <Report
-                            key='report'
-                            cancer={cancer}
-                            feature={feature}
-                            viewer={viewer}
-                            loading={loading}
-                        />
-                    </div>
+                    <FeatureAndReport 
+                        key='featureAndReport'
+                        cancer={cancer}
+                        feature={feature}
+                        viewer={viewer}
+                        loading={loading}
+                    />
                 )
             }
         }
