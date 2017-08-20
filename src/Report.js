@@ -50,43 +50,47 @@ class Report extends React.Component {
         let finalData = []
         let styles = []
         const borderWidth = 5
-        const fill = true
+        const fill = false
+        let chart1 = document.createElement('canvas').getContext('2d'),
+            gradient1 = chart1.createLinearGradient(0, 0, 0, 450);
+
+        gradient1.addColorStop(0, 'rgba(52, 152, 219, 0.75)');
+        gradient1.addColorStop(0.5, 'rgba(52, 152, 219, 0.50)');
+        gradient1.addColorStop(1, 'rgba(52, 152, 219, 0.25)');
+
+        let chart2 = document.createElement('canvas').getContext('2d'),
+            gradient2 = chart2.createLinearGradient(0, 0, 0, 450);
+
+        gradient2.addColorStop(0, 'rgba(231, 76, 60, 0.75)');
+        gradient2.addColorStop(0.5, 'rgba(231, 76, 60, 0.50)');
+        gradient2.addColorStop(1, 'rgba(231, 76, 60, 0.25)');
+
+        const stylesArray = [
+            {
+                backgroundColor: gradient1,
+                // label: "Data",
+                borderColor: "#6590f4",
+                pointBorderColor: "#50e3c2",
+                pointBackgroundColor: "#50e3c2",
+                pointBorderWidth: 3,
+                pointRadius: 3,
+            },
+            {
+
+                backgroundColor: gradient2,
+                borderColor: "#ef4a4a",
+                pointBorderColor: "#ffd73e",
+                pointBackgroundColor: "#ffd73e",
+                pointBorderWidth: 3,
+                pointRadius: 3,
+            }
+        ]
+
 
         switch (feature) {
             case 'op'://(手術)
-                let chart1 = document.createElement('canvas').getContext('2d'),
-                    gradient1 = chart1.createLinearGradient(0, 0, 0, 450);
 
-                gradient1.addColorStop(0, 'rgba(52, 152, 219, 0.75)');
-                gradient1.addColorStop(0.5, 'rgba(52, 152, 219, 0.50)');
-                gradient1.addColorStop(1, 'rgba(52, 152, 219, 0.25)');
-
-                let chart2 = document.createElement('canvas').getContext('2d'),
-                    gradient2 = chart2.createLinearGradient(0, 0, 0, 450);
-
-                gradient2.addColorStop(0, 'rgba(231, 76, 60, 0.75)');
-                gradient2.addColorStop(0.5, 'rgba(231, 76, 60, 0.50)');
-                gradient2.addColorStop(1, 'rgba(231, 76, 60, 0.25)');
-                styles = [
-                    {
-                        backgroundColor: gradient1,
-                        // label: "Data",
-                        borderColor: "#6590f4",
-                        pointBorderColor: "#50e3c2",
-                        pointBackgroundColor: "#50e3c2",
-                        pointBorderWidth: 4,
-                        pointRadius: 4,
-                    },
-                    {
-
-                        backgroundColor: gradient2,
-                        borderColor: "#ef4a4a",
-                        pointBorderColor: "#e3d282",
-                        pointBackgroundColor: "#e3d282",
-                        pointBorderWidth: 4,
-                        pointRadius: 4,
-                    }
-                ]
+                styles = stylesArray
 
                 // sData = [[0.65, 0.59, 0.90, 0.81, 0.56, 0.55, 0.40], [0.50, 0.50, 0.59, 0.50, 0.50, 0.50, 0.59]]
 
@@ -95,7 +99,7 @@ class Report extends React.Component {
                         {
                             label: idx === 0 ? '沒做手術治療' : '有做手術治療',
                             data: eachData,
-                            borderWidth: 5,
+                            borderWidth: 3,
                             lineTension: 0,
                             fill: fill
                         }
@@ -107,6 +111,9 @@ class Report extends React.Component {
                 return finalData
 
             case 'ct'://(化療)
+
+                styles = stylesArray
+
                 dataSet = _.map(sData, (eachData, idx) => {
                     return (
                         {
@@ -122,6 +129,9 @@ class Report extends React.Component {
                 return finalData
 
             case 'rt'://(電療)
+
+                styles = stylesArray
+
                 dataSet = _.map(sData, (eachData, idx) => {
                     return (
                         {
@@ -137,6 +147,9 @@ class Report extends React.Component {
                 return finalData
 
             case 'ht'://(賀爾蒙治療)
+
+                styles = stylesArray
+
                 dataSet = _.map(sData, (eachData, idx) => {
                     return (
                         {
@@ -168,7 +181,7 @@ class Report extends React.Component {
             _.delay(() => {
                 this.loadStatus = false
                 this.forceUpdate()
-            }, 1)
+            }, 1200)
         }
 
         if (this.loadStatus) {
