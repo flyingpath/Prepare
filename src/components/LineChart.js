@@ -76,7 +76,7 @@ class LineChart extends React.Component {
                     layout: {
                         padding: {
                             right: 5,
-                            top:20
+                            top:30
                         }
                     },
                     animation: {
@@ -145,7 +145,7 @@ class LineChart extends React.Component {
                 <canvas
                     id = 'prepare-line-chart' 
                     ref={(div)=>this.lineChart = div} 
-                    style={{width:'250px', height:'20rem'}}
+                    style={{width:'250px', height:'19rem'}}
                 >
                 </canvas>
             )

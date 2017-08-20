@@ -1,7 +1,7 @@
 import React from 'react';
 import 'react-select/dist/react-select.css';
 import TestLoading from './test_loading'
-import LineChart from './chart/LineChart';
+import LineChart from './components/LineChart';
 import * as Chart from 'chart.js'
 import Paper from 'material-ui/Paper'
 import {
