@@ -44,13 +44,23 @@ class KeyInfo extends React.Component {
                 <div style={{
                     padding: '1% 5% 1% 5%',
                     textAlign: 'right',
-                    fontSize: '1.3rem',
+                    fontSize: '1.1rem',
                     fontWeight: 'bold'
                 }}>
                     {cancer}
                 </div>
-                <h1 style={{padding: '1%', margin: '0% 4% 4% 4%', fontWeight: '600'}}>請輸入基本資料</h1>
-                <Paper className="Paper_container" style={{backgroundColor: '#fff'}}>
+                <h1 style={{
+                    padding: '1%', 
+                    margin: '0% 4% 0% 4%', 
+                    fontWeight: '600',
+                    fontSize: '1.4rem',
+                }}>請輸入基本資料</h1>
+                <Paper className="Paper_container" 
+                    style={{
+                        backgroundColor: '#fff',
+                        marginTop: 0,
+                        paddingTop: '2px',
+                    }}>
                     <div className="Keyinfo_position">
                         <span style={fontColor}>性別</span>
                         <div className="Keyinfo_position" style={{display: 'flex', borderBottom: '1px #ccc solid'}}>
