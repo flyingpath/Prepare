@@ -26,7 +26,7 @@ class FeatureAndReport extends React.Component {
 
         return (
             <div>
-                <h1 style={{padding: '1%', margin: '4%', fontWeight: '600', fontSize:'1.4rem'}}>
+                <h1 className='h1Title'>
                     {cancer.label}
                 </h1>
                 <FeatureSelector

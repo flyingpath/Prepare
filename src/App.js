@@ -16,6 +16,7 @@ import Route from './Route'
 import dataStore from './store/data';
 
 import './css/all.css'
+import './css/tao_css.css'
 
 @observer
 class App extends Component {
@@ -63,7 +64,7 @@ class App extends Component {
                         } else {
                             return (
                                 <MuiThemeProvider muiTheme={prepareTheme}>
-                                    <div>
+                                    <div style={{height:'100%'}}>
                                         <AppBar title="PREPARE" onLeftIconButtonTouchTap={() => {
                                         }}>
                                             <Avatar

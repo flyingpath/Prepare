@@ -1,0 +1,18 @@
+#root {
+    height: 100%
+}
+#prepare-app-root{
+    height: 100%
+}
+.page_test{
+    height: 100%
+}
+.page_test>span>div{
+    height: 100%
+}
+.h1Title{
+   padding: 1%; 
+   margin: 4%; 
+   font-weight: 600;
+   font-size:1.4rem;
+}
