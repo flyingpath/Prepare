@@ -18,6 +18,7 @@ class Route extends React.Component {
         this.handleClick = this.handleClick.bind(this)
 
         this.timeCount = false
+        this.ableBack = true
         // this.inherit
     }
 
@@ -40,7 +41,7 @@ class Route extends React.Component {
             const startX = this.x
             const endX = e.touches[0].clientX
 
-            if ((endX - startX > 50) && this.timeCount) {
+            if ((endX - startX > 50) && this.timeCount && this.ableBack) {
                 dataStore.setRouteDirection('backward')
                 dataStore.goToPrePage()
                 dataStore.setRouteDirection('forward')
@@ -50,7 +51,13 @@ class Route extends React.Component {
 
 
     }
-
+    componentWillUpdate(){
+        this.ableBack = false
+        _.delay(
+            ()=>this.ableBack = true,
+            1000
+        )
+    }
     handleClick() {
         console.log(this); // React Component instance
     }
