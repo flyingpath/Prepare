@@ -76,7 +76,7 @@ class LineChart extends React.Component {
                     layout: {
                         padding: {
                             right: 5,
-                            top:20
+                            top:30
                         }
                     },
                     animation: {
