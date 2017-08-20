@@ -37,11 +37,19 @@ class KeyInfo extends React.Component {
         const age = infoData.age
         const tumorSize = infoData.tumorSize
         const lymphNode = infoData.lymphNode
+        const cancer = this.props.cancer.label
 
         return (
             <div>
-                {/*<h1 style={{padding: '1%', margin: '4%', fontWeight: '600'}}>{cancer}</h1>*/}
-                <h1 style={{padding: '1%', margin: '4%', fontWeight: '600'}}>請輸入基本資料</h1>
+                <div style={{
+                    padding: '1% 5% 1% 5%',
+                    textAlign: 'right',
+                    fontSize: '1.3rem',
+                    fontWeight: 'bold'
+                }}>
+                    {cancer}
+                </div>
+                <h1 style={{padding: '1%', margin: '0% 4% 4% 4%', fontWeight: '600'}}>請輸入基本資料</h1>
                 <Paper className="Paper_container" style={{backgroundColor: '#fff'}}>
                     <div className="Keyinfo_position">
                         <span style={fontColor}>性別</span>
