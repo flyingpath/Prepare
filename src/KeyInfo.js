@@ -49,7 +49,7 @@ class KeyInfo extends React.Component {
                 {/*}}>*/}
                     {/*{cancer}*/}
                 {/*</div>*/}
-                <h1 style={{padding: '1%', margin: '4%', fontWeight: '600'}}>請輸入基本資料({cancer})</h1>
+                <h1 style={{padding: '1%', margin: '4%', fontWeight: '600'}}>請輸入基本資料</h1>
                 <Paper className="Paper_container"
                        style={{
                            backgroundColor: '#fff',
@@ -98,7 +98,7 @@ class KeyInfo extends React.Component {
                         </div>
                     </div>
                     <div className="Keyinfo_position">
-                        <span style={fontColor}>腫瘤大小(公分)</span>
+                        <span style={fontColor}>{cancer}腫瘤大小(公分)</span>
                         <div className="col-3">
                             <input className="effect-5" type="text" placeholder="Size"/>
                             <span className="focus-border">
