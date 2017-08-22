@@ -112,7 +112,7 @@ class LineChart extends React.Component {
                                         if(index == 0){
                                             deltaX += 5
                                         }else if(index == 5){
-                                            deltaX -= 15
+                                            deltaX -= 17
                                         }
 
                                         ctx.fillText(text, line._model.x+deltaX, line._model.y + deltaY);
