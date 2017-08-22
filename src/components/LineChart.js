@@ -111,7 +111,7 @@ class LineChart extends React.Component {
                                     //---- 左右微調    
                                         if(index == 0){
                                             deltaX += 5
-                                        }else if(index == 4){
+                                        }else if(index == 5){
                                             deltaX -= 15
                                         }
 
