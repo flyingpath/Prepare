@@ -27,7 +27,7 @@ class LineChart extends React.Component {
             const myChart = new Chart(this.lineChart, {
                 type: 'line',
                 data: {
-                    labels: ['1', '2', '3', '4', '5' ],
+                    labels: [ '0', '1', '2', '3', '4', '5' ],
                     datasets: dataSets
                 },
                 options:{
