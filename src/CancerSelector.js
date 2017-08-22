@@ -35,6 +35,7 @@ class CancerSelector extends React.Component {
 
     render() {
         const cancerList = this.props.viewer.cancers
+        const cancer = dataStore.cancer.value
         const fontColor = {
             color: '#3c3c3c',
             fontSize: '18px',
@@ -52,12 +53,11 @@ class CancerSelector extends React.Component {
 
         return (
             <div>
-                <h1 style={{padding: '1%', margin: '4%', fontWeight: '600'}}>
+                <h1 className = 'h1Title'>
                     選擇一個癌症
                 </h1>
-
                 <Paper className="Paper_container" style={{backgroundColor: '#fff'}}>
-                    <RadioButtonGroup name="prepare_cancerSelect_group">
+                    <RadioButtonGroup name="prepare_cancerSelect_group" defaultSelected={cancer}>
                         {
                             _.map(cancerList, (eachCancer, idx) => {
                                 const label = eachCancer.label
@@ -70,13 +70,13 @@ class CancerSelector extends React.Component {
                                         uncheckedIcon={<ActionFavoriteBorder/>}
                                         style={styles.radioButton}
                                         key={`cancerType${idx}`}
-                                        onTouchTap={this.selectCancer(eachCancer)}
+                                        onClick={this.selectCancer(eachCancer)}
                                     />
                                 )
                             })
                         }
                     </RadioButtonGroup>
-                    <RaisedButton onTouchTap={this.changePageToInfo()}
+                    <RaisedButton onClick={this.changePageToInfo()}
                                   disabled={dataStore.confirmButton}
                     >
                         <span style={fontColor}>確認</span>
