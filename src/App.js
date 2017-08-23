@@ -64,17 +64,18 @@ class App extends Component {
                         } else {
                             return (
                                 <MuiThemeProvider muiTheme={prepareTheme}>
-                                    <div 
+                                    <div
                                         style={{
-                                            height:'100%',
+                                            height: '100%',
                                             display: 'flex',
-                                            flexFlow: 'column', 
+                                            flexFlow: 'column',
                                             alignItems: 'stretch'
                                         }}>
-                                        <AppBar 
-                                            title="PREPARE" 
-                                            onLeftIconButtonTouchTap={() => {}}
-                                            style={{height:'60px'}}
+                                        <AppBar
+                                            title="PREPARE"
+                                            onLeftIconButtonTouchTap={() => {
+                                            }}
+                                            style={{height: '60px'}}
                                         >
                                             <Avatar
                                                 className="AvatarPics"

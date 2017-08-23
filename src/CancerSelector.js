@@ -53,7 +53,7 @@ class CancerSelector extends React.Component {
 
         return (
             <div>
-                <h1 className = 'h1Title'>
+                <h1 className='h1Title'>
                     選擇一個癌症
                 </h1>
                 <Paper className="Paper_container" style={{backgroundColor: '#fff'}}>

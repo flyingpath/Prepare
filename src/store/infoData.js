@@ -15,14 +15,17 @@ class InfoData {
     setGender(gender) {
         this.gender = gender
     }
+
     @action
     setAge(int) {
         this.age = int
     }
+
     @action
     setTumorSize(val) {
         this.tumorSize = val
     }
+
     @action
     setLymphNode(val) {
         this.lymphNode = val
