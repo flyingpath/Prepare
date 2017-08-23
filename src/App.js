@@ -15,7 +15,7 @@ import {
 import Route from './Route'
 import dataStore from './store/data';
 
-import './css/all.css'
+import './css/all.scss'
 import './css/tao_css.css'
 
 @observer
