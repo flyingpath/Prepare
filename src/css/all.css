@@ -1238,25 +1238,4 @@ input[type="text"] {
 .checkedRadio i {
   background-color: #898A8C; }
 
-#root {
-  height: 100%; }
-
-#prepare-app-root {
-  height: 100%; }
-
-.page_test > span > div {
-  height: 100%; }
-
-.page_test {
-  flex-grow: 1; }
-
-.h1Title {
-  padding: 1%;
-  margin: 2% 4% 2% 4%;
-  font-weight: 600;
-  font-size: 1.7rem; }
-
-.Paper_container {
-  margin-top: 1% !important; }
-
 /*# sourceMappingURL=all.css.map */
