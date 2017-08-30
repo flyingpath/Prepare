@@ -16,7 +16,6 @@ import Route from './Route'
 import dataStore from './store/data';
 
 import './css/all.scss'
-import './css/tao_css.css'
 
 @observer
 class App extends Component {
