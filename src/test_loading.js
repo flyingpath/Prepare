@@ -3,7 +3,7 @@ import {observer} from 'mobx-react'
 // import mobx from 'mobx'
 // import _ from 'lodash'
 
-import './css/loading_prepare.css'
+import './css/_loading_prepare.scss'
 
 class TestLoading extends React.Component {
     constructor(props) {

@@ -18,15 +18,20 @@ class KeyInfo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            dialogOpen: false
         }
+        this.confirm = this.confirm.bind(this)
+        this.closeDialog = this.closeDialog.bind(this)
+        this.err = ''
     }
 
     componentDidMount() {
     }
 
     closeDialog(){
-
+        this.setState({
+            dialogOpen:false
+        })
     }
     setGender(gender){
         return ()=>{
@@ -46,7 +51,26 @@ class KeyInfo extends React.Component {
     }
 
     confirm() {
+        //--- 檢查性別與年齡是否有填 ----//
+        //------ 年齡須為正整數 -------//
+        const gender = infoData.gender
+        const age = infoData.age
 
+        const reNonNum = /\D/
+
+        if(gender !=='male' && gender !== 'female'){
+            console.log(gender);
+            this.err = '請輸入您的性別'
+            this.setState({ dialogOpen: true })
+        }else if(age === '' ){
+            this.err = '請輸入年齡'
+            this.setState({ dialogOpen: true })
+        }else if( age.search(reNonNum) !== -1 || Number.isInteger(parseFloat(reNonNum))){
+            this.err = '年齡請輸入正整數'
+            this.setState({ dialogOpen: true })
+        }else{
+            dataStore.changePageTo('featureAndReport')
+        }
     }
 
     render() {
@@ -146,13 +170,8 @@ class KeyInfo extends React.Component {
                         </div>
                     </div>
                     <div style={{padding: '7% 0 1% 0'}}>
-                        <RaisedButton onClick={this.confirm} disabled={infoData.keyinfoConfirmButton}>
+                        <RaisedButton onClick={this.confirm}>
                             <span style={fontColor}>確認</span>
-                        </RaisedButton>
-                    </div>
-                    <div style={{padding: '7% 0 1% 0'}}>
-                        <RaisedButton onClick={this.confirm} disabled={false}>
-                            <span style={fontColor}>測試</span>
                         </RaisedButton>
                     </div>
                 </Paper>
