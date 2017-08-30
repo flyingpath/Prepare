@@ -67,9 +67,8 @@ class App extends Component {
                                     <div
                                         style={{
                                             height: '100%',
-                                            display: 'flex',
-                                            flexFlow: 'column',
-                                            alignItems: 'stretch'
+                                            display: 'block',
+                                            position:'relative'
                                         }}>
                                         <AppBar
                                             title="PREPARE"
