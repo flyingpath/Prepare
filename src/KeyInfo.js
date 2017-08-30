@@ -26,6 +26,7 @@ class KeyInfo extends React.Component {
     }
 
     componentDidMount() {
+
     }
 
     closeDialog(){
@@ -170,7 +171,7 @@ class KeyInfo extends React.Component {
                         </div>
                     </div>
                     <div style={{padding: '7% 0 1% 0'}}>
-                        <RaisedButton onClick={this.confirm}>
+                        <RaisedButton onClick={this.confirm} disabled={infoData.KeyInfoButtonDisabled}>
                             <span style={fontColor}>確認</span>
                         </RaisedButton>
                     </div>
