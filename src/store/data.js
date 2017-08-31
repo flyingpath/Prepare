@@ -3,13 +3,13 @@ import {observable, action} from 'mobx'
 class DataStore {
 
     @observable
-        cancer = { value: 'breast', label: '乳癌' }
-    // cancer = {}
+        // cancer = { value: 'breast', label: '乳癌' }
+    cancer = {}
     @observable
-        feature = 'op'
-    // feature = ''
+        // feature = 'op'
+    feature = ''
     @observable
-    page = 'info' // -- cancer, info, featureAndReport
+    page = 'cancer' // -- cancer, info, featureAndReport
     @observable
     routePageClass = "prepare_route_page_forward"
     @observable
