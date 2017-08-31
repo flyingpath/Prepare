@@ -11,6 +11,8 @@ import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import ActionFavorite from 'material-ui/svg-icons/action/favorite';
 import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 import RaisedButton from 'material-ui/RaisedButton';
+import styled from 'styled-components';
+import {h1Title} from "./styled_share";
 
 class CancerSelector extends React.Component {
     constructor(props) {
@@ -51,11 +53,15 @@ class CancerSelector extends React.Component {
             },
         };
 
+        const H1Title = styled.h1`
+            ${() => h1Title()}
+        `
+
         return (
             <div>
-                <h1 className='h1Title'>
+                <H1Title>
                     選擇一個癌症
-                </h1>
+                </H1Title>
                 <Paper className="Paper_container" style={{backgroundColor: '#fff'}}>
                     <RadioButtonGroup name="prepare_cancerSelect_group" defaultSelected={cancer}>
                         {

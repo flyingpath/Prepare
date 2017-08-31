@@ -42,7 +42,11 @@ class App extends Component {
         const feature = dataStore.feature
 
         const ErrorMessageDiv = styled.div`
-        
+                font-size:50px;
+                color:red;
+                position:relative;
+                text-align:center;
+                top:25%
         `;
 
 
@@ -61,7 +65,7 @@ class App extends Component {
                         }
                     `}
                     render={({error, props}) => {
-                        if (error) {
+                        if (false) {
                             return <ErrorMessageDiv>{error.message}</ErrorMessageDiv>;
                         } else {
                             return (
