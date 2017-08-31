@@ -1,6 +1,6 @@
 import React from 'react';
 import 'react-select/dist/react-select.css';
-import TestLoading from './test_loading'
+import ColorBrickLoading from './color_brick_loading'
 import LineChart from './components/LineChart';
 import * as Chart from 'chart.js'
 import Paper from 'material-ui/Paper'
@@ -187,7 +187,7 @@ class Report extends React.Component {
         if (this.loadStatus) {
             return (
                 <div>
-                    <TestLoading/>
+                    <ColorBrickLoading/>
                 </div>
             )
         }

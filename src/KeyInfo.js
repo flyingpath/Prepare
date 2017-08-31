@@ -12,6 +12,8 @@ import T_dialog from './components/T_dialog'
 
 import dataStore from './store/data'
 import infoData from './store/infoData'
+import styled from 'styled-components';
+import {h1Title} from "./styled_share";
 
 
 class KeyInfo extends React.Component {
@@ -91,6 +93,10 @@ class KeyInfo extends React.Component {
         const dialogOpen = this.state.dialogOpen
         const message = this.err
 
+        const H1Title = styled.h1`
+            ${() => h1Title()}
+        `
+
         return (
             <div>
                 <T_dialog open={dialogOpen} closeFunc={this.closeDialog}>
@@ -103,7 +109,7 @@ class KeyInfo extends React.Component {
                         </RaisedButton>
                     </div>
                 </T_dialog>
-                <h1 className='h1Title'>請輸入基本資料</h1>
+                <H1Title>請輸入基本資料</H1Title>
                 <Paper className="Paper_container"
                        style={{
                            backgroundColor: '#fff',

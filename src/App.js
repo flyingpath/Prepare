@@ -14,7 +14,7 @@ import {
 
 import Route from './Route'
 import dataStore from './store/data';
-
+import styled from 'styled-components';
 import './css/all.scss'
 
 @observer
@@ -35,12 +35,27 @@ class App extends Component {
         })
     }
 
-
     render() {
 
         const page = dataStore.page
         const cancer = dataStore.cancer
         const feature = dataStore.feature
+
+        const ErrorMessageDiv = styled.div`
+                font-size:50px;
+                color:red;
+                position:relative;
+                text-align:center;
+                top:25%
+        `;
+
+        const MaterialAvatarWithStyled = styled(Avatar).attrs({
+            className: 'AvatarPics'
+        })`
+                 margin: 12px;
+                 left: 1%;
+                 position: relative;
+        `
 
 
         return (
@@ -58,34 +73,23 @@ class App extends Component {
                         }
                     `}
                     render={({error, props}) => {
-                        if (error) {
-                            return <div>{error.message}</div>;
+                        if (false) {
+                            return <ErrorMessageDiv>{error.message}</ErrorMessageDiv>;
                         } else {
                             return (
                                 <MuiThemeProvider muiTheme={prepareTheme}>
-                                    <div
-                                        style={{
-                                            height: '100%',
-                                            display: 'block',
-                                            position:'relative'
-                                        }}>
+                                    <div style={{
+                                        height: '100%',
+                                        display: 'block',
+                                        position: 'relative'
+                                    }}>
                                         <AppBar
                                             title="PREPARE"
                                             onLeftIconButtonTouchTap={() => {
                                             }}
                                             style={{height: '60px'}}
                                         >
-                                            <Avatar
-                                                className="AvatarPics"
-                                                size={30}
-                                                style={{
-                                                    margin: '12px',
-                                                    left: '1%',
-                                                    height: '40px',
-                                                    width: '40px',
-                                                    position: 'relative'
-                                                }}
-                                            />
+                                            <MaterialAvatarWithStyled/>
                                         </AppBar>
                                         <Route
                                             page={page}
