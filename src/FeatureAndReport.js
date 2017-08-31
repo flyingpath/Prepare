@@ -1,10 +1,12 @@
-import React, { Component } from 'react' 
-import {observer} from 'mobx-react' 
-import mobx from 'mobx' 
-import _ from 'lodash' 
+import React, {Component} from 'react'
+import {observer} from 'mobx-react'
+import mobx from 'mobx'
+import _ from 'lodash'
 
 import FeatureSelector from './FeatureSelector';
 import Report from './Report';
+import styled from 'styled-components';
+import {h1Title} from "./styled_share";
 
 class FeatureAndReport extends React.Component {
     constructor(props) {
@@ -22,13 +24,17 @@ class FeatureAndReport extends React.Component {
         const viewer = this.props.viewer
         const loading = this.props.loading
 
+        const H1Title = styled.h1`
+            ${() => h1Title()}
+        `
+
         console.log(cancer);
 
         return (
             <div>
-                <h1 className='h1Title'>
+                <H1Title>
                     {cancer.label}
-                </h1>
+                </H1Title>
                 <FeatureSelector
                     key='featureSelect'
                     cancer={cancer}
