@@ -50,7 +50,7 @@ class App extends Component {
         `;
 
         const MaterialAvatarWithStyled = styled(Avatar).attrs({
-            className:'AvatarPics'
+            className: 'AvatarPics'
         })`
                  margin: 12px;
                  left: 1%;
@@ -89,9 +89,7 @@ class App extends Component {
                                             }}
                                             style={{height: '60px'}}
                                         >
-                                            <MaterialAvatarWithStyled
-                                                size={30}
-                                            />
+                                            <MaterialAvatarWithStyled/>
                                         </AppBar>
                                         <Route
                                             page={page}
