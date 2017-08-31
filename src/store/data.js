@@ -9,7 +9,7 @@ class DataStore {
         feature = 'op'
     // feature = ''
     @observable
-    page = 'featureAndReport' // -- cancer, info, featureAndReport
+    page = 'info' // -- cancer, info, featureAndReport
     @observable
     routePageClass = "prepare_route_page_forward"
     @observable

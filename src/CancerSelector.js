@@ -88,7 +88,6 @@ class CancerSelector extends React.Component {
                         <span style={fontColor}>確認</span>
                     </RaisedButton>
                 </Paper>
-
             </div>
         )
     }

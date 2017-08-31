@@ -3,7 +3,6 @@ import {observer} from 'mobx-react'
 // import mobx from 'mobx'
 // import _ from 'lodash'
 import styled from 'styled-components';
-
 import './css/_color_brick_loading.scss'
 
 class ColorBrickLoading extends React.Component {
