@@ -5,8 +5,11 @@ import {
     graphql,
     createFragmentContainer
 } from 'react-relay';
+import _ from 'lodash'
+
 
 import dataStore from './store/data';
+
 
 class FeatureSelector extends React.Component {
     constructor(props) {
@@ -24,6 +27,10 @@ class FeatureSelector extends React.Component {
     }
 
     render() {
+        let features = this.props.viewer.features
+        console.log(features);
+        features = _.filter(features, (f)=>f.isAnalysis)
+
         return (
             <Select
                 options={this.props.viewer.features}
@@ -39,16 +46,8 @@ class FeatureSelector extends React.Component {
 const container = createFragmentContainer(FeatureSelector, {
         viewer: graphql.experimental`
         fragment FeatureSelector_viewer on Viewer 
-        @argumentDefinitions(
-          cancer: {type: "String", defaultValue: ""}
-        ) 
         {
-          features(cancer:$cancer) {
-            value:feature,
-            label:name_cn,
-            name_en,
-            cancer
-          }
+          features 
         }
     `,
 

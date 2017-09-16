@@ -128,14 +128,14 @@ class Report extends React.Component {
                 finalData = this.combindStyle(styles, dataSet)
                 return finalData
 
-            case 'rt'://(電療)
+            case 'rt'://(放療)
 
                 styles = stylesArray
 
                 dataSet = _.map(sData, (eachData, idx) => {
                     return (
                         {
-                            label: idx === 0 ? '沒做電療' : '有做電療',
+                            label: idx === 0 ? '沒做放療' : '有做放療',
                             data: eachData,
                             borderWidth: borderWidth,
                             fill: fill,
