@@ -40,7 +40,7 @@ class FeatureSelector extends React.Component {
 
         return (
             <div>
-                <H1Title>{`進階選項 (${cancer.label})`}</H1Title>
+                <H1Title>{`治療選項 (${cancer.label})`}</H1Title>
                 <Paper className="Paper_container" style={{backgroundColor: '#fff', padding:'8px 16px'}}>
                 <div style={{display:'flex', flexFlow:'row wrap'}}>
                 {

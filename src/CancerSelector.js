@@ -100,7 +100,7 @@ class CancerSelector extends React.Component {
                     <RaisedButton onClick={this.changePageToInfo()}
                                   disabled={dataStore.confirmButton}
                     >
-                        <span style={fontColor}>確認</span>
+                        <span style={fontColor}>下一步</span>
                     </RaisedButton>
                 </Paper>
             </div>

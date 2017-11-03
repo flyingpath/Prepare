@@ -41,6 +41,7 @@ class Report extends React.Component {
     }
 
     makeChartData(data) {
+        console.log(data)
         // let fData = _.map(data, x => x.survival)
         let sData = _.map(data, x =>  parseFloat(parseFloat(x).toFixed(2)) )
         let dataSet = []
@@ -187,6 +188,7 @@ class Report extends React.Component {
         let data = dataStore.survivalData
 
         const chartData = this.makeChartData(data)
+        // console.log(chartData)
         return (
             <div>
                 <Paper className="Paper_container" style={{backgroundColor: '#fff'}}>

@@ -33,7 +33,6 @@ class App extends Component {
     }
 
     render() {
-
         const page = dataStore.page
 
 
@@ -44,7 +43,7 @@ class App extends Component {
                  left: 1%;
                  position: relative;
         `
-
+        console.log(page)
         return (
             <div className="App" id='prepare-app-root'>
                 <MuiThemeProvider muiTheme={prepareTheme}>

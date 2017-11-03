@@ -10,7 +10,7 @@ class OptionData {
         { name_cn: '化學治療', feature:'ct', option_cn: ['無', '有']   },
         { name_cn: '放腫治療', feature:'rt', option_cn: ['無', '有']   },
         { name_cn: '賀爾蒙治療', feature:'ht', option_cn: ['無', '有']   },
-        { name_cn: '黃體激素受體(PR)', feature:'pr', option_cn: ['陰-', '陽+']   }
+        // { name_cn: '黃體激素受體(PR)', feature:'pr', option_cn: ['陰-', '陽+']   }
     ]
 
     stage=[
@@ -49,6 +49,17 @@ class OptionData {
             label: '未分化 (G4)',
             value: 4
         }
+    ]
+
+    pr = [
+        {
+            label: 'Nagtive (-)',
+            value: 0
+        },
+        {
+            label: 'Positive (+)',
+            value: 1
+        },
     ]
 
     @action

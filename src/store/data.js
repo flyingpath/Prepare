@@ -22,6 +22,9 @@ class DataStore {
     }
 
     @observable
+    fetchData={}
+
+    @observable
     survivalData=[]
 
     @observable
@@ -43,6 +46,7 @@ class DataStore {
         let obj = this.actionFeature
         obj[key]= val
         this.actionFeature= obj
+        this.setSurvivalData()
     }
     @action
     initActionFeature(obj) {
@@ -91,7 +95,7 @@ class DataStore {
     @action
     fetchSurvival() {
         this.load = true
-        const pr = this.actionFeature.pr
+        const pr = infoData.pr
         const age = infoData.age
         const stage = infoData.stage
         const grade = infoData.grade
@@ -102,13 +106,20 @@ class DataStore {
         })
         .then(res=>res.json())
         .then(backdata=>{
-            const ct = dataStore.actionFeature.ct
-            const rt = dataStore.actionFeature.rt
-            const ht = dataStore.actionFeature.ht
-            const data = _.filter(backdata, (x)=>x.ct==ct&&x.rt==rt&&x.ht==ht)
-            this.survivalData = data[0].survival
+            this.fetchData = backdata
             this.load = false
+            this.setSurvivalData()
         })
+    }
+
+    @action
+    setSurvivalData() {
+        const ct = dataStore.actionFeature.ct
+        const rt = dataStore.actionFeature.rt
+        const ht = dataStore.actionFeature.ht
+        const data = _.filter(this.fetchData, (x)=>x.ct==ct&&x.rt==rt&&x.ht==ht)
+        this.survivalData = data[0].survival
+        console.log(data)
     }
 }
 

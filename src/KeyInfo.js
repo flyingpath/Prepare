@@ -55,6 +55,11 @@ class KeyInfo extends React.Component {
     setStage(event, index, value){
         infoData.setStage(value)
     }
+    setPr(value){
+        console.log(value)
+        infoData.setPr(value)
+    }
+
     setTumorSize(e){
         infoData.setTumorSize(e.target.value)
     }
@@ -83,6 +88,7 @@ class KeyInfo extends React.Component {
         
         const gradeList = optionStore.grade
         const stageList = optionStore.stage
+        const prList = optionStore.pr
         
         const gender = infoData.gender
         const age = infoData.age
@@ -112,14 +118,14 @@ class KeyInfo extends React.Component {
                         </RaisedButton>
                     </div>
                 </T_dialog>
-                <H1Title>請輸入基本資料</H1Title>
+                <H1Title>請輸入癌症資料</H1Title>
                 <Paper className="Paper_container"
                        style={{
                            backgroundColor: '#fff',
                            marginTop: 0,
                            paddingTop: '2px',
                        }}>
-                    <div className="Keyinfo_position">
+                    <div className="Keyinfo_position" style={{display: "none"}}>
                         <span style={fontColor}>性別</span>
                         <BinaryCheckbox value={infoData.gender=='male'?0:1} onClick={this.setGender} data={['男', '女']} />
                     </div>
@@ -153,9 +159,16 @@ class KeyInfo extends React.Component {
                             }
                         />
                     </div>
+                    <div className="Keyinfo_position" >
+                        <span style={fontColor}>黃體激素受體(PR)</span>
+                        <BinaryCheckbox 
+                          value={infoData.pr} 
+                          onClick={this.setPr} data={['-', '+']} />
+                    </div>
+
                     <div style={{padding: '7% 0 1% 0'}}>
                         <RaisedButton onClick={this.confirm}>
-                            <span style={fontColor}>確認</span>
+                            <span style={fontColor}>開始分析</span>
                         </RaisedButton>
                     </div>
                 </Paper>

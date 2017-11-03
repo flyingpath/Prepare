@@ -11,6 +11,10 @@ class InfoData {
     grade = 1
 
     @observable
+    pr = 1
+
+
+    @observable
     tumorSize = ''
     @observable
     lymphNode = ''
@@ -36,6 +40,9 @@ class InfoData {
     setGrade(val) { this.grade = val }
     @action
     setStage(val) { this.stage = val }
+    @action
+    setPr(val) { this.pr = val }
+
     @action
     KeyInfoButtonCheck() {
     }
