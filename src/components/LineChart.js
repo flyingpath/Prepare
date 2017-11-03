@@ -23,7 +23,6 @@ class LineChart extends React.Component {
         if(this.lineChart){
             const labels = this.props.labels
             const dataSets = this.props.data
-            console.log(dataSets);
             const myChart = new Chart(this.lineChart, {
                 type: 'line',
                 data: {

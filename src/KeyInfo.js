@@ -1,19 +1,21 @@
 import React from 'react'
 import _ from 'lodash'
 import {observer} from 'mobx-react'
-import RaisedButton from 'material-ui/RaisedButton';
+import {toJS} from 'mobx'
+import RaisedButton from 'material-ui/RaisedButton'
 import Paper from 'material-ui/Paper'
-// import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
-// import ActionFavorite from 'material-ui/svg-icons/action/favorite';
-// import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
+import MenuItem from 'material-ui/MenuItem'
 import $ from 'jquery'
 
+import SelectFieldScroll from './components/SelectFieldScroll'
+import BinaryCheckbox from './components/BinaryCheckbox'
 import T_dialog from './components/T_dialog'
 
 import dataStore from './store/data'
 import infoData from './store/infoData'
-import styled from 'styled-components';
-import {h1Title} from "./styled_share";
+import optionStore from './store/option'
+import styled from 'styled-components'
+import {h1Title} from "./styled_share"
 
 
 class KeyInfo extends React.Component {
@@ -36,19 +38,26 @@ class KeyInfo extends React.Component {
             dialogOpen:false
         })
     }
-    setGender(gender){
+    setGender(val){
         return ()=>{
+            const gender = val? 'female': 'male'
+            if(gender=='male') return
             infoData.setGender(gender)
         }
     }
 
-    setAge(e){
-        infoData.setAge(e.target.value)
+    setAge(event, index, value){
+        infoData.setAge(value)
+    }
+    setGrade(event, index, value){
+        infoData.setGrade(value)
+    }
+    setStage(event, index, value){
+        infoData.setStage(value)
     }
     setTumorSize(e){
         infoData.setTumorSize(e.target.value)
     }
-
     setLymphNode(e){
         infoData.setLymphNode(e.target.value)
     }
@@ -56,24 +65,11 @@ class KeyInfo extends React.Component {
     confirm() {
         //--- 檢查性別與年齡是否有填 ----//
         //------ 年齡須為正整數 -------//
-        const gender = infoData.gender
-        const age = infoData.age
-
-        const reNonNum = /\D/
-
-        if(gender !=='male' && gender !== 'female'){
-            console.log(gender);
-            this.err = '請輸入您的性別'
-            this.setState({ dialogOpen: true })
-        }else if(age === '' ){
-            this.err = '請輸入年齡'
-            this.setState({ dialogOpen: true })
-        }else if( age.search(reNonNum) !== -1 || Number.isInteger(parseFloat(reNonNum))){
-            this.err = '年齡請輸入正整數'
-            this.setState({ dialogOpen: true })
-        }else{
-            dataStore.changePageTo('featureAndReport')
-        }
+        // if(gender !=='male' && gender !== 'female'){
+        //     console.log(gender);
+        //     this.err = '請輸入您的性別'
+        //     this.setState({ dialogOpen: true })
+        dataStore.changePageTo('featureAndReport')
     }
 
     render() {
@@ -83,12 +79,18 @@ class KeyInfo extends React.Component {
             display: 'block'
         }
 
-        const cancer = this.props.cancer.label
+        const cancer = _.isEmpty(dataStore.cancer)?'':dataStore.cancer.label
+        
+        const gradeList = optionStore.grade
+        const stageList = optionStore.stage
         
         const gender = infoData.gender
         const age = infoData.age
         const tumorSize = infoData.tumorSize
         const lymphNode = infoData.lymphNode
+        const stage = infoData.stage
+        const grade = infoData.grade
+        const lab = infoData.lab
         
         const dialogOpen = this.state.dialogOpen
         const message = this.err
@@ -96,6 +98,7 @@ class KeyInfo extends React.Component {
         const H1Title = styled.h1`
             ${() => h1Title()}
         `
+
 
         return (
             <div>
@@ -118,66 +121,40 @@ class KeyInfo extends React.Component {
                        }}>
                     <div className="Keyinfo_position">
                         <span style={fontColor}>性別</span>
-                        <div className="Keyinfo_position" style={{display: 'flex', borderBottom: '1px #ccc solid'}}>
-                            <div>
-                                <div
-                                    type="checkbox"
-                                    name="check-box"
-                                    className={gender === 'male' ? 'check-box checkedBox' : 'check-box'}
-                                    onClick={this.setGender('male')}
-                                >
-                                    <i></i>
-                                </div>
-                                <label htmlFor="rb1" style={{paddingRight: '9px', position: 'relative', bottom: '6px'}}>男</label>
-                            </div>
-                            <div>
-                                <div
-                                    type="checkbox"
-                                    name="check-box"
-                                    className={gender === 'female' ? 'check-box checkedBox' : 'check-box'}
-                                    onClick={this.setGender('female')}
-                                >
-                                    <i></i>
-                                </div>
-                                <label htmlFor="rb2" style={{paddingRight: '9px', position: 'relative', bottom: '6px'}}>女</label>
-                            </div>
-                        </div>
+                        <BinaryCheckbox value={infoData.gender=='male'?0:1} onClick={this.setGender} data={['男', '女']} />
                     </div>
                     <div className="Keyinfo_position">
                         <span style={fontColor}>年齡</span>
-                        <div className="col-3">
-                            <input 
-                                className="effect-5" 
-                                type="text" 
-                                placeholder="Age"
-                                value={age}
-                                onChange={this.setAge}
+                            <SelectFieldScroll value={parseInt(age)} onChange={this.setAge} 
+                                data = {
+                                    _.map( new Array(100), (data, idx)=>(
+                                        <MenuItem value={idx+1} key={idx+1} primaryText={`${idx+1}`} />
+                                    ) ) 
+                                }
                             />
-                            <span className="focus-border">
-            	            <i/>
-                        </span>
-                        </div>
                     </div>
                     <div className="Keyinfo_position">
-                        <span style={fontColor}>{cancer}腫瘤大小(公分)</span>
-                        <div className="col-3">
-                            <input className="effect-5" type="text" placeholder="Size" onChange={this.setTumorSize}/>
-                            <span className="focus-border">
-            	            <i/>
-                        </span>
-                        </div>
+                        <span style={fontColor}>癌症分期 (Stage)</span>
+                            <SelectFieldScroll value={stage} onChange={this.setStage} 
+                                data = {
+                                    _.map( stageList, (data, idx)=>(
+                                        <MenuItem value={data.value} key={idx} primaryText={data.label} />
+                                    ))
+                                }
+                            />
                     </div>
                     <div className="Keyinfo_position">
-                        <span style={fontColor}>感染淋巴結數量(個數)</span>
-                        <div className="col-3">
-                            <input className="effect-5" type="text" placeholder="Count" onChange={this.setLymphNode}/>
-                            <span className="focus-border">
-            	            <i/>
-                        </span>
-                        </div>
+                        <span style={fontColor}>腫瘤細胞分化程度 (Grade)</span>
+                        <SelectFieldScroll value={grade} onChange={this.setGrade} 
+                            data = {
+                                _.map( gradeList, (data, idx)=>(
+                                    <MenuItem value={data.value} key={idx} primaryText={data.label} />
+                                ))
+                            }
+                        />
                     </div>
                     <div style={{padding: '7% 0 1% 0'}}>
-                        <RaisedButton onClick={this.confirm} disabled={infoData.KeyInfoButtonDisabled}>
+                        <RaisedButton onClick={this.confirm}>
                             <span style={fontColor}>確認</span>
                         </RaisedButton>
                     </div>

@@ -1,25 +1,53 @@
-import {observable, action} from 'mobx'
+import {observable, action, computed, toJS} from 'mobx'
+import _ from 'lodash'
+
+import infoData from './infoData'
 
 class DataStore {
 
     @observable
         // cancer = { value: 'breast', label: '乳癌' }
-    cancer = {}
+    cancer = { value: 'breast', label: '乳癌' }
+    
     @observable
         // feature = 'op'
     feature = ''
+
+    @observable
+    actionFeature={
+        ct: 0,
+        rt: 0,
+        ht: 0,
+        pr: 1
+    }
+
+    @observable
+    survivalData=[]
+
     @observable
     page = 'cancer' // -- cancer, info, featureAndReport
     @observable
     routePageClass = "prepare_route_page_forward"
     @observable
-    confirmButton = true
+    confirmButton = false
+
+    @observable
+    load=false
 
     @action
     changePageTo(page) {
         this.page = page
     }
-
+    @action
+    setActionFeature(key, val) {
+        let obj = this.actionFeature
+        obj[key]= val
+        this.actionFeature= obj
+    }
+    @action
+    initActionFeature(obj) {
+        // this.actionFeature=obj
+    }
     @action
     setCancer(ca) {
         this.cancer = ca;
@@ -58,6 +86,29 @@ class DataStore {
     @action
     cancerPageCheck() {
         this.confirmButton = false
+    }
+
+    @action
+    fetchSurvival() {
+        this.load = true
+        const pr = this.actionFeature.pr || 1
+        const age = infoData.age
+        const stage = infoData.stage
+        const grade = infoData.grade
+
+        const uri=`https://prepare.kfsyscc.org/api/python/prepare-breast_model1/${age},${stage},${grade},${pr}`
+        fetch(uri, {
+            credentials:'include'
+        })
+        .then(res=>res.json())
+        .then(backdata=>{
+            const ct = dataStore.actionFeature.ct
+            const rt = dataStore.actionFeature.rt
+            const ht = dataStore.actionFeature.ht
+            const data = _.filter(backdata, (x)=>x.ct==ct&&x.rt==rt&&x.ht==ht)
+            this.survivalData = data[0].survival
+            this.load = false
+        })
     }
 }
 

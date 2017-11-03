@@ -4,11 +4,9 @@ import ColorBrickLoading from './color_brick_loading'
 import LineChart from './components/LineChart';
 import * as Chart from 'chart.js'
 import Paper from 'material-ui/Paper'
-import {
-    graphql,
-    createFragmentContainer
-} from 'react-relay';
 import _ from 'lodash';
+import {observer} from 'mobx-react'
+import {toJS} from 'mobx'
 
 import dataStore from './store/data'
 
@@ -42,10 +40,9 @@ class Report extends React.Component {
         return dataArray
     }
 
-    makeChartData(feature, data) {
-        console.log(data);
-        let fData = _.map(data, x => x.survival)
-        let sData = _.map(fData, x => _.map(x, y => y.rate))
+    makeChartData(data) {
+        // let fData = _.map(data, x => x.survival)
+        // let sData = _.map(fData, x => _.map(x, y => y.rate))
         let dataSet = []
         let finalData = []
         let styles = []
@@ -85,152 +82,122 @@ class Report extends React.Component {
                 pointRadius: 3,
             }
         ]
+        styles = stylesArray
+        // sData = [[0.65, 0.59, 0.90, 0.81, 0.56, 0.55, 0.40], [0.50, 0.50, 0.59, 0.50, 0.50, 0.50, 0.59]]
+        dataSet = _.map([toJS(data)], (eachData, idx) => {
+            return (
+                {
+                    label: idx === 0 ? '沒做手術治療' : '有做手術治療',
+                    data: eachData,
+                    borderWidth: borderWidth,
+                    lineTension: 0,
+                    fill: fill
+                }
+            )
+        })
+        // finalData = this.combindStyle(styles, dataSet)
+        return dataSet
 
+        // switch (feature) {
+        //     case 'op'://(手術)
+        //         styles = stylesArray
+        //         // sData = [[0.65, 0.59, 0.90, 0.81, 0.56, 0.55, 0.40], [0.50, 0.50, 0.59, 0.50, 0.50, 0.50, 0.59]]
+        //         dataSet = _.map(sData, (eachData, idx) => {
+        //             return (
+        //                 {
+        //                     label: idx === 0 ? '沒做手術治療' : '有做手術治療',
+        //                     data: eachData,
+        //                     borderWidth: borderWidth,
+        //                     lineTension: 0,
+        //                     fill: fill
+        //                 }
+        //             )
+        //         })
+        //         finalData = this.combindStyle(styles, dataSet)
+        //         return finalData
 
-        switch (feature) {
-            case 'op'://(手術)
+        //     case 'ct'://(化療)
+        //         styles = stylesArray
+        //         dataSet = _.map(sData, (eachData, idx) => {
+        //             return (
+        //                 {
+        //                     label: idx === 0 ? '沒做化學治療' : '有做化學治療',
+        //                     data: eachData,
+        //                     borderWidth: borderWidth,
+        //                     fill: fill,
+        //                     lineTension: 0
+        //                 }
+        //             )
+        //         })
+        //         finalData = this.combindStyle(styles, dataSet)
+        //         return finalData
 
-                styles = stylesArray
+        //     case 'rt'://(放療)
 
-                // sData = [[0.65, 0.59, 0.90, 0.81, 0.56, 0.55, 0.40], [0.50, 0.50, 0.59, 0.50, 0.50, 0.50, 0.59]]
+        //         styles = stylesArray
 
-                dataSet = _.map(sData, (eachData, idx) => {
-                    return (
-                        {
-                            label: idx === 0 ? '沒做手術治療' : '有做手術治療',
-                            data: eachData,
-                            borderWidth: borderWidth,
-                            lineTension: 0,
-                            fill: fill
-                        }
-                    )
-                })
+        //         dataSet = _.map(sData, (eachData, idx) => {
+        //             return (
+        //                 {
+        //                     label: idx === 0 ? '沒做放療' : '有做放療',
+        //                     data: eachData,
+        //                     borderWidth: borderWidth,
+        //                     fill: fill,
+        //                     lineTension: 0
+        //                 }
+        //             )
+        //         })
+        //         finalData = this.combindStyle(styles, dataSet)
+        //         return finalData
 
-                finalData = this.combindStyle(styles, dataSet)
+        //     case 'ht'://(賀爾蒙治療)
 
-                return finalData
+        //         styles = stylesArray
 
-            case 'ct'://(化療)
-
-                styles = stylesArray
-
-                dataSet = _.map(sData, (eachData, idx) => {
-                    return (
-                        {
-                            label: idx === 0 ? '沒做化學治療' : '有做化學治療',
-                            data: eachData,
-                            borderWidth: borderWidth,
-                            fill: fill,
-                            lineTension: 0
-                        }
-                    )
-                })
-                finalData = this.combindStyle(styles, dataSet)
-                return finalData
-
-            case 'rt'://(放療)
-
-                styles = stylesArray
-
-                dataSet = _.map(sData, (eachData, idx) => {
-                    return (
-                        {
-                            label: idx === 0 ? '沒做放療' : '有做放療',
-                            data: eachData,
-                            borderWidth: borderWidth,
-                            fill: fill,
-                            lineTension: 0
-                        }
-                    )
-                })
-                finalData = this.combindStyle(styles, dataSet)
-                return finalData
-
-            case 'ht'://(賀爾蒙治療)
-
-                styles = stylesArray
-
-                dataSet = _.map(sData, (eachData, idx) => {
-                    return (
-                        {
-                            label: idx === 0 ? '沒做賀爾蒙治療' : '有做賀爾蒙治療',
-                            data: eachData,
-                            borderWidth: borderWidth,
-                            fill: fill,
-                            lineTension: 0
-                        }
-                    )
-                })
-                finalData = this.combindStyle(styles, dataSet)
-                return finalData
-
-            case 'neo_adj': //(術前治療)
-                return []
-                break;
-            default:
-                return []
-        }
+        //         dataSet = _.map(sData, (eachData, idx) => {
+        //             return (
+        //                 {
+        //                     label: idx === 0 ? '沒做賀爾蒙治療' : '有做賀爾蒙治療',
+        //                     data: eachData,
+        //                     borderWidth: borderWidth,
+        //                     fill: fill,
+        //                     lineTension: 0
+        //                 }
+        //             )
+        //         })
+        //         finalData = this.combindStyle(styles, dataSet)
+        //         return finalData
+        //     case 'neo_adj': //(術前治療)
+        //         return []
+        //         break;
+        //     default:
+        //         return []
+        // }
     }
 
     render() {
-        const loading = this.props.loading
 
-        if (loading) {
-            this.loadStatus = true
-        } else if (this.loadStatus) {
-            _.delay(() => {
-                this.loadStatus = false
-                this.forceUpdate()
-            }, 1200)
-        }
+        // if (loading) {
+        //     this.loadStatus = true
+        // } else if (this.loadStatus) {
+        //     _.delay(() => {
+        //         this.loadStatus = false
+        //         this.forceUpdate()
+        //     }, 1200)
+        // }
 
-        if (this.loadStatus) {
-            return (
-                <div>
-                    <ColorBrickLoading/>
-                </div>
-            )
-        }
-        let data = []
+        let data = dataStore.survivalData
 
-        if (this.props.viewer.survival) {
-            data = this.props.viewer.survival.data;
-        }
-
-        const feature = this.props.feature
-        const chartData = this.makeChartData(feature, data)
-
+        const chartData = this.makeChartData(data)
+        console.log(chartData);
         return (
             <div>
                 <Paper className="Paper_container" style={{backgroundColor: '#fff'}}>
-                    <LineChart data={chartData}/>
+                    {<LineChart data={chartData}/>}
                 </Paper>
             </div>
         );
     }
 }
 
-const container = createFragmentContainer(Report, {
-        viewer: graphql.experimental`
-        fragment Report_viewer on Viewer 
-        @argumentDefinitions(
-          cancer: {type: "String", defaultValue: ""},
-          feature: {type: "String", defaultValue: ""}
-        ) 
-        {
-          survival(cancer:$cancer, feature:$feature) {
-            data {
-              item,
-              survival{
-                years,
-                rate
-              }
-            }
-          }
-        }
-    `,
-
-    }
-)
-
-export default container
+export default observer(Report)

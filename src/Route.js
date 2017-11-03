@@ -19,7 +19,6 @@ class Route extends React.Component {
 
         this.timeCount = false
         this.ableBack = true
-        // this.inherit
     }
 
     componentDidMount() {
@@ -66,47 +65,26 @@ class Route extends React.Component {
         let transitionClass = dataStore.routePageClass
 
         const page = this.props.page
-        const cancer = this.props.cancer
-        const feature = this.props.feature
-        const inherit = this.props.inherit
-        const loading = inherit ? false : true
 
-        if (inherit) {
-            this.inherit = inherit
+        if (page === 'cancer') {
+            this.content = (
+                <CancerSelector
+                    key='CancerSelector'
+                />
+            )
+        } else if (page === 'info') {
+            this.content = (
+                <KeyInfo
+                    key='KeyInfo'
+                />
+            )
+        } else if (page === 'featureAndReport') {
+            this.content = (
+                <FeatureAndReport 
+                    key='featureAndReport'
+                />
+            )
         }
-
-        if (this.inherit) {
-            const viewer = this.inherit.viewer
-
-            if (page === 'cancer') {
-                this.content = (
-                    <CancerSelector
-                        key='CancerSelector'
-                        cancer={cancer}
-                        viewer={viewer}
-                    />
-                )
-            } else if (page === 'info') {
-                this.content = (
-                    <KeyInfo
-                        key='KeyInfo'
-                        cancer={cancer}
-                        viewer={viewer}
-                    />
-                )
-            } else if (page === 'featureAndReport') {
-                this.content = (
-                    <FeatureAndReport 
-                        key='featureAndReport'
-                        cancer={cancer}
-                        feature={feature}
-                        viewer={viewer}
-                        loading={loading}
-                    />
-                )
-            }
-        }
-
 
         return (
             <div className='page_test'>

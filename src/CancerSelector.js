@@ -1,28 +1,34 @@
-import React from 'react';
+import React from 'react'
 import _ from 'lodash'
-import {
-    graphql,
-    createFragmentContainer
-} from 'react-relay';
-
-import dataStore from './store/data';
+import {observer} from 'mobx-react'
 import Paper from 'material-ui/Paper'
-import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
-import ActionFavorite from 'material-ui/svg-icons/action/favorite';
-import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
-import RaisedButton from 'material-ui/RaisedButton';
-import styled from 'styled-components';
-import {h1Title} from "./styled_share";
+import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton'
+import ActionFavorite from 'material-ui/svg-icons/action/favorite'
+import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border'
+import RaisedButton from 'material-ui/RaisedButton'
+import SelectField from 'material-ui/SelectField'
+import styled from 'styled-components'
+import ColorBrickLoading from './color_brick_loading'
+
+import {h1Title} from "./styled_share"
+import dataStore from './store/data'
+import optionStore from './store/option'
 
 class CancerSelector extends React.Component {
     constructor(props) {
         super(props)
         this.selectCancer = this.selectCancer.bind(this);
+        this.ableList = ['breast']
+    }
+
+    componentWillMount(){
+        optionStore.setFeatureList()
     }
 
     selectCancer = (cancer) => (
         () => {
             dataStore.setCancer(cancer)
+            optionStore.setFeatureList()
             dataStore.cancerPageCheck()
         }
         // dataStore.changePageTo('info')
@@ -36,8 +42,9 @@ class CancerSelector extends React.Component {
 
 
     render() {
-        const cancerList = this.props.viewer.cancers
+        const cancerList = optionStore.cancerList?optionStore.cancerList:[]
         const cancer = dataStore.cancer.value
+
         const fontColor = {
             color: '#3c3c3c',
             fontSize: '18px',
@@ -56,6 +63,13 @@ class CancerSelector extends React.Component {
         const H1Title = styled.h1`
             ${() => h1Title()}
         `
+        if ( _.isEmpty(cancerList) ){
+            return(
+                <div>
+                    <ColorBrickLoading/>
+                </div>
+            )
+        }
 
         return (
             <div>
@@ -77,6 +91,7 @@ class CancerSelector extends React.Component {
                                         style={styles.radioButton}
                                         key={`cancerType${idx}`}
                                         onClick={this.selectCancer(eachCancer)}
+                                        disabled={this.ableList.indexOf(value)==-1}
                                     />
                                 )
                             })
@@ -93,17 +108,4 @@ class CancerSelector extends React.Component {
     }
 }
 
-const container = createFragmentContainer(CancerSelector, {
-        viewer: graphql.experimental`
-        fragment CancerSelector_viewer on Viewer {
-          cancers {
-            value:cancer,
-            label:name_cn,
-            name_en
-          }
-        }
-    `,
-    }
-)
-
-export default container
+export default observer(CancerSelector)
