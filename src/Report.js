@@ -42,7 +42,7 @@ class Report extends React.Component {
 
     makeChartData(data) {
         // let fData = _.map(data, x => x.survival)
-        // let sData = _.map(fData, x => _.map(x, y => y.rate))
+        let sData = _.map(data, x =>  parseFloat(parseFloat(x).toFixed(2)) )
         let dataSet = []
         let finalData = []
         let styles = []
@@ -83,11 +83,9 @@ class Report extends React.Component {
             }
         ]
         styles = stylesArray
-        // sData = [[0.65, 0.59, 0.90, 0.81, 0.56, 0.55, 0.40], [0.50, 0.50, 0.59, 0.50, 0.50, 0.50, 0.59]]
-        dataSet = _.map([toJS(data)], (eachData, idx) => {
+        dataSet = _.map([sData, sData], (eachData, idx) => {
             return (
                 {
-                    label: idx === 0 ? '沒做手術治療' : '有做手術治療',
                     data: eachData,
                     borderWidth: borderWidth,
                     lineTension: 0,
@@ -95,13 +93,13 @@ class Report extends React.Component {
                 }
             )
         })
-        // finalData = this.combindStyle(styles, dataSet)
+        finalData = this.combindStyle(styles, dataSet)
         return dataSet
 
         // switch (feature) {
         //     case 'op'://(手術)
         //         styles = stylesArray
-        //         // sData = [[0.65, 0.59, 0.90, 0.81, 0.56, 0.55, 0.40], [0.50, 0.50, 0.59, 0.50, 0.50, 0.50, 0.59]]
+        //         // 
         //         dataSet = _.map(sData, (eachData, idx) => {
         //             return (
         //                 {
@@ -189,7 +187,6 @@ class Report extends React.Component {
         let data = dataStore.survivalData
 
         const chartData = this.makeChartData(data)
-        console.log(chartData);
         return (
             <div>
                 <Paper className="Paper_container" style={{backgroundColor: '#fff'}}>

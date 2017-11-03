@@ -91,7 +91,7 @@ class DataStore {
     @action
     fetchSurvival() {
         this.load = true
-        const pr = this.actionFeature.pr || 1
+        const pr = this.actionFeature.pr
         const age = infoData.age
         const stage = infoData.stage
         const grade = infoData.grade
