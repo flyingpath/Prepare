@@ -163,7 +163,7 @@ class KeyInfo extends React.Component {
                         <span style={fontColor}>黃體激素受體(PR)</span>
                         <BinaryCheckbox 
                           value={infoData.pr} 
-                          onClick={this.setPr} data={['-', '+']} />
+                          onClick={this.setPr} data={[optionStore.pr[0].label, optionStore.pr[1].label]} />
                     </div>
 
                     <div style={{padding: '7% 0 1% 0'}}>
