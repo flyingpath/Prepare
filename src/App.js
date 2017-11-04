@@ -34,8 +34,6 @@ class App extends Component {
 
     render() {
         const page = dataStore.page
-
-
         const MaterialAvatarWithStyled = styled(Avatar).attrs({
             className: 'AvatarPics'
         })`

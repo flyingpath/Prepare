@@ -78,6 +78,8 @@ class OptionData {
             .then( (res)=>res.json() )
             .then( (backdata)=>{
                 this.cancerList = backdata.data.viewer.cancers
+            }).catch( () => {
+              console.log("Promise Rejected");
             })
     }
 
@@ -102,7 +104,10 @@ class OptionData {
                 // let obj = {}
                 // _.forEach(backdata, (data)=>obj[data.feature]=0)
                 // dataStore.initActionFeature(obj)
+            }).catch( () => {
+              console.log("Promise Rejected");
             })
+
     }
 
     fetch(data){
