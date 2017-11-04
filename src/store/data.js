@@ -18,14 +18,12 @@ class DataStore {
         ct: 0,
         rt: 0,
         ht: 0,
-        pr: 1
     }
-
-    @observable
-    fetchData={}
-
     @observable
     survivalData=[]
+
+    fetchData=[]
+
 
     @observable
     page = 'cancer' // -- cancer, info, featureAndReport
@@ -119,7 +117,6 @@ class DataStore {
         const ht = dataStore.actionFeature.ht
         const data = _.filter(this.fetchData, (x)=>x.ct==ct&&x.rt==rt&&x.ht==ht)
         this.survivalData = data[0].survival
-        console.log(data)
     }
 }
 

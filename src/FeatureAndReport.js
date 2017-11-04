@@ -17,16 +17,13 @@ class FeatureAndReport extends React.Component {
     }
 
     render() {
-        const report = dataStore.load? <div style={{height:'100%'}}><ColorBrickLoading /></div>:<Report  key='report' />
+        const report = <Report  key='report' />
         return (
             <div style={{height:'100%'}}>
                 <FeatureSelector
                     key='featureSelect'
                 />
                 {report}
-                <div style={{textAlign:'center'}}>
-                <FlatButton onClick={()=>{dataStore.fetchSurvival()}} label="Calculate" primary={true} />
-                </div>
             </div>
         );
     }

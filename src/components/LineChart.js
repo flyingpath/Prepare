@@ -15,7 +15,7 @@ class LineChart extends React.Component {
         this.renderChart()
     }
 
-    componentWillUpdate(){
+    componentDidUpdate(){
         this.renderChart()
     }
 
@@ -23,7 +23,6 @@ class LineChart extends React.Component {
         if(this.lineChart){
             const labels = this.props.labels
             const dataSets = this.props.data
-        
             const myChart = new Chart(this.lineChart, {
                 type: 'line',
                 data: {
@@ -68,7 +67,7 @@ class LineChart extends React.Component {
                     },
                     events:[],
                     legend:{
-                        display:false,
+                        display: false,
                         position:'bottom',
                         labels:{
                             boxWidth:20,
@@ -115,7 +114,6 @@ class LineChart extends React.Component {
                                         }else if(index == 5){
                                             deltaX -= 17
                                         }
-
                                         ctx.fillText(text, line._model.x+deltaX, line._model.y + deltaY);
                                     })
                                 })
@@ -137,7 +135,6 @@ class LineChart extends React.Component {
         if(data.length===0){
             return (
                 <canvas>
-                
                 </canvas>
             )
         }else{
