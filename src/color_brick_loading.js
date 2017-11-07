@@ -1,5 +1,5 @@
 import React from 'react'
-import {observer} from 'mobx-react' 
+import {observer} from 'mobx-react'
 // import mobx from 'mobx'
 // import _ from 'lodash'
 import styled from 'styled-components';
@@ -8,9 +8,7 @@ import './css/_color_brick_loading.scss'
 class ColorBrickLoading extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            
-        };
+        this.state = {};
         this.handleClick = this.handleClick.bind(this);
     }
 
@@ -44,9 +42,9 @@ class ColorBrickLoading extends React.Component {
         return (
             <Loader>
                 <Logo>
-                    <White />
-                    <Orange />
-                    <Red />
+                    <White/>
+                    <Orange/>
+                    <Red/>
                 </Logo>
                 <CustomP>LOADING</CustomP>
             </Loader>

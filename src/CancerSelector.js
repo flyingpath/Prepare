@@ -21,7 +21,7 @@ class CancerSelector extends React.Component {
         this.ableList = ['breast']
     }
 
-    componentWillMount(){
+    componentWillMount() {
         optionStore.setFeatureList()
     }
 
@@ -42,7 +42,7 @@ class CancerSelector extends React.Component {
 
 
     render() {
-        const cancerList = optionStore.cancerList?optionStore.cancerList:[]
+        const cancerList = optionStore.cancerList ? optionStore.cancerList : []
         const cancer = dataStore.cancer.value
 
         const fontColor = {
@@ -63,8 +63,8 @@ class CancerSelector extends React.Component {
         const H1Title = styled.h1`
             ${() => h1Title()}
         `
-        if ( _.isEmpty(cancerList) ){
-            return(
+        if (_.isEmpty(cancerList)) {
+            return (
                 <div>
                     <ColorBrickLoading/>
                 </div>
@@ -91,7 +91,7 @@ class CancerSelector extends React.Component {
                                         style={styles.radioButton}
                                         key={`cancerType${idx}`}
                                         onClick={this.selectCancer(eachCancer)}
-                                        disabled={this.ableList.indexOf(value)==-1}
+                                        disabled={this.ableList.indexOf(value) == -1}
                                     />
                                 )
                             })

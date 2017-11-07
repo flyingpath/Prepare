@@ -17,9 +17,9 @@ class FeatureAndReport extends React.Component {
     }
 
     render() {
-        const report = <Report  key='report' />
+        const report = <Report key='report'/>
         return (
-            <div style={{height:'100%'}}>
+            <div style={{height: '100%'}}>
                 <FeatureSelector
                     key='featureSelect'
                 />
