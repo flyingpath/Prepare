@@ -40,7 +40,7 @@ class Route extends React.Component {
             const startX = this.x
             const endX = e.touches[0].clientX
 
-            if ((endX - startX > 50) && this.timeCount && this.ableBack) {
+            if ((endX - startX > 90) && this.timeCount && this.ableBack) {
                 dataStore.setRouteDirection('backward')
                 dataStore.goToPrePage()
                 dataStore.setRouteDirection('forward')

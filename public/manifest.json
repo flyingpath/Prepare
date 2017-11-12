@@ -1,0 +1,14 @@
+{
+    "name": "Prepare",
+    "theme_color": "#7360f9",
+    "background_color": "rgba(33,150,243,0)",
+    "display": "standalone",
+    "start_url": ".",
+    "icons": [
+        {
+            "src": "learn-icon.png",
+            "sizes": "128x128",
+            "type": "image/png"
+        }
+    ]
+}
