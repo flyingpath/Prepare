@@ -21,7 +21,7 @@ class App extends Component {
         this.drawerToggle = this.drawerToggle.bind(this)
     }
 
-    componentWillMount(){
+    componentWillMount() {
         optionStore.setCancerList()
     }
 

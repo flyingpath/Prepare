@@ -33,37 +33,42 @@ class KeyInfo extends React.Component {
 
     }
 
-    closeDialog(){
+    closeDialog() {
         this.setState({
-            dialogOpen:false
+            dialogOpen: false
         })
     }
-    setGender(val){
-        return ()=>{
-            const gender = val? 'female': 'male'
-            if(gender=='male') return
+
+    setGender(val) {
+        return () => {
+            const gender = val ? 'female' : 'male'
+            if (gender == 'male') return
             infoData.setGender(gender)
         }
     }
 
-    setAge(event, index, value){
+    setAge(event, index, value) {
         infoData.setAge(value)
     }
-    setGrade(event, index, value){
+
+    setGrade(event, index, value) {
         infoData.setGrade(value)
     }
-    setStage(event, index, value){
+
+    setStage(event, index, value) {
         infoData.setStage(value)
     }
-    setPr(value){
+
+    setPr(value) {
         console.log(value)
         infoData.setPr(value)
     }
 
-    setTumorSize(e){
+    setTumorSize(e) {
         infoData.setTumorSize(e.target.value)
     }
-    setLymphNode(e){
+
+    setLymphNode(e) {
         infoData.setLymphNode(e.target.value)
     }
 
@@ -84,12 +89,12 @@ class KeyInfo extends React.Component {
             display: 'block'
         }
 
-        const cancer = _.isEmpty(dataStore.cancer)?'':dataStore.cancer.label
-        
+        const cancer = _.isEmpty(dataStore.cancer) ? '' : dataStore.cancer.label
+
         const gradeList = optionStore.grade
         const stageList = optionStore.stage
         const prList = optionStore.pr
-        
+
         const gender = infoData.gender
         const age = infoData.age
         const tumorSize = infoData.tumorSize
@@ -97,7 +102,7 @@ class KeyInfo extends React.Component {
         const stage = infoData.stage
         const grade = infoData.grade
         const lab = infoData.lab
-        
+
         const dialogOpen = this.state.dialogOpen
         const message = this.err
 
@@ -109,8 +114,8 @@ class KeyInfo extends React.Component {
         return (
             <div>
                 <T_dialog open={dialogOpen} closeFunc={this.closeDialog}>
-                    <div style = {{ width: '100%', height: '100%', textAlign: 'center'}}>
-                        <div style={{margin:'10px 0px 20px'}}>
+                    <div style={{width: '100%', height: '100%', textAlign: 'center'}}>
+                        <div style={{margin: '10px 0px 20px'}}>
                             {message}
                         </div>
                         <RaisedButton onClick={this.closeDialog}>
@@ -127,43 +132,44 @@ class KeyInfo extends React.Component {
                        }}>
                     <div className="Keyinfo_position" style={{display: "none"}}>
                         <span style={fontColor}>性別</span>
-                        <BinaryCheckbox value={infoData.gender=='male'?0:1} onClick={this.setGender} data={['男', '女']} />
+                        <BinaryCheckbox value={infoData.gender == 'male' ? 0 : 1} onClick={this.setGender}
+                                        data={['男', '女']}/>
                     </div>
                     <div className="Keyinfo_position">
                         <span style={fontColor}>年齡</span>
-                            <SelectFieldScroll value={parseInt(age)} onChange={this.setAge} 
-                                data = {
-                                    _.map( new Array(100), (data, idx)=>(
-                                        <MenuItem value={idx+1} key={idx+1} primaryText={`${idx+1}`} />
-                                    ) ) 
-                                }
-                            />
+                        <SelectFieldScroll value={parseInt(age)} onChange={this.setAge}
+                                           data={
+                                               _.map(new Array(100), (data, idx) => (
+                                                   <MenuItem value={idx + 1} key={idx + 1} primaryText={`${idx + 1}`}/>
+                                               ))
+                                           }
+                        />
                     </div>
                     <div className="Keyinfo_position">
                         <span style={fontColor}>癌症分期 (Stage)</span>
-                            <SelectFieldScroll value={stage} onChange={this.setStage} 
-                                data = {
-                                    _.map( stageList, (data, idx)=>(
-                                        <MenuItem value={data.value} key={idx} primaryText={data.label} />
-                                    ))
-                                }
-                            />
+                        <SelectFieldScroll value={stage} onChange={this.setStage}
+                                           data={
+                                               _.map(stageList, (data, idx) => (
+                                                   <MenuItem value={data.value} key={idx} primaryText={data.label}/>
+                                               ))
+                                           }
+                        />
                     </div>
                     <div className="Keyinfo_position">
                         <span style={fontColor}>腫瘤細胞分化程度 (Grade)</span>
-                        <SelectFieldScroll value={grade} onChange={this.setGrade} 
-                            data = {
-                                _.map( gradeList, (data, idx)=>(
-                                    <MenuItem value={data.value} key={idx} primaryText={data.label} />
-                                ))
-                            }
+                        <SelectFieldScroll value={grade} onChange={this.setGrade}
+                                           data={
+                                               _.map(gradeList, (data, idx) => (
+                                                   <MenuItem value={data.value} key={idx} primaryText={data.label}/>
+                                               ))
+                                           }
                         />
                     </div>
-                    <div className="Keyinfo_position" >
+                    <div className="Keyinfo_position">
                         <span style={fontColor}>黃體激素受體(PR)</span>
-                        <BinaryCheckbox 
-                          value={infoData.pr} 
-                          onClick={this.setPr} data={[optionStore.pr[0].label, optionStore.pr[1].label]} />
+                        <BinaryCheckbox
+                            value={infoData.pr}
+                            onClick={this.setPr} data={[optionStore.pr[0].label, optionStore.pr[1].label]}/>
                     </div>
 
                     <div style={{padding: '7% 0 1% 0'}}>
