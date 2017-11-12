@@ -241,7 +241,21 @@ module.exports = {
     // to their corresponding output file so that tools can pick it up without
     // having to parse `index.html`.
     new ManifestPlugin({
-      fileName: 'asset-manifest.json'
+      fileName: 'asset-manifest.json',
+      seed:{
+        "name": "Prepare",
+        "theme_color": "#7360f9",
+        "background_color": "rgba(33,150,243,0)",
+        "display": "fullscreen",
+        "start_url": ".",
+        "icons": [
+            {
+                "src": "learn-icon.png",
+                "sizes": "48x48",
+                "type": "image/png"
+            }
+        ]
+      }
     })
   ],
   // Some libraries import Node modules but don't use them in the browser.
