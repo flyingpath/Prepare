@@ -55,6 +55,7 @@ class FeatureSelector extends React.Component {
                                     onClick={this.setFeature(data.feature)}
                                     data = {data.option_cn}
                                     className='featureSelectorDiv'
+                                    // style={{borderBottom:'0px solid transparent'}}
                                 />
                             </div>
                         )

@@ -7,7 +7,7 @@ const BinaryCheckbox = (props) => {
     const className = props.className ? props.className : 'Keyinfo_position'
 
     return (
-        <div className={className} style={{display: 'flex', borderBottom: '1px #ccc solid', paddingLeft: '4px'}}>
+        <div className={className} style={{display: 'flex', borderBottom: '2px #f2f2f2 dotted', paddingLeft: '4px'}}>
             <div style={{display: 'flex', alignItems: 'baseline'}}>
                 <div
                     type="checkbox"
