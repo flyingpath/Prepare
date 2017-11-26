@@ -21,7 +21,7 @@ class DataStore {
     }
     @observable
     survivalData=[]
-
+    @observable
     fetchData=[]
 
 
@@ -34,7 +34,13 @@ class DataStore {
 
     @observable
     load=false
+    @observable
+    reportType='bar'
 
+    @action
+    changeReportType(value) {
+        this.reportType = value
+    }
     @action
     changePageTo(page) {
         this.page = page
@@ -105,8 +111,8 @@ class DataStore {
         .then(res=>res.json())
         .then(backdata=>{
             this.fetchData = backdata
-            this.load = false
             this.setSurvivalData()
+            this.load = false
         })
     }
 

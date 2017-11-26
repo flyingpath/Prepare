@@ -4,11 +4,12 @@
 #prepare-app-root{
     height: 100%
 }
-.page_test>span>div{
+.page_router>span>div{
     height: 100%
 }
-.page_test{
-    flex-grow: 1
+.page_router{
+    flex-shrink: 1; 
+    overflow-y: auto;
 }
 .h1Title{
 
@@ -19,3 +20,7 @@
 .featureSelectorDiv{
     font-size: 80%!important;
 }
+// #prepare-bar-chart{
+//     width:150px;
+//     height: 350px!important;
+// }

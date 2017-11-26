@@ -46,20 +46,21 @@ class App extends Component {
                 <MuiThemeProvider muiTheme={prepareTheme}>
                     <div style={{
                         height: '100%',
-                        display: 'block',
-                        position: 'relative'
+                        display: 'flex',
+                        flexDirection: 'column',
                     }}>
                         <AppBar
                             title="PREPARE"
                             onLeftIconButtonTouchTap={() => {
                             }}
-                            style={{height: '60px'}}
+                            style={{
+                                height: '60px',
+                                flexShrink:'0'
+                            }}
                         >
                             <MaterialAvatarWithStyled/>
                         </AppBar>
-                        <Route
-                            page={page}
-                        />
+                        {<Route page={page} />}
                     </div>
                 </MuiThemeProvider>
             </div>

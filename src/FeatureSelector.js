@@ -18,7 +18,6 @@ class FeatureSelector extends React.Component {
         super(props)
     }
     componentWillMount(){
-        dataStore.fetchSurvival()
          //--- 權宜之計 記得改回
         //
         // features = _.filter(features, (f)=>f.isAnalysis)

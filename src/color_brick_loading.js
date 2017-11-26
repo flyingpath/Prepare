@@ -20,6 +20,7 @@ class ColorBrickLoading extends React.Component {
 
         const Loader = styled.div.attrs({
             className: 'loader',
+            height:'100%'
         })``;
         const Logo = styled.div.attrs({
             className: 'logo',

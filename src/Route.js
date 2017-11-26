@@ -87,7 +87,7 @@ class Route extends React.Component {
         }
 
         return (
-            <div className='page_test'>
+            <div className='page_router'>
                 <ReactCSSTransitionGroup
                     transitionName={transitionClass}
                     transitionEnterTimeout={1000}

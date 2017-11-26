@@ -19,12 +19,26 @@ class LineChart extends React.Component {
         this.renderChart()
     }
 
+    findMinData(data){
+        let min = 1
+        data.forEach(x=>{
+            x.data.forEach(subX=>{
+                if (subX<min){
+                    min = subX
+                }
+            })
+        })
+        return min
+    }
     renderChart(){
         if(this.lineChart){
             const labels = this.props.labels
             const dataSets = this.props.data
+
+            const minData = this.findMinData(dataSets)
+            console.log(minData)
             const myChart = new Chart(this.lineChart, {
-                type: 'line',
+                type: 'bar',
                 data: {
                     labels: this.props.labels,
                     datasets: dataSets
@@ -33,6 +47,7 @@ class LineChart extends React.Component {
                     scales: {
                         xAxes: [
                             {
+                                stacked: true,
                                 gridLines: {
                                     display: true
                                 },
@@ -47,6 +62,7 @@ class LineChart extends React.Component {
                         ],
                         yAxes: [
                             {
+                                // stacked: true,
                                 gridLines: {
                                     display: true
                                 },
@@ -56,9 +72,8 @@ class LineChart extends React.Component {
                                 },
                                 ticks: {
                                     fontSize: 14,
-                                    min: 0,
-                                    max: 1,
-                                    stepSize: 0.1
+                                    min: minData>0.5?Math.round(minData)-0.1:0,
+                                    max: 1
                                 }
                             }
                         ],
@@ -68,7 +83,7 @@ class LineChart extends React.Component {
                     },
                     events:[],
                     legend:{
-                        display: false,
+                        display: true,
                         position:'bottom',
                         labels:{
                             boxWidth:20,
@@ -89,34 +104,24 @@ class LineChart extends React.Component {
                                 ctx.textBaseline = 'bottom';
                                 const allLineData = this.props.data
                                 allLineData.forEach((dataset, i)=>{
-                                    
                                     const meta = chartInstance.controller.getDatasetMeta(i)
                                     meta.data.forEach((line, index)=>{
-                                        if ( index%2!=0 ) return
                                         const data = dataset.data[index]; 
-                                        let numData = Math.round(parseFloat(data)*100)
+                                        let numData = (parseFloat(data)*100).toFixed(1)
                                         let text = String(numData)                           
                                         text += '%'
                                         ctx.fillStyle="black"
-                                        ctx.font="12px Georgia"
                                         
-                                        let deltaX=0, deltaY=-5,anotherData
+                                        let deltaX, deltaY,anotherData
                                     //---- 分上下
-                                        // if(i==0) {
-                                        //     anotherData = allLineData[1].data
-                                        // }else{
-                                        //     anotherData = allLineData[0].data
-                                        // }
-                                        // if(parseFloat(anotherData[index])>parseFloat(data)){
-                                        //     deltaX = +10; 
-                                        //     deltaY = +20
-                                        // }else{ deltaX = +10; deltaY = -10 }
+                                        deltaY = 10
+                                        deltaX = 0
                                     //----------------
                                     //---- 左右微調    
                                         if(index == 0){
-                                            // deltaX = -5
-                                        }else if(index == 10){
-                                            deltaX -= 4
+                                            deltaX += 5
+                                        }else if(index == 5){
+                                            deltaX -= 17
                                         }
                                         ctx.fillText(text, line._model.x+deltaX, line._model.y + deltaY);
                                     })
@@ -142,12 +147,11 @@ class LineChart extends React.Component {
                 </canvas>
             )
         }else{
-
             return (
                 <canvas
-                    id = 'prepare-line-chart' 
+                    id = 'prepare-bar-chart' 
                     ref={(div)=>this.lineChart = div} 
-                    style={{width:'250px', height:'12rem'}}
+                    height="400px"
                 >
                 </canvas>
             )
@@ -156,29 +160,30 @@ class LineChart extends React.Component {
 }
 
 LineChart.defaultProps = {
-    labels: ["1", "2", "3", "4", "5"],
-    dataSets: [{
-        label: '多少年後',
-        data: [0.6, 0.7, 0.4, 0.1, 0.05],
-        backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-        ],
-        borderColor: [
-            'rgba(255,99,132,1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-        ],
-        borderWidth: 1,
-        fill: false
-    }]
+    labels: ["5"],
+    data: [
+        {
+            label: 'A',
+            data: [0.4],
+            backgroundColor: 'rgba(227, 80, 80, 0.5)',
+            borderWidth: 1,
+            fill: false
+        },
+        {
+            label: 'B',
+            data: [0.7],
+            backgroundColor: 'rgba(82, 227, 80, 0.5)',
+            borderWidth: 1,
+            fill: false
+        },
+        {
+            label: 'C',
+            data: [0.9],
+            backgroundColor: 'rgba(80, 145, 227, 0.5)',
+            borderWidth: 1,
+            fill: false
+        },        
+    ]
 };
 
 export default LineChart

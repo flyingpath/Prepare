@@ -34,19 +34,19 @@ class OptionData {
 
     grade = [
         {
-            label: '高分化 (G1)',
+            label: 'Grade 1 (G1)',
             value: 1
         },
         {
-            label: '中分化 (G2)',
+            label: 'Grade 2 (G2)',
             value: 2
         },
         {
-            label: '低分化 (G3)',
+            label: 'Grade 3 (G3)',
             value: 3
         },
         {
-            label: '未分化 (G4)',
+            label: 'Grade 4 (G4)',
             value: 4
         }
     ]
@@ -60,6 +60,21 @@ class OptionData {
             label: 'Positive (+)',
             value: 1
         },
+    ]
+
+    barPriority=[
+        {
+            order:{ rt: 0, ht: 0, ct: 1 },
+            label:'化療'
+        },
+        {
+            order: { rt: 1, ht: 0, ct: 1 },
+            label: '放療'
+        },
+        {
+            order: { rt: 1, ht: 1, ct: 1 },
+            label: '賀爾蒙治療'
+        }
     ]
 
     @action
