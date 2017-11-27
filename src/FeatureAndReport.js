@@ -17,42 +17,47 @@ class FeatureAndReport extends React.Component {
         super(props);
     }
 
-    componentWillMount(){
+    componentWillMount() {
         dataStore.fetchSurvival()
     }
 
     render() {
 
-        let constent 
+        let constent
+        const cancer = dataStore.cancer
+        const H1Title = styled.h1`
+            ${() => h1Title()}
+        `
 
-        if (dataStore.load){
+        if (dataStore.load) {
             constent = (
-                    <ColorBrickLoading />
-            ) 
-        } else if ( dataStore.reportType === 'line'){
-            constent =(
+                <ColorBrickLoading/>
+            )
+        } else if (dataStore.reportType === 'line') {
+            constent = (
                 <div style={{height: '100%'}}>
                     <FeatureSelector
                         key='featureSelect'
                     />
-                    <LineReport />
+                    <LineReport/>
                 </div>
             )
-        } else if ( dataStore.reportType === 'bar'){
-            constent =(
+        } else if (dataStore.reportType === 'bar') {
+            constent = (
                 <div style={{height: '100%'}}>
-                    <BarReport />
+                    <H1Title>{`治療選項 (${cancer.label})`}</H1Title>
+                    <BarReport/>
                 </div>
             )
         } else {
-            constent =(
+            constent = (
                 <div style={{height: '100%'}}>
                     <FeatureSelector
                         key='featureSelect'
                     />
-                    <LineReport />
+                    <LineReport/>
                 </div>
-            )            
+            )
         }
         return constent
     }

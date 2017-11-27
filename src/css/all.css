@@ -280,7 +280,7 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 100%; }
 
 html, body {
-  font: 600 16px/18px "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font: 400 16px/18px "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   background-color: #ecf0f1;
   background-image: url("../pics/pattern_1.svg"); }
 
@@ -309,20 +309,6 @@ body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset,
 
 *::placeholder {
   color: #dcdcdc; }
-
-.prepare_route_page_forward-enter {
-  transform: translate3d(100%, 0, 0); }
-
-.prepare_route_page_forward-enter.prepare_route_page_forward-enter-active {
-  transform: translate3d(0, 0, 0);
-  transition: all 1000ms; }
-
-.prepare_route_page_backward-enter {
-  transform: translate3d(-100%, 0, 0); }
-
-.prepare_route_page_backward-enter.prepare_route_page_backward-enter-active {
-  transform: translate3d(0, 0, 0);
-  transition: all 1000ms; }
 
 /*= input focus effects css
 /*= input focus effects css
