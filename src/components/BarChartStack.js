@@ -110,11 +110,11 @@ class LineChart extends React.Component {
                                         let numData = (parseFloat(data)*100).toFixed(1)
                                         let text = String(numData)                           
                                         text += '%'
-                                        ctx.fillStyle="black"
-                                        
+                                        ctx.fillStyle="white"
+
                                         let deltaX, deltaY,anotherData
                                     //---- 分上下
-                                        deltaY = 10
+                                        deltaY = 15
                                         deltaX = 0
                                     //----------------
                                     //---- 左右微調    
