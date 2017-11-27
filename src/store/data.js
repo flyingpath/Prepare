@@ -11,7 +11,7 @@ class DataStore {
     
     @observable
         // feature = 'op'
-    feature = 'op'
+    feature = ''
 
     @observable
     actionFeature={
@@ -26,7 +26,7 @@ class DataStore {
 
 
     @observable
-    page = 'featureAndReport' // -- cancer, info, featureAndReport
+    page = 'cancer' // -- cancer, info, featureAndReport
     @observable
     routePageClass = "prepare_route_page_forward"
     @observable

@@ -59,16 +59,20 @@ class LineReport extends React.Component {
         })
         const stylesArray = [
             {
-                backgroundColor: 'rgba(98, 117, 123,.4)',
-                borderColor: 'rgba(255, 255, 255,.8)',
+                // backgroundColor: 'rgba(175, 143, 152,.8)',
+                // borderColor: 'rgba(255, 255, 255,.8)',
+                backgroundColor: 'rgba(218,167,194,1)',
+                borderColor: "rgba(255,255,255,1)",
             },
             {
-                backgroundColor: 'rgba(229, 153, 149,.4)',
-                borderColor: "rgba(255, 255, 255,.8)",
+                backgroundColor: 'rgba(220, 163, 174,1)',
+                borderColor: "rgba(255, 255, 255,1)",
             },
             {
-                backgroundColor: 'rgba(172,52,88,.4)',
-                borderColor: "rgba(255,255,255,.8)",
+                backgroundColor: 'rgba(175, 143, 152,1)',
+                borderColor: 'rgba(255, 255, 255,1)',
+                // backgroundColor: 'rgba(218,167,194,.8)',
+                // borderColor: "rgba(255,255,255,.8)",
             }
         ]
         const finalData = this.combindStyle(stylesArray, dataSet)
