@@ -28,6 +28,7 @@ class FeatureSelector extends React.Component {
             dataStore.setActionFeature(feature, bool)
         }
     }
+
     render() {
         const features = optionStore.featureList
         const valueObj = dataStore.actionFeature

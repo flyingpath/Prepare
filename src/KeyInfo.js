@@ -30,7 +30,7 @@ class KeyInfo extends React.Component {
     }
 
     componentDidMount() {
-
+            dataStore.setRouteDirection('no')
     }
 
     closeDialog() {

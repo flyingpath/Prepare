@@ -4,16 +4,16 @@ import _ from 'lodash'
 
 class OptionData {
     @observable
-    cancerList = '' 
+    cancerList = ''
     @observable
     featureList = [
-        { name_cn: '化學治療', feature:'ct', option_cn: ['無', '有']   },
-        { name_cn: '放腫治療', feature:'rt', option_cn: ['無', '有']   },
-        { name_cn: '賀爾蒙治療', feature:'ht', option_cn: ['無', '有']   },
+        {name_cn: '化學治療', feature: 'ct', option_cn: ['無', '有']},
+        {name_cn: '放腫治療', feature: 'rt', option_cn: ['無', '有']},
+        {name_cn: '賀爾蒙治療', feature: 'ht', option_cn: ['無', '有']},
         // { name_cn: '黃體激素受體(PR)', feature:'pr', option_cn: ['陰-', '陽+']   }
     ]
 
-    stage=[
+    stage = [
         {
             label: '第一期 (T1)',
             value: 1
@@ -62,17 +62,17 @@ class OptionData {
         },
     ]
 
-    barPriority=[
+    barPriority = [
         {
-            order:{ rt: 0, ht: 0, ct: 1 },
-            label:'化療'
+            order: {rt: 0, ht: 0, ct: 1},
+            label: '化療'
         },
         {
-            order: { rt: 1, ht: 0, ct: 1 },
+            order: {rt: 1, ht: 0, ct: 1},
             label: '放療'
         },
         {
-            order: { rt: 1, ht: 1, ct: 1 },
+            order: {rt: 1, ht: 1, ct: 1},
             label: '賀爾蒙治療'
         }
     ]
@@ -89,15 +89,15 @@ class OptionData {
             }
         }`
         const variables = {}
-        this.fetch({ query: queryString, variables: variables })
-            .then( (res)=>res.json() )
-            .then( (backdata)=>{
+        this.fetch({query: queryString, variables: variables})
+            .then((res) => res.json())
+            .then((backdata) => {
                 this.cancerList = backdata.data.viewer.cancers
             })
     }
 
-    @action 
-    setFeatureList () {
+    @action
+    setFeatureList() {
         const queryString = `query ($cancer: String!){
             viewer{
                 features(cancer: $cancer) {
@@ -110,9 +110,9 @@ class OptionData {
             }
         }`
         const variables = {cancer: dataStore.cancer.value}
-        this.fetch({ query: queryString, variables: variables })
-            .then( (res)=>res.json() )
-            .then( (backdata)=>{
+        this.fetch({query: queryString, variables: variables})
+            .then((res) => res.json())
+            .then((backdata) => {
                 // this.featureList = backdata.data.viewer.features
                 // let obj = {}
                 // _.forEach(backdata, (data)=>obj[data.feature]=0)
@@ -120,9 +120,9 @@ class OptionData {
             })
     }
 
-    fetch(data){
+    fetch(data) {
         let url = 'https://prepare.kfsyscc.org/prepare-api'
-        let headers=new Headers()
+        let headers = new Headers()
         headers.append("Content-Type", "application/json")
         headers.append("Accept", "application/json")
         return (

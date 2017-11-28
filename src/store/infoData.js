@@ -20,28 +20,44 @@ class InfoData {
     lymphNode = ''
     @observable
     KeyInfoButtonDisabled = true
-    
+
 
     @action
     setGender(gender) {
         this.gender = gender
         !this.gender == '' && !this.age == '' ? this.KeyInfoButtonDisabled = false : this.KeyInfoButtonDisabled = true
     }
+
     @action
     setAge(int) {
         this.age = int
         !this.gender == '' && !this.age == '' ? this.KeyInfoButtonDisabled = false : this.KeyInfoButtonDisabled = true
     }
+
     @action
-    setTumorSize(val) { this.tumorSize = val }
+    setTumorSize(val) {
+        this.tumorSize = val
+    }
+
     @action
-    setLymphNode(val) { this.lymphNode = val }
+    setLymphNode(val) {
+        this.lymphNode = val
+    }
+
     @action
-    setGrade(val) { this.grade = val }
+    setGrade(val) {
+        this.grade = val
+    }
+
     @action
-    setStage(val) { this.stage = val }
+    setStage(val) {
+        this.stage = val
+    }
+
     @action
-    setPr(val) { this.pr = val }
+    setPr(val) {
+        this.pr = val
+    }
 
     @action
     KeyInfoButtonCheck() {
