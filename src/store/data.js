@@ -7,22 +7,22 @@ class DataStore {
 
     @observable
         // cancer = { value: 'breast', label: '乳癌' }
-    cancer = { value: 'breast', label: '乳癌' }
-    
+    cancer = {value: 'breast', label: '乳癌'}
+
     @observable
         // feature = 'op'
     feature = ''
 
     @observable
-    actionFeature={
+    actionFeature = {
         ct: 0,
         rt: 0,
         ht: 0,
     }
     @observable
-    survivalData=[]
+    survivalData = []
     @observable
-    fetchData=[]
+    fetchData = []
 
 
     @observable
@@ -33,29 +33,33 @@ class DataStore {
     confirmButton = false
 
     @observable
-    load=false
+    load = false
     @observable
-    reportType='bar'
+    reportType = 'bar'
 
     @action
     changeReportType(value) {
         this.reportType = value
     }
+
     @action
     changePageTo(page) {
         this.page = page
     }
+
     @action
     setActionFeature(key, val) {
         let obj = this.actionFeature
-        obj[key]= val
-        this.actionFeature= obj
+        obj[key] = val
+        this.actionFeature = obj
         this.setSurvivalData()
     }
+
     @action
     initActionFeature(obj) {
         // this.actionFeature=obj
     }
+
     @action
     setCancer(ca) {
         this.cancer = ca;
@@ -104,16 +108,16 @@ class DataStore {
         const stage = infoData.stage
         const grade = infoData.grade
 
-        const uri=`https://prepare.kfsyscc.org/api/python/prepare-breast_model1/${age},${stage},${grade},${pr}`
+        const uri = `https://prepare.kfsyscc.org/api/python/prepare-breast_model1/${age},${stage},${grade},${pr}`
         fetch(uri, {
-            credentials:'include'
+            credentials: 'include'
         })
-        .then(res=>res.json())
-        .then(backdata=>{
-            this.fetchData = backdata
-            this.setSurvivalData()
-            this.load = false
-        })
+            .then(res => res.json())
+            .then(backdata => {
+                this.fetchData = backdata
+                this.setSurvivalData()
+                this.load = false
+            })
     }
 
     @action
@@ -121,7 +125,7 @@ class DataStore {
         const ct = dataStore.actionFeature.ct
         const rt = dataStore.actionFeature.rt
         const ht = dataStore.actionFeature.ht
-        const data = _.filter(this.fetchData, (x)=>x.ct==ct&&x.rt==rt&&x.ht==ht)
+        const data = _.filter(this.fetchData, (x) => x.ct == ct && x.rt == rt && x.ht == ht)
         this.survivalData = data[0].survival
     }
 }

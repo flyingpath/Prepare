@@ -44,7 +44,7 @@ class LineReport extends React.Component {
     }
 
     makeChartData(data) {
-        let sData = _.map(data, x =>  parseFloat(parseFloat(x).toFixed(2)) )
+        let sData = _.map(data, x => parseFloat(parseFloat(x).toFixed(2)))
         let dataSet = []
         let finalData = []
         let styles = []
@@ -101,20 +101,22 @@ class LineReport extends React.Component {
     render() {
 
         let data = dataStore.survivalData
-        
+
         const chartData = this.makeChartData(data)
-        
+
         return (
             <div>
                 <Paper className="Paper_container" style={{backgroundColor: '#fff'}}>
-                    {<LineChart data={chartData} labels = {_.range(11)} />}
+                    {<LineChart data={chartData} labels={_.range(11)}/>}
                 </Paper>
                 <div style={{
                     width: '100%',
-                    margin:'20px 0px',
+                    margin: '20px 0px',
                     textAlign: 'center'
                 }}>
-                    <RaisedButton onClick={()=>{dataStore.changeReportType('bar')}}>
+                    <RaisedButton onClick={() => {
+                        dataStore.changeReportType('bar')
+                    }}>
                         <span style={{
                             color: '#3c3c3c',
                             fontSize: '18px',
