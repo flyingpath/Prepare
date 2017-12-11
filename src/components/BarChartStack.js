@@ -36,7 +36,6 @@ class LineChart extends React.Component {
             const dataSets = this.props.data
 
             const minData = this.findMinData(dataSets)
-            console.log(minData)
             const myChart = new Chart(this.lineChart, {
                 type: 'bar',
                 data: {
@@ -72,7 +71,7 @@ class LineChart extends React.Component {
                                 },
                                 ticks: {
                                     fontSize: 14,
-                                    min: minData>0.5?Math.round(minData)-0.1:0,
+                                    min: minData>0.5?(Math.round(minData*100)/100).toFixed(2)-0.1:0,
                                     max: 1
                                 }
                             }
