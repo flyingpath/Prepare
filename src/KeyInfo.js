@@ -218,7 +218,7 @@ class KeyInfo extends React.Component {
                                 optionStore.gene[1].label
                             ]}/>
                     </div>
-                    <div style={{padding: '7% 0 1% 0'}}>
+                    <div style={{padding: '7% 0 1% 0', marginBottom: '20px'}}>
                         <RaisedButton onClick={this.confirm}>
                             <span style={fontColor}>開始分析</span>
                         </RaisedButton>

@@ -97,7 +97,7 @@ class FeatureAndReport extends React.Component {
                         <div style={{margin: '10px 0px 20px'}}>
                             {message}
                         </div>
-                        <RaisedButton onClick={this.closeDialog}>
+                        <RaisedButton onClick={this.closeDialog} style={{marginBottom: '20px'}}>
                             <span style={fontColor}>確認</span>
                         </RaisedButton>
                     </div>
