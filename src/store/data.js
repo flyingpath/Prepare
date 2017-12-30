@@ -18,6 +18,7 @@ class DataStore {
         ct: 0,
         rt: 0,
         ht: 0,
+        herceptin:0
     }
     @observable
     survivalData = []
@@ -103,12 +104,15 @@ class DataStore {
     @action
     fetchSurvival() {
         this.load = true
-        const pr = infoData.pr
         const age = infoData.age
-        const stage = infoData.stage
+        const Tstage = infoData.Tstage
+        const Nstage = infoData.Nstage
         const grade = infoData.grade
+        const pr = infoData.pr
+        const er = infoData.er
+        const her2 = infoData.her2
 
-        const uri = `https://prepare.kfsyscc.org/api/python/prepare-breast_model1/${age},${stage},${grade},${pr}`
+        const uri = `https://prepare.kfsyscc.org/api/python/prepare-main/${age},${grade},${Tstage},${Nstage},${pr},${er},${her2}`
         fetch(uri, {
             credentials: 'include'
         })
@@ -125,7 +129,8 @@ class DataStore {
         const ct = dataStore.actionFeature.ct
         const rt = dataStore.actionFeature.rt
         const ht = dataStore.actionFeature.ht
-        const data = _.filter(this.fetchData, (x) => x.ct == ct && x.rt == rt && x.ht == ht)
+        const herceptin = dataStore.actionFeature.herceptin
+        const data = _.filter(this.fetchData, (x) => x.ct == ct && x.rt == rt && x.ht == ht && x.herceptin==herceptin)
         this.survivalData = data[0].survival
     }
 }

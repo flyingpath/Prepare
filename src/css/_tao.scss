@@ -10,6 +10,13 @@
 .page_router{
     flex-shrink: 1; 
     overflow-y: auto;
+    height: 100%;
+    padding-top: 60px;
+}
+.keyInfo{
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 .h1Title{
 

@@ -10,72 +10,65 @@ class OptionData {
         {name_cn: '化學治療', feature: 'ct', option_cn: ['無', '有']},
         {name_cn: '放腫治療', feature: 'rt', option_cn: ['無', '有']},
         {name_cn: '賀爾蒙治療', feature: 'ht', option_cn: ['無', '有']},
-        // { name_cn: '黃體激素受體(PR)', feature:'pr', option_cn: ['陰-', '陽+']   }
+        {name_cn: '標靶藥物 (herceptin)', feature: 'herceptin', option_cn: ['無', '有']},
     ]
 
-    stage = [
-        {
-            label: '第一期 (T1)',
-            value: 1
-        },
-        {
-            label: '第二期 (T2)',
-            value: 2
-        },
-        {
-            label: '第三期 (T3)',
-            value: 3
-        },
-        {
-            label: '第四期 (T4)',
-            value: 4
-        }
+    stageT = [
+        { label: 'T1', value: 1 },
+        { label: 'T2', value: 2 },
+        { label: 'T3', value: 3 },
+        { label: 'T4', value: 4 }
+    ]
+
+    stageN = [
+        { label: 'N0', value: 0 },
+        { label: 'N1', value: 1 },
+        { label: 'N2', value: 2 },
+        { label: 'N3', value: 3 }
     ]
 
     grade = [
-        {
-            label: 'Grade 1 (G1)',
-            value: 1
-        },
-        {
-            label: 'Grade 2 (G2)',
-            value: 2
-        },
-        {
-            label: 'Grade 3 (G3)',
-            value: 3
-        },
-        {
-            label: 'Grade 4 (G4)',
-            value: 4
-        }
+        { label: 'G1', value: 1 },
+        { label: 'G2', value: 2 },
+        { label: 'G3', value: 3 },
+        { label: 'G4', value: 4 }
     ]
 
-    pr = [
-        {
-            label: 'Nagtive (-)',
-            value: 0
-        },
-        {
-            label: 'Positive (+)',
-            value: 1
-        },
+    gene = [
+        { label: 'Nagtive (-)', value: 0 },
+        { label: 'Positive (+)', value: 1},
     ]
 
     barPriority = [
         {
-            order: {rt: 0, ht: 0, ct: 1},
+            order: {rt: 0, ht: 0, ct: 0, herceptin:0},
+            label: '手術'
+        },
+        {
+            order: {rt: 0, ht: 0, ct: 1, herceptin:0},
             label: '化療'
         },
         {
-            order: {rt: 1, ht: 0, ct: 1},
+            order: {rt: 1, ht: 0, ct: 1, herceptin:0},
             label: '放療'
         },
         {
-            order: {rt: 1, ht: 1, ct: 1},
+            order: {rt: 1, ht: 1, ct: 1, herceptin:0},
             label: '賀爾蒙治療'
+        },
+        {
+            order: {rt: 1, ht: 1, ct: 1, herceptin:1},
+            label: ' 標靶藥物 (herceptin)'
         }
     ]
+
+    choiceSuggestion= `對於是否要接受化學治療
+    國外著名乳癌預測預後網站 PREDICT，參考附屬於英國劍橋教學醫院 Addenbrooke's Hospital 的乳癌協會 (the Cambridge Breast Unit) 的建議如下：
+    如果接受化療對於10年存活機率的絕對益處增加
+      <3%: 則不建議使用化療
+      介於 3-5%: 可以考量是否要接受化療
+      >5%: 建議使用化療
+    `
 
     @action
     setCancerList() {

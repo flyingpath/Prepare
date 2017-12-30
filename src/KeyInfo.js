@@ -9,7 +9,7 @@ import $ from 'jquery'
 
 import SelectFieldScroll from './components/SelectFieldScroll'
 import BinaryCheckbox from './components/BinaryCheckbox'
-import T_dialog from './components/T_dialog'
+import SquareSelect from './components/SquareSelect'
 
 import dataStore from './store/data'
 import infoData from './store/infoData'
@@ -51,17 +51,27 @@ class KeyInfo extends React.Component {
         infoData.setAge(value)
     }
 
-    setGrade(event, index, value) {
+    setGrade(value) {
         infoData.setGrade(value)
     }
 
-    setStage(event, index, value) {
-        infoData.setStage(value)
+    setNStage(value) {
+        infoData.setNStage(value)
+    }
+    setTStage(value) {
+        infoData.setTStage(value)
     }
 
-    setPr(value) {
-        console.log(value)
-        infoData.setPr(value)
+    setPR(value) {
+        infoData.setPR(value)
+    }
+
+    setER(value) {
+        infoData.setER(value)
+    }
+
+    setHER2(value) {
+        infoData.setHER2(value)
     }
 
     setTumorSize(e) {
@@ -92,19 +102,18 @@ class KeyInfo extends React.Component {
         const cancer = _.isEmpty(dataStore.cancer) ? '' : dataStore.cancer.label
 
         const gradeList = optionStore.grade
-        const stageList = optionStore.stage
+        const TstageList = optionStore.stageT
+        const NstageList = optionStore.stageN
         const prList = optionStore.pr
 
         const gender = infoData.gender
         const age = infoData.age
         const tumorSize = infoData.tumorSize
         const lymphNode = infoData.lymphNode
-        const stage = infoData.stage
+        const Tstage = infoData.Tstage
+        const Nstage = infoData.Nstage
         const grade = infoData.grade
         const lab = infoData.lab
-
-        const dialogOpen = this.state.dialogOpen
-        const message = this.err
 
         const H1Title = styled.h1`
             ${() => h1Title()}
@@ -112,30 +121,22 @@ class KeyInfo extends React.Component {
 
 
         return (
-            <div>
-                <T_dialog open={dialogOpen} closeFunc={this.closeDialog}>
-                    <div style={{width: '100%', height: '100%', textAlign: 'center'}}>
-                        <div style={{margin: '10px 0px 20px'}}>
-                            {message}
-                        </div>
-                        <RaisedButton onClick={this.closeDialog}>
-                            <span style={fontColor}>確認</span>
-                        </RaisedButton>
-                    </div>
-                </T_dialog>
+            <div className="keyInfo">
                 <H1Title>請輸入癌症資料</H1Title>
                 <Paper className="Paper_container"
                        style={{
                            backgroundColor: '#fff',
                            marginTop: 0,
                            paddingTop: '2px',
+                           height: '100%',
+                           overflowY: 'auto',
                        }}>
                     <div className="Keyinfo_position" style={{display: "none"}}>
                         <span style={fontColor}>性別</span>
                         <BinaryCheckbox value={infoData.gender == 'male' ? 0 : 1} onClick={this.setGender}
                                         data={['男', '女']}/>
                     </div>
-                    <div className="Keyinfo_position">
+                    <div className="Keyinfo_position" style={{marginTop:'10px'}} >
                         <span style={fontColor}>年齡</span>
                         <SelectFieldScroll value={parseInt(age)} onChange={this.setAge}
                                            data={
@@ -146,32 +147,77 @@ class KeyInfo extends React.Component {
                         />
                     </div>
                     <div className="Keyinfo_position">
-                        <span style={fontColor}>癌症分期 (Stage)</span>
-                        <SelectFieldScroll value={stage} onChange={this.setStage}
-                                           data={
-                                               _.map(stageList, (data, idx) => (
-                                                   <MenuItem value={data.value} key={idx} primaryText={data.label}/>
-                                               ))
-                                           }
+                        <span style={fontColor}>T 分期 (腫瘤侵犯深度)</span>
+                        <SquareSelect 
+                            defaultOption={Tstage}
+                            options={TstageList} 
+                            onClick={this.setTStage}
+                            groupStyle={{margin:'2px 0px'}}
+                            uniOptionStyle={{
+                                margin: '10px 10px 10px 0px',
+                                width: '50px',
+                                height: '24px',
+                            }}
                         />
                     </div>
                     <div className="Keyinfo_position">
-                        <span style={fontColor}>腫瘤細胞分化程度 (Grade)</span>
-                        <SelectFieldScroll value={grade} onChange={this.setGrade}
-                                           data={
-                                               _.map(gradeList, (data, idx) => (
-                                                   <MenuItem value={data.value} key={idx} primaryText={data.label}/>
-                                               ))
-                                           }
+                        <span style={fontColor}>N 分期 (局部淋巴轉移程度)</span>
+                        <SquareSelect 
+                            defaultOption={Nstage}
+                            options={NstageList} 
+                            onClick={this.setNStage}
+                            groupStyle={{margin:'2px 0px'}}
+                            uniOptionStyle={{
+                                margin: '10px 10px 10px 0px',
+                                width: '50px',
+                                height: '24px',
+                            }}
                         />
                     </div>
                     <div className="Keyinfo_position">
-                        <span style={fontColor}>黃體激素受體(PR)</span>
+                        <span style={fontColor}>Grade (腫瘤細胞分化程度)</span>
+                        <SquareSelect 
+                            defaultOption={grade}
+                            options={gradeList} 
+                            onClick={this.setGrade}
+                            groupStyle={{margin:'2px 0px'}}
+                            uniOptionStyle={{
+                                margin: '10px 10px 10px 0px',
+                                width: '50px',
+                                height: '24px',
+                            }}
+                        />
+                    </div>
+                    <div className="Keyinfo_position">
+                        <span style={fontColor}>PR (黃體激素受體)</span>
                         <BinaryCheckbox
                             value={infoData.pr}
-                            onClick={this.setPr} data={[optionStore.pr[0].label, optionStore.pr[1].label]}/>
+                            onClick={this.setPR} 
+                            data={[
+                                optionStore.gene[0].label, 
+                                optionStore.gene[1].label
+                            ]}/>
                     </div>
-
+                    <div className="Keyinfo_position">
+                        <span style={fontColor}>ER (動情激素受體)</span>
+                        <BinaryCheckbox
+                            value={infoData.er}
+                            onClick={this.setER} 
+                            data={[
+                                optionStore.gene[0].label, 
+                                optionStore.gene[1].label
+                            ]}/>
+                    </div>
+                    <div className="Keyinfo_position">
+                        <span style={fontColor}>HER2 (人類表皮生長因子受體-2)</span>
+                        <BinaryCheckbox
+                            value={infoData.her2}
+                            onClick={this.setHER2} 
+                            data={[
+                                optionStore.gene[0].label, 
+                                optionStore.gene[1].label
+                            ]}/>
+                    </div>
                     <div style={{padding: '7% 0 1% 0'}}>
                         <RaisedButton onClick={this.confirm}>
                             <span style={fontColor}>開始分析</span>

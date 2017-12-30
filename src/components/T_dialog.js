@@ -56,14 +56,18 @@ class T_Dialog extends React.Component {
         body: {
             borderRadius:'5px',
             margin: '0 auto',
-            width: '50%',
+            width: '70%',
             padding: '25px',
             height: '100px',
             fontFamily: 'arial, 微軟正黑體',
             overflowY: 'auto',
             background: 'white',
             boxShadow: '0px 2px 10px 5px grey',
-            position: 'relative'
+            position: 'relative',
+            height: '55%',
+            lineHeight: '25px',
+            whiteSpace: 'pre-line',
+            border:'2px solid #4de5c4'
         }
     }
 }

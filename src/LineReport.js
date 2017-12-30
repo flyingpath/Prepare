@@ -9,7 +9,6 @@ import Paper from 'material-ui/Paper'
 import ColorBrickLoading from './color_brick_loading'
 import BarChartStack from './components/BarChartStack'
 import LineChart from './components/LineChart';
-import RaisedButton from 'material-ui/RaisedButton'
 
 import dataStore from './store/data'
 
@@ -109,21 +108,6 @@ class LineReport extends React.Component {
                 <Paper className="Paper_container" style={{backgroundColor: '#fff'}}>
                     {<LineChart data={chartData} labels={_.range(11)}/>}
                 </Paper>
-                <div style={{
-                    width: '100%',
-                    margin: '20px 0px',
-                    textAlign: 'center'
-                }}>
-                    <RaisedButton onClick={() => {
-                        dataStore.changeReportType('bar')
-                    }}>
-                        <span style={{
-                            color: '#3c3c3c',
-                            fontSize: '18px',
-                            display: 'block'
-                        }}>柱狀圖</span>
-                    </RaisedButton>
-                </div>
             </div>
         );
     }

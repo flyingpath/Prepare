@@ -6,7 +6,6 @@ import {toJS} from 'mobx'
 
 import Paper from 'material-ui/Paper'
 import BarChartStack from './components/BarChartStack';
-import RaisedButton from 'material-ui/RaisedButton'
 
 import dataStore from './store/data'
 import optionStore from './store/option'
@@ -40,12 +39,21 @@ class LineReport extends React.Component {
     }
 
     makeBarData(data) {
-        const dataOrder = optionStore.barPriority.map(x => x.order)
+        const barData =  optionStore.barPriority
+
+        const dataOrder = barData.map(x => x.order)
         const dataSet = _.map(dataOrder, (each, idx) => {
             const thisData = data.filter((x) => (
-                (x.rt == each.rt) && (x.ht == each.ht) && (x.ct == each.ct)
+                (x.rt == each.rt) && (x.ht == each.ht) && (x.ct == each.ct)&& (x.herceptin == each.herceptin)
             ))
 
+            console.log(
+                'rt:', each.rt, 
+                'ht:',each.ht, 
+                'ct:',each.ct,
+                'herceptin:',each.herceptin
+            )
+            
             return (
                 {
                     label: optionStore.barPriority.map(x => x.label)[idx],
@@ -59,8 +67,6 @@ class LineReport extends React.Component {
         })
         const stylesArray = [
             {
-                // backgroundColor: 'rgba(175, 143, 152,.8)',
-                // borderColor: 'rgba(255, 255, 255,.8)',
                 backgroundColor: 'rgba(218,167,194,1)',
                 borderColor: "rgba(255,255,255,1)",
             },
@@ -71,8 +77,10 @@ class LineReport extends React.Component {
             {
                 backgroundColor: 'rgba(175, 143, 152,1)',
                 borderColor: 'rgba(255, 255, 255,1)',
-                // backgroundColor: 'rgba(218,167,194,.8)',
-                // borderColor: "rgba(255,255,255,.8)",
+            },
+            {
+                backgroundColor: 'rgb(233, 124, 31)',
+                borderColor: 'rgb(233, 124, 31)',
             }
         ]
         const finalData = this.combindStyle(stylesArray, dataSet)
@@ -82,28 +90,28 @@ class LineReport extends React.Component {
     render() {
 
         let data = dataStore.fetchData
+        // const barBaseline = {
+        //     label: optionStore.barPriority[0],
+        //     data:   data.filter((x) => (
+        //            (x.rt == this.label.rt) 
+        //         && (x.ht == this.label.ht) 
+        //         && (x.ct == this.label.ct)
+        //         && (x.herceptin == this.label.herceptin)
+        //     )),
+        //     color:'black'
+        // } 
         const chartData = this.makeBarData(data)
 
         return (
-            <div style={{height: '100%'}}>
+            <div style={{ position:'relative'}}>
                 <Paper className="Paper_container" style={{backgroundColor: '#fff', minHeight: '400px'}}>
-                    {<BarChartStack data={chartData} labels={['5', '10']}/>}
+                    {
+                        <BarChartStack 
+                            data={chartData}
+                            labels={['5', '10']}
+                        />
+                    }
                 </Paper>
-                <div style={{
-                    width: '100%',
-                    margin: '20px 0px',
-                    textAlign: 'center'
-                }}>
-                    <RaisedButton onClick={() => {
-                        dataStore.changeReportType('line')
-                    }}>
-                        <span style={{
-                            color: '#3c3c3c',
-                            fontSize: '18px',
-                            display: 'block'
-                        }}>折線圖</span>
-                    </RaisedButton>
-                </div>
             </div>
         );
     }

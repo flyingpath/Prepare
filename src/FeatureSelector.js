@@ -34,13 +34,8 @@ class FeatureSelector extends React.Component {
         const valueObj = dataStore.actionFeature
         const cancer = dataStore.cancer
 
-        const H1Title = styled.h1`
-            ${() => h1Title()}
-        `
-
         return (
             <div>
-                <H1Title>{`治療選項 (${cancer.label})`}</H1Title>
                 <Paper className="Paper_container" style={{backgroundColor: '#fff', padding:'8px 16px'}}>
                 <div style={{display:'flex', flexFlow:'row wrap'}}>
                 {
@@ -55,22 +50,17 @@ class FeatureSelector extends React.Component {
                                     onClick={this.setFeature(data.feature)}
                                     data = {data.option_cn}
                                     className='featureSelectorDiv'
-                                    // style={{borderBottom:'0px solid transparent'}}
                                 />
                             </div>
                         )
                     })
                 }
                 </div>
+                <div>
+                    * 此處的資料統計來源均做過手術治療
+                </div>
                 </Paper>
             </div>
-            // <Select
-            //     options={features}
-            //     placeholder="您對哪個變項感興趣？"
-            //     onChange={this.onChange.bind(this)}
-            //     value={dataStore.feature}
-            //     searchable={false}
-            // />
         );
     }
 }

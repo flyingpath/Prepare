@@ -6,6 +6,7 @@ import prepareTheme from './theme/prepare_theme'
 import {observer} from 'mobx-react'
 
 import Route from './Route'
+import TitleBar from './TitleBar'
 import dataStore from './store/data';
 import optionStore from './store/option'
 import styled from 'styled-components';
@@ -49,17 +50,7 @@ class App extends Component {
                         display: 'flex',
                         flexDirection: 'column',
                     }}>
-                        <AppBar
-                            title="PREPARE"
-                            onLeftIconButtonTouchTap={() => {
-                            }}
-                            style={{
-                                height: '60px',
-                                flexShrink:'0'
-                            }}
-                        >
-                            <MaterialAvatarWithStyled/>
-                        </AppBar>
+                        <TitleBar />    
                         {<Route page={page} />}
                     </div>
                 </MuiThemeProvider>
