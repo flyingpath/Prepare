@@ -70,7 +70,7 @@ class LineChart extends React.Component {
                                 },
                                 ticks: {
                                     fontSize: 14,
-                                    min: minData>0.5?(Math.round(minData*100)/100).toFixed(2)-0.01:0,
+                                    min: minData>0.5?(Math.round(minData*100)/100).toFixed(2)-0.05:0,
                                     max: 1
                                 }
                             }
