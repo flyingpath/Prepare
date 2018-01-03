@@ -30,8 +30,7 @@ class OptionData {
     grade = [
         { label: 'G1', value: 1 },
         { label: 'G2', value: 2 },
-        { label: 'G3', value: 3 },
-        { label: 'G4', value: 4 }
+        { label: 'G3', value: 3 }
     ]
 
     gene = [
