@@ -112,7 +112,7 @@ class DataStore {
         const er = infoData.er
         const her2 = infoData.her2
 
-        const uri = `https://prepare.kfsyscc.org/api/python/prepare-main/${age},${grade},${Tstage},${Nstage},${pr},${er},${her2}`
+        const uri = `https://prepare.kfsyscc.org/api/python/prepare-breast_model4/${age},${grade},${Tstage},${Nstage},${pr},${er},${her2}`
         fetch(uri, {
             credentials: 'include'
         })
