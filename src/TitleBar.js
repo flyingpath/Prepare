@@ -44,7 +44,7 @@ class TitleBar extends React.Component {
             //width: 100px;love
             //padding: 5px;
             //margin-left: 10px;
-            margin: 10px 0px 0px 20px;
+            margin: 10px 0px 0px 12px;
             height: 44px;
             width: 84px;
         `
