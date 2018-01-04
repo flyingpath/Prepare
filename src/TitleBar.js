@@ -1,7 +1,7 @@
-import React from 'react' 
-import {observer} from 'mobx-react' 
+import React from 'react'
+import {observer} from 'mobx-react'
 
-import _ from 'lodash' 
+import _ from 'lodash'
 import styled from 'styled-components'
 
 import logo from './pics/prepare_white.png'
@@ -9,9 +9,7 @@ import logo from './pics/prepare_white.png'
 class TitleBar extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            
-        }
+        this.state = {}
         this.handleClick = this.handleClick.bind(this)
     }
 
@@ -25,26 +23,30 @@ class TitleBar extends React.Component {
 
         return (
             <Body>
-                <Img src={logo} />
+            <Img src={logo}/>
             </Body>
         )
     }
 
-    styles={
-        body:styled.div`
+    styles = {
+        body: styled.div`
             position: absolute;
-            display:flex; flex-flow:row;
-            background:#4ee4c3;
+            display: flex;
+            flex-flow: row;
+            background: #4ee4c3;
             height: 60px;
             width: 100%;
-            flex-shrink:0;
+            flex-shrink: 0;
             box-shadow: 0px -1px 7px 0px;
             z-index: 101;
         `,
-        img:styled.img`
-            width: 100px;
-            padding: 5px;
-            margin-left: 10px;
+        img: styled.img`
+            //width: 100px;love
+            //padding: 5px;
+            //margin-left: 10px;
+            margin: 10px 0px 0px 20px;
+            height: 44px;
+            width: 84px;
         `
     }
 }
