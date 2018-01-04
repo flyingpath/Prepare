@@ -6,7 +6,7 @@
     "start_url": ".",
     "icons": [
         {
-            "src": "learn-icon.png",
+            "src": "manifest-prepare-logo.png",
             "sizes": "48x48",
             "type": "image/png"
         }
