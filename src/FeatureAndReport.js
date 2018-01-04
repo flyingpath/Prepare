@@ -29,20 +29,23 @@ class FeatureAndReport extends React.Component {
     componentWillMount() {
         dataStore.fetchSurvival()
     }
+
     closeDialog() {
         this.setState({
             dialogOpen: false
         })
     }
-    infoClick(){
+
+    infoClick() {
         this.info = optionData.choiceSuggestion
         this.setState({
             dialogOpen: true
-        })     
+        })
     }
+
     render() {
         let constent
-        
+
         const cancer = dataStore.cancer
         const message = this.info
 
@@ -51,7 +54,7 @@ class FeatureAndReport extends React.Component {
             fontSize: '18px',
             display: 'block'
         }
-        const H1Title=styled.h1`
+        const H1Title = styled.h1`
             display: flex; flex-direction: row; align-items: center;
             ${h1Title()}
         `
@@ -64,24 +67,24 @@ class FeatureAndReport extends React.Component {
         } else if (dataStore.reportType === 'line') {
             constent = (
                 <div style={{height: '100%'}}>
-                    <FeatureSelector key='featureSelect' />
+                    <FeatureSelector key='featureSelect'/>
                     <LineReport/>
-                    <TypeButton type='bar' label='柱狀圖' />
+                    <TypeButton type='bar' label='柱狀圖'/>
                 </div>
             )
         } else if (dataStore.reportType === 'bar') {
             constent = (
                 <div>
                     <BarReport/>
-                    <TypeButton type='line' label='折線圖' />
+                    <TypeButton type='line' label='折線圖'/>
                 </div>
             )
         } else {
             constent = (
                 <div>
-                    <FeatureSelector key='featureSelect' />
+                    <FeatureSelector key='featureSelect'/>
                     <LineReport/>
-                    <TypeButton type='bar' label='柱狀圖' />
+                    <TypeButton type='bar' label='柱狀圖'/>
                 </div>
             )
         }
@@ -107,9 +110,9 @@ class FeatureAndReport extends React.Component {
     }
 }
 
-const TypeButton=(props)=>{
-    return(
-        <RaisedButton 
+const TypeButton = (props) => {
+    return (
+        <RaisedButton
             style={{
                 position: 'absolute',
                 top: '72px',
@@ -117,7 +120,7 @@ const TypeButton=(props)=>{
             }}
             onClick={() => {
                 dataStore.changeReportType(props.type)
-        }}>
+            }}>
             <span style={{
                 color: '#3c3c3c',
                 fontSize: '18px',
@@ -128,23 +131,24 @@ const TypeButton=(props)=>{
 }
 
 const InfoButton=(props)=>{
-    const color = props.color || '#4ee4c3'
     const width = props.width || '15px'
     const onClick = props.onClick || function(){}
 
-    const Button=styled.div`
+    const Button = styled.div`
+        background-color: #47c7ab;
         display:flex; flex-flow:row; align-items: center; justify-content: center;
-        color: ${color};
+        color: #ffffff;
         width: ${width};
         height: ${width};
-        border: 4px solid ${color}; border-radius: ${width};
+        border: 4px solid #47c7ab; border-radius: ${width};
         padding: 4px; margin: 5px;
         cursor: pointer;
         user-select: none;
         font-weight: bold;
         &:active{
-            background: ${color};
-            color: white;
+            background: transparent;
+            color: #47c7ab;
+            border: 4px solid #47c7ab; border-radius: ${width};
         }
     `
     return <Button onClick={onClick}>?</Button>

@@ -79,6 +79,10 @@ class LineReport extends React.Component {
                 borderColor: 'rgba(255, 255, 255,1)',
             },
             {
+                backgroundColor: '#E9AC69',
+                borderColor: '#E9AC69',
+            },
+            {
                 backgroundColor: 'rgb(233, 124, 31)',
                 borderColor: 'rgb(233, 124, 31)',
             }
