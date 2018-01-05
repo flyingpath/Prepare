@@ -30,7 +30,7 @@ class KeyInfo extends React.Component {
     }
 
     componentDidMount() {
-            dataStore.setRouteDirection('no')
+        dataStore.setRouteDirection('no')
     }
 
     closeDialog() {
@@ -58,6 +58,7 @@ class KeyInfo extends React.Component {
     setNStage(value) {
         infoData.setNStage(value)
     }
+
     setTStage(value) {
         infoData.setTStage(value)
     }
@@ -136,7 +137,7 @@ class KeyInfo extends React.Component {
                         <BinaryCheckbox value={infoData.gender == 'male' ? 0 : 1} onClick={this.setGender}
                                         data={['男', '女']}/>
                     </div>
-                    <div className="Keyinfo_position" style={{marginTop:'10px'}} >
+                    <div className="Keyinfo_position" style={{marginTop: '10px'}}>
                         <span style={fontColor}>年齡</span>
                         <SelectFieldScroll value={parseInt(age)} onChange={this.setAge}
                                            data={
@@ -148,11 +149,11 @@ class KeyInfo extends React.Component {
                     </div>
                     <div className="Keyinfo_position">
                         <span style={fontColor}>T 分期 (腫瘤侵犯深度)</span>
-                        <SquareSelect 
+                        <SquareSelect
                             defaultOption={Tstage}
-                            options={TstageList} 
+                            options={TstageList}
                             onClick={this.setTStage}
-                            groupStyle={{margin:'2px 0px'}}
+                            groupStyle={{margin: '2px 0px'}}
                             uniOptionStyle={{
                                 margin: '10px 10px 10px 0px',
                                 width: '50px',
@@ -162,11 +163,11 @@ class KeyInfo extends React.Component {
                     </div>
                     <div className="Keyinfo_position">
                         <span style={fontColor}>N 分期 (局部淋巴轉移程度)</span>
-                        <SquareSelect 
+                        <SquareSelect
                             defaultOption={Nstage}
-                            options={NstageList} 
+                            options={NstageList}
                             onClick={this.setNStage}
-                            groupStyle={{margin:'2px 0px'}}
+                            groupStyle={{margin: '2px 0px'}}
                             uniOptionStyle={{
                                 margin: '10px 10px 10px 0px',
                                 width: '50px',
@@ -176,11 +177,11 @@ class KeyInfo extends React.Component {
                     </div>
                     <div className="Keyinfo_position">
                         <span style={fontColor}>Grade (腫瘤細胞分化程度)</span>
-                        <SquareSelect 
+                        <SquareSelect
                             defaultOption={grade}
-                            options={gradeList} 
+                            options={gradeList}
                             onClick={this.setGrade}
-                            groupStyle={{margin:'2px 0px'}}
+                            groupStyle={{margin: '2px 0px'}}
                             uniOptionStyle={{
                                 margin: '10px 10px 10px 0px',
                                 width: '50px',
@@ -192,9 +193,9 @@ class KeyInfo extends React.Component {
                         <span style={fontColor}>PR (黃體激素受體)</span>
                         <BinaryCheckbox
                             value={infoData.pr}
-                            onClick={this.setPR} 
+                            onClick={this.setPR}
                             data={[
-                                optionStore.gene[0].label, 
+                                optionStore.gene[0].label,
                                 optionStore.gene[1].label
                             ]}/>
                     </div>
@@ -202,9 +203,9 @@ class KeyInfo extends React.Component {
                         <span style={fontColor}>ER (動情激素受體)</span>
                         <BinaryCheckbox
                             value={infoData.er}
-                            onClick={this.setER} 
+                            onClick={this.setER}
                             data={[
-                                optionStore.gene[0].label, 
+                                optionStore.gene[0].label,
                                 optionStore.gene[1].label
                             ]}/>
                     </div>
@@ -212,9 +213,9 @@ class KeyInfo extends React.Component {
                         <span style={fontColor}>HER2 (人類表皮生長因子受體-2)</span>
                         <BinaryCheckbox
                             value={infoData.her2}
-                            onClick={this.setHER2} 
+                            onClick={this.setHER2}
                             data={[
-                                optionStore.gene[0].label, 
+                                optionStore.gene[0].label,
                                 optionStore.gene[1].label
                             ]}/>
                     </div>

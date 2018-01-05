@@ -50,13 +50,15 @@ class Route extends React.Component {
 
 
     }
-    componentWillUpdate(){
+
+    componentWillUpdate() {
         this.ableBack = false
         _.delay(
-            ()=>this.ableBack = true,
+            () => this.ableBack = true,
             1000
         )
     }
+
     handleClick() {
         console.log(this); // React Component instance
     }
@@ -80,7 +82,7 @@ class Route extends React.Component {
             )
         } else if (page === 'featureAndReport') {
             this.content = (
-                <FeatureAndReport 
+                <FeatureAndReport
                     key='featureAndReport'
                 />
             )

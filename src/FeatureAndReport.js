@@ -130,9 +130,10 @@ const TypeButton = (props) => {
     )
 }
 
-const InfoButton=(props)=>{
+const InfoButton = (props) => {
     const width = props.width || '15px'
-    const onClick = props.onClick || function(){}
+    const onClick = props.onClick || function () {
+    }
 
     const Button = styled.div`
         background-color: #47c7ab;

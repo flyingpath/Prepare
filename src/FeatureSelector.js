@@ -17,14 +17,16 @@ class FeatureSelector extends React.Component {
     constructor(props) {
         super(props)
     }
-    componentWillMount(){
-         //--- 權宜之計 記得改回
+
+    componentWillMount() {
+        //--- 權宜之計 記得改回
         //
         // features = _.filter(features, (f)=>f.isAnalysis)
         // console.log(features);    
     }
+
     setFeature(feature) {
-        return ( bool )=>{
+        return (bool) => {
             dataStore.setActionFeature(feature, bool)
         }
     }
@@ -36,29 +38,29 @@ class FeatureSelector extends React.Component {
 
         return (
             <div>
-                <Paper className="Paper_container" style={{backgroundColor: '#fff', padding:'8px 16px'}}>
-                <div style={{display:'flex', flexFlow:'row wrap'}}>
-                {
-                    _.map(features, (data, idx)=>{
-                        return(
-                            <div key={idx} style={{width: '50%'}}>
-                                <div>
-                                    {data.name_cn}
-                                </div>
-                                <BinaryCheckbox 
-                                    value={valueObj[data.feature]}
-                                    onClick={this.setFeature(data.feature)}
-                                    data = {data.option_cn}
-                                    className='featureSelectorDiv'
-                                />
-                            </div>
-                        )
-                    })
-                }
-                </div>
-                <div>
-                    * 此處的資料統計來源均做過手術治療
-                </div>
+                <Paper className="Paper_container" style={{backgroundColor: '#fff', padding: '8px 16px'}}>
+                    <div style={{display: 'flex', flexFlow: 'row wrap'}}>
+                        {
+                            _.map(features, (data, idx) => {
+                                return (
+                                    <div key={idx} style={{width: '50%'}}>
+                                        <div>
+                                            {data.name_cn}
+                                        </div>
+                                        <BinaryCheckbox
+                                            value={valueObj[data.feature]}
+                                            onClick={this.setFeature(data.feature)}
+                                            data={data.option_cn}
+                                            className='featureSelectorDiv'
+                                        />
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                    <div>
+                        * 此處的資料統計來源均做過手術治療
+                    </div>
                 </Paper>
             </div>
         );

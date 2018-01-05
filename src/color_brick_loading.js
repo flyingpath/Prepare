@@ -20,7 +20,7 @@ class ColorBrickLoading extends React.Component {
 
         const Loader = styled.div.attrs({
             className: 'loader',
-            height:'100%'
+            height: '100%'
         })``;
         const Logo = styled.div.attrs({
             className: 'logo',
@@ -35,8 +35,8 @@ class ColorBrickLoading extends React.Component {
             className: 'red',
         })``;
         const CustomP = styled.p`
-              font-weight:600;
-              font-size:26px;
+            font-weight: 600;
+            font-size: 26px;
         `
 
 
