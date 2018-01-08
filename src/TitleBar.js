@@ -5,6 +5,7 @@ import _ from 'lodash'
 import styled from 'styled-components'
 
 import logo from './pics/prepare_white.png'
+import grandma from './pics/uxceomom-128.jpg'
 
 class TitleBar extends React.Component {
     constructor(props) {
@@ -20,10 +21,15 @@ class TitleBar extends React.Component {
     render() {
         const Body = this.styles.body
         const Img = this.styles.img
+        const ImgGrandma =  this.styles.imgGrandma
 
         return (
             <Body>
-            <Img src={logo}/>
+                <Img src={logo}/>
+                <div style={{width:'100%'}} />
+                <div style={{display:'flex', alignItems: 'center',padding:'0px 20px'}}>
+                    <ImgGrandma src={grandma}/>
+                </div>
             </Body>
         )
     }
@@ -47,6 +53,12 @@ class TitleBar extends React.Component {
             margin: 10px 0px 0px 12px;
             height: 44px;
             width: 84px;
+        `,
+        imgGrandma: styled.img`
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            box-shadow: 1px 2px 2px -1px;
         `
     }
 }
