@@ -61,7 +61,7 @@ class TitleBar extends React.Component {
             height: 40px;
             border-radius: 50%;
             box-shadow: 2px 3px 8px 1px;
-            color: #ffffff;
+            color: #b5b5b5;
         `
     }
 }
