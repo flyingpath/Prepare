@@ -27,7 +27,7 @@ class TitleBar extends React.Component {
             <Body>
             <Img src={logo}/>
             <div style={{width: '100%'}}/>
-            <div style={{display: 'flex', alignItems: 'center', padding: '0px 13px 0px 0px'}}>
+            <div style={{display: 'flex', alignItems: 'center', padding: '0px 20px 0px 0px'}}>
                 <ImgGrandma src={grandma}/>
             </div>
             </Body>
@@ -50,7 +50,7 @@ class TitleBar extends React.Component {
             //width: 100px;love
             //padding: 5px;
             //margin-left: 10px;
-            margin: 10px 0px 0px 12px;
+            margin: 10px 0px 0px 22px;
             height: 44px;
             width: 84px;
         `,
@@ -60,8 +60,9 @@ class TitleBar extends React.Component {
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            box-shadow: 2px 3px 8px 1px;
-            color: #b5b5b5;
+            //box-shadow: 2px 3px 8px 1px;
+            //color: #b5b5b5;
+            border:3px #e8e8e8 solid;
         `
     }
 }
