@@ -21,15 +21,15 @@ class TitleBar extends React.Component {
     render() {
         const Body = this.styles.body
         const Img = this.styles.img
-        const ImgGrandma =  this.styles.imgGrandma
+        const ImgGrandma = this.styles.imgGrandma
 
         return (
             <Body>
-                <Img src={logo}/>
-                <div style={{width:'100%'}} />
-                <div style={{display:'flex', alignItems: 'center',padding:'0px 20px'}}>
-                    <ImgGrandma src={grandma}/>
-                </div>
+            <Img src={logo}/>
+            <div style={{width: '100%'}}/>
+            <div style={{display: 'flex', alignItems: 'center', padding: '0px 13px 0px 0px'}}>
+                <ImgGrandma src={grandma}/>
+            </div>
             </Body>
         )
     }
@@ -55,10 +55,13 @@ class TitleBar extends React.Component {
             width: 84px;
         `,
         imgGrandma: styled.img`
+            position: relative;
+            top: 2px;
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            box-shadow: 1px 2px 2px -1px;
+            box-shadow: 2px 3px 8px 1px;
+            color: #ffffff;
         `
     }
 }
