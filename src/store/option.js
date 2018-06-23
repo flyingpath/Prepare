@@ -1,6 +1,6 @@
 import {observable, action, computed} from 'mobx'
 import dataStore from './data'
-import _ from 'lodash'
+import { data1 } from './fakeData'
 
 class OptionData {
     @observable
@@ -81,11 +81,13 @@ class OptionData {
             }
         }`
         const variables = {}
-        this.fetch({query: queryString, variables: variables})
-            .then((res) => res.json())
-            .then((backdata) => {
-                this.cancerList = backdata.data.viewer.cancers
-            })
+        this.cancerList = data1.viewer.cancers
+        // this.fetch({query: queryString, variables: variables})
+        //     .then((res) => res.json())
+        //     .then((backdata) => {
+        //         console.log('setCancerList', backdata)
+        //         this.cancerList = backdata.data.viewer.cancers
+        //     })
     }
 
     @action
@@ -102,34 +104,34 @@ class OptionData {
             }
         }`
         const variables = {cancer: dataStore.cancer.value}
-        this.fetch({query: queryString, variables: variables})
-            .then((res) => res.json())
-            .then((backdata) => {
-                // this.featureList = backdata.data.viewer.features
-                // let obj = {}
-                // _.forEach(backdata, (data)=>obj[data.feature]=0)
-                // dataStore.initActionFeature(obj)
-            })
+        // this.fetch({query: queryString, variables: variables})
+        //     .then((res) => res.json())
+        //     .then((backdata) => {
+        //         // this.featureList = backdata.data.viewer.features
+        //         // let obj = {}
+        //         // _.forEach(backdata, (data)=>obj[data.feature]=0)
+        //         // dataStore.initActionFeature(obj)
+        //     })
     }
 
-    fetch(data) {
-        let url = 'https://prepare.kfsyscc.org/prepare-api'
-        let headers = new Headers()
-        headers.append("Content-Type", "application/json")
-        headers.append("Accept", "application/json")
-        return (
-            fetch(
-                url,
-                {
-                    method: 'POST',
-                    headers: headers,
-                    credentials: 'include',
-                    body: JSON.stringify(data),
-                    mode: 'cors'
-                }
-            )
-        )
-    }
+    // fetch(data) {
+    //     let url = 'https://prepare.kfsyscc.org/prepare-api'
+    //     let headers = new Headers()
+    //     headers.append("Content-Type", "application/json")
+    //     headers.append("Accept", "application/json")
+    //     return (
+    //         fetch(
+    //             url,
+    //             {
+    //                 method: 'POST',
+    //                 headers: headers,
+    //                 credentials: 'include',
+    //                 body: JSON.stringify(data),
+    //                 mode: 'cors'
+    //             }
+    //         )
+    //     )
+    // }
 }
 
 var optionData = new OptionData()

@@ -3,6 +3,8 @@ import _ from 'lodash'
 
 import infoData from './infoData'
 
+import { data2 } from './fakeData'
+
 class DataStore {
 
     @observable
@@ -112,16 +114,21 @@ class DataStore {
         const er = infoData.er
         const her2 = infoData.her2
 
-        const uri = `https://prepare.kfsyscc.org/api/python/prepare-breast_model4/${age},${grade},${Tstage},${Nstage},${pr},${er},${her2}`
-        fetch(uri, {
-            credentials: 'include'
-        })
-            .then(res => res.json())
-            .then(backdata => {
-                this.fetchData = backdata
-                this.setSurvivalData()
-                this.load = false
-            })
+        this.fetchData = data2
+        this.setSurvivalData()
+        this.load = false
+
+        // const uri = `https://prepare.kfsyscc.org/api/python/prepare-breast_model4/${age},${grade},${Tstage},${Nstage},${pr},${er},${her2}`
+        // fetch(uri, {
+        //     credentials: 'include'
+        // })
+        //     .then(res => res.json())
+        //     .then(backdata => {
+        //         console.log('fetchSurvival', backdata)
+        //         this.fetchData = backdata
+        //         this.setSurvivalData()
+        //         this.load = false
+        //     })
     }
 
     @action
