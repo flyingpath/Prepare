@@ -38,7 +38,7 @@ class FeatureSelector extends React.Component {
 
         return (
             <div>
-                <Paper className="Paper_container" style={{backgroundColor: '#fff', padding: '8px 16px'}}>
+                <Paper className="Paper_container" style={{backgroundColor: '#fff', padding: '8px 16px', textAlign:'left'}}>
                     <div style={{display: 'flex', flexFlow: 'row wrap'}}>
                         {
                             _.map(features, (data, idx) => {

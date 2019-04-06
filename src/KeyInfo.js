@@ -83,6 +83,12 @@ class KeyInfo extends React.Component {
         infoData.setLymphNode(e.target.value)
     }
 
+    goPrePage () {
+        dataStore.setRouteDirection('backward')
+        dataStore.goToPrePage()
+        dataStore.setRouteDirection('forward')
+    }
+
     confirm() {
         //--- 檢查性別與年齡是否有填 ----//
         //------ 年齡須為正整數 -------//
@@ -220,6 +226,11 @@ class KeyInfo extends React.Component {
                             ]}/>
                     </div>
                     <div style={{padding: '7% 0 1% 0', marginBottom: '20px'}}>
+                        <span style={{marginRight:'15px'}} >
+                            <RaisedButton onClick={this.goPrePage}>
+                                <span style={fontColor}>上一步</span>
+                            </RaisedButton>
+                        </span>
                         <RaisedButton onClick={this.confirm}>
                             <span style={fontColor}>開始分析</span>
                         </RaisedButton>

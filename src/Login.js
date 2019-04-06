@@ -3,7 +3,7 @@ import _ from 'lodash'
 import queryString from 'query-string'
 import Rx from 'rxjs'
 import LoginPic from "./pics/prepare_light_stable__.png"
-import './css/login.css'
+import './css/login.scss'
 import $ from 'jquery'
 
 import dataStore from './store/data'

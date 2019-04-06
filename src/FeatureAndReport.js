@@ -43,6 +43,11 @@ class FeatureAndReport extends React.Component {
         })
     }
 
+    goPrePage () {
+        dataStore.setRouteDirection('backward')
+        dataStore.goToPrePage()
+        dataStore.setRouteDirection('forward')
+    }
     render() {
         let constent
 
@@ -66,17 +71,31 @@ class FeatureAndReport extends React.Component {
             )
         } else if (dataStore.reportType === 'line') {
             constent = (
-                <div style={{height: '100%'}}>
+                <div style={{height: '100%', textAlign: 'center'}}>
                     <FeatureSelector key='featureSelect'/>
                     <LineReport/>
                     <TypeButton type='bar' label='柱狀圖'/>
+                    <RaisedButton onClick={this.goPrePage}>
+                        <span style={{
+                            color: '#3c3c3c',
+                            fontSize: '18px',
+                            display: 'block'
+                        }}>上一步</span>
+                    </RaisedButton>
                 </div>
             )
         } else if (dataStore.reportType === 'bar') {
             constent = (
-                <div>
+                <div style={{ textAlign: 'center'}}>
                     <BarReport/>
                     <TypeButton type='line' label='折線圖'/>
+                    <RaisedButton onClick={this.goPrePage}>
+                        <span style={{
+                            color: '#3c3c3c',
+                            fontSize: '18px',
+                            display: 'block'
+                        }}>上一步</span>
+                    </RaisedButton>
                 </div>
             )
         } else {
