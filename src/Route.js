@@ -7,6 +7,8 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import CancerSelector from './CancerSelector';
 import KeyInfo from './KeyInfo'
 import FeatureAndReport from './FeatureAndReport'
+import Login from './Login'
+
 
 import dataStore from './store/data'
 
@@ -67,8 +69,9 @@ class Route extends React.Component {
         let transitionClass = dataStore.routePageClass
 
         const page = this.props.page
-
-        if (page === 'cancer') {
+        if ( page === 'homepage' ){
+            this.content = <Login />
+        } else if (page === 'cancer') {
             this.content = (
                 <CancerSelector
                     key='CancerSelector'

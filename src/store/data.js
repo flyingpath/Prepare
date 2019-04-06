@@ -1,4 +1,4 @@
-import {observable, action, computed, toJS} from 'mobx'
+import { observable, action } from 'mobx'
 import _ from 'lodash'
 
 import infoData from './infoData'
@@ -7,8 +7,8 @@ import { data2 } from './fakeData'
 
 class DataStore {
 
+    // cancer = { value: 'breast', label: '乳癌' }
     @observable
-        // cancer = { value: 'breast', label: '乳癌' }
     cancer = {value: 'breast', label: '乳癌'}
 
     @observable
@@ -29,9 +29,11 @@ class DataStore {
 
 
     @observable
-    page = 'cancer' // -- cancer, info, featureAndReport
+    page = 'homepage' // -- homepage, cancer, info, featureAndReport
+
     @observable
     routePageClass = "prepare_route_page_forward"
+    
     @observable
     confirmButton = false
 
@@ -47,6 +49,7 @@ class DataStore {
 
     @action
     changePageTo(page) {
+        console.log('1')
         this.page = page
     }
 
@@ -88,6 +91,7 @@ class DataStore {
     goToPrePage() {
         const nowPage = this.page
         const pageList = [
+            'homepage',
             'cancer',
             'info',
             'featureAndReport'
