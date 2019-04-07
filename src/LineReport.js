@@ -105,7 +105,10 @@ class LineReport extends React.Component {
 
         return (
             <div>
-                <Paper className="Paper_container" style={{backgroundColor: '#fff'}}>
+                <Paper 
+                    className="Paper_container" 
+                    style = {{ backgroundColor: '#fff', minHeight: '400px', maxWidth:'450px', margin: 'auto auto 20px auto'}} 
+                >
                     {<LineChart data={chartData} labels={_.range(11)}/>}
                 </Paper>
             </div>

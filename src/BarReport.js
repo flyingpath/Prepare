@@ -108,7 +108,10 @@ class LineReport extends React.Component {
 
         return (
             <div style={{ position:'relative'}}>
-                <Paper className="Paper_container" style={{backgroundColor: '#fff', minHeight: '400px'}}>
+                <Paper 
+                    className = "Paper_container" 
+                    style = {{ backgroundColor: '#fff', maxWidth:'450px', margin: 'auto auto 20px auto'}} 
+                >
                     {
                         <BarChartStack 
                             data={chartData}
