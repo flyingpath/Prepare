@@ -1,0 +1,14 @@
+{
+    "name": "Prepare",
+    "theme_color": "#7360f9",
+    "background_color": "rgba(33,150,243,0)",
+    "display": "fullscreen",
+    "start_url": ".",
+    "icons": [
+        {
+            "src": "manifest-prepare-logo.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        }
+    ]
+}
