@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import _ from 'lodash'
-import queryString from 'query-string'
+// import queryString from 'query-string'
 import Rx from 'rxjs'
 import LoginPic from "./pics/prepare_light_stable__.png"
 import './css/login.scss'
@@ -16,15 +16,15 @@ class Login extends Component {
         this.state = {
             resultText: ''
         }
-        const parsed = queryString.parse(window.location.search)
-        this.next = parsed.next
+        // const parsed = queryString.parse(window.location.search)
+        // this.next = parsed.next
 
-        if (_.isEmpty(this.next)) {
-            this.next = '/'
-        }
-        if (this.next == '/logout') {
-            this.next = '/'
-        }
+        // if (_.isEmpty(this.next)) {
+        //     this.next = '/'
+        // }
+        // if (this.next == '/logout') {
+        //     this.next = '/'
+        // }
 
         this.username = ''
         this.password = ''
